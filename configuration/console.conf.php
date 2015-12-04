@@ -18,14 +18,11 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
  * File containing the base class for all curl XML output
 */
 class console_conf extends fs_configuration {
-    function console_conf() {
-        $this -> fs_configuration();
-    }
 
     /**
      * Currently this method does pretty much everything
      */
-    function main() {
+    public function main() {
         $this -> xmlw -> startElement('configuration');
         $this -> xmlw -> writeAttribute('name', basename(__FILE__, '.php'));
         $this -> xmlw -> writeAttribute('description', 'Console configuration');
@@ -62,4 +59,3 @@ class console_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-?>

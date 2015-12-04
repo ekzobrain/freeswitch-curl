@@ -13,9 +13,6 @@
  * Write XML for ivr.conf
 */
 class ivr_conf extends fs_configuration {
-    public function ivr_conf() {
-        $this -> fs_configuration();
-    }
 
     /**
      * This method will run all of the methods necessary to return
@@ -114,4 +111,3 @@ class ivr_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-?>

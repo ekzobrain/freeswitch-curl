@@ -16,13 +16,10 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
  * @return object
 */
 class fs_configuration extends fs_curl {
-    /**
-     * Class Instantiation
-     * This method will instantiate all other objects upon which it relies.
-     * @return void
-    */
-    function fs_configuration() {
-        $this -> fs_curl();
+
+    public function __construct() {
+        parent::__construct();
+
         $conf_file = $this->request['key_value'];
         $this->debug("RECEIVED REQUEST FOR $conf_file");
         $mod_name = sprintf('mod_%s', str_replace('.conf', '', $conf_file));
@@ -47,7 +44,7 @@ class fs_configuration extends fs_curl {
      * @param string $mod_name name of module to check
      * @return bool
     */
-    function is_mod_enabled($mod_name) {
+    public function is_mod_enabled($mod_name) {
         $query = sprintf('%s %s'
         , "SELECT * FROM post_load_modules_conf"
         , "WHERE module_name='$mod_name' AND load_module=1"
@@ -57,7 +54,7 @@ class fs_configuration extends fs_curl {
             $this -> comment($query);
             $this -> comment($this->db->errorCode());
             return true; //default allow policy
-            return false; //comment previous line to default deny
+            //return false; //comment previous line to default deny
         } elseif ($res -> rowCount() == 1) {
             return true;
         } else {
@@ -79,13 +76,12 @@ class fs_configuration extends fs_curl {
         $res = $this -> db -> query($query);
         if (FS_PDO::isError($res)) {
             $this -> comment($query);
-            $this -> comment($res -> getMessage());
+            $this -> comment($this->db->getMessage());
             return true; //default allow policy
-            return false; //comment previous line to default deny
+            //return false; //comment previous line to default deny
         }
         $row = $res -> fetchRow();
         //$this -> comment($row['cnt']);
         return $row['cnt'];
     }
 }
-

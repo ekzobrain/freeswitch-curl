@@ -15,10 +15,6 @@
  */
 class local_stream_conf extends fs_configuration {
 
-    public function local_stream_conf() {
-        $this -> fs_configuration();
-    }
-
     public function main() {
         $directories = $this -> get_directories();
         $this -> write_directories($directories);
@@ -70,4 +66,3 @@ class local_stream_conf extends fs_configuration {
         }
     }
 }
-?>

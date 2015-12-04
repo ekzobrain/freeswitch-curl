@@ -16,14 +16,14 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
  * @return object
  */
 class fs_cdr extends fs_curl {
-/**
- * This variable will hold the XML CDR string
- * @var string
- */
+    /**
+     * This variable will hold the XML CDR string
+     * @var string
+     */
     public $cdr;
     /**
      * This object is the objectified representation of the XML CDR
-     * @var XMLSimple Object
+     * @var SimpleXMLElement Object
      */
     public $xml_cdr;
 
@@ -58,8 +58,8 @@ class fs_cdr extends fs_curl {
     /**
      * This is where we instantiate our parent and set up our CDR object
      */
-    public function fs_cdr() {
-        $this->fs_curl();
+    public function __construct() {
+        parent::__construct();
         $this->cdr = stripslashes($this->request['cdr']);
         $this->xml_cdr = new SimpleXMLElement($this->cdr);
     }
@@ -97,7 +97,4 @@ class fs_cdr extends fs_curl {
         $this->debug($query);
         $this->db->exec($query);
     }
-
 }
-
-

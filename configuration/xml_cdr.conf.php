@@ -13,23 +13,20 @@
  * Class for writing xml_cdr.conf XML
 */
 class xml_cdr_conf extends fs_configuration {
-	function xml_cdr_conf() {
-		$this->fs_configuration();
-	}
 
-	function main() {
+	public function main() {
 		$params = $this->get_settings();
 		$this->write_settings($params);
 	}
 
-	function get_settings() {
+	public function get_settings() {
 		return array(
 		'url'=>'http://' . $_SERVER['HTTP_HOST'] . '/' . $_SERVER['PHP_SELF']
 		, 'encode'=>'true'
 		);
 	}
 
-	function write_settings($params) {
+	public function write_settings($params) {
 		$this->xmlw->startElement('configuration');
 		$this->xmlw->writeAttribute('name', basename(__FILE__, '.php'));
 		$this->xmlw->writeAttribute('description', 'CDRs via XML Post');
@@ -44,5 +41,3 @@ class xml_cdr_conf extends fs_configuration {
 		$this->xmlw->endElement();
 	}
 }
-
-?>

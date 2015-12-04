@@ -14,15 +14,10 @@
 */
 class limit_conf extends fs_configuration {
 
-    public function limit_conf() {
-        $this -> fs_configuration();
-    }
-
     public function main() {
-        $params = $this -> get_params_array($this -> db);
+        $params = $this -> get_params_array();
         $this -> write_params_array($params);
         $this -> output_xml();
-
     }
 
     /**
@@ -41,7 +36,8 @@ class limit_conf extends fs_configuration {
         if ($res -> numRows() == 0) {
             return array();
         }
-        while ($row = $res -> fetchRow(MDB2_FETCHMODE_ASSOC)) {
+        $feeds_array = [];
+        while ($row = $res -> fetchRow()) {
             $feeds_array[] = $row;
         }
         return $feeds_array;
@@ -50,7 +46,7 @@ class limit_conf extends fs_configuration {
     /**
      * Write out the XML of params retreived from get_params_array
      * @see get_params_array
-     * @param unknown_type $params
+     * @param array $params
      */
     private function write_params_array($params) {
         $this -> xmlw -> startElement('configuration');
@@ -69,6 +65,4 @@ class limit_conf extends fs_configuration {
         $this -> xmlw -> endElement();
         $this -> xmlw -> endElement();
     }
-
 }
-?>

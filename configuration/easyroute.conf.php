@@ -14,9 +14,6 @@
  * @see fs_configuration
  */
 class easyroute_conf extends fs_configuration {
-    public function easyroute_conf() {
-        $this->fs_configuration();
-    }
 
     public function main() {
         $config = $this->get_config();
@@ -54,7 +51,3 @@ class easyroute_conf extends fs_configuration {
         $this->xmlw->endElement();
     }
 }
-
-
-
-?>

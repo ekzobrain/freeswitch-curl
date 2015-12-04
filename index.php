@@ -10,7 +10,7 @@
 /**
  * define for the time that execution of the script started
  */
-define('START_TIME', ereg_replace('^0\.([0-9]+) ([0-9]+)$', '\2.\1', microtime()));
+define('START_TIME', preg_replace('/^0\.([0-9]+) ([0-9]+)$/', '\2.\1', microtime()));
 
 /**
  * Pre-Class initialization die function
@@ -78,6 +78,7 @@ switch ($section) {
         if (!(@include_once($processor))) {
             trigger_error("unable to include $processor");
         }
+
         $conf = new $class;
         $conf -> comment("class name is $class");
         break;
@@ -103,5 +104,3 @@ $conf -> debug($_REQUEST);
 $conf -> debug('---- End _REQUEST ----');
 $conf -> main();
 $conf -> output_xml();
-
-?>

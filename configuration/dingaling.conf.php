@@ -17,15 +17,6 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
  * Write XML for dingaling.conf
 */
 class dingaling_conf extends fs_configuration {
-    /**
-     * Initializer method
-     * This method calls fs_configuration to initialize all of the
-     * objects and variables that we want to inherit
-     * @return void
-    */
-    public function dingaling_conf() {
-        $this -> fs_configuration();
-    }
 
     /**
      * Main sub-routine
@@ -139,4 +130,3 @@ class dingaling_conf extends fs_configuration {
         }
     }
 }
-?>

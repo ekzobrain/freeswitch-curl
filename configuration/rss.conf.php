@@ -14,11 +14,7 @@
 */
 class rss_conf extends fs_configuration {
 
-    function rss_conf() {
-        $this -> fs_configuration();
-    }
-
-    function main() {
+    public function main() {
         $feeds_array = $this -> get_feeds_array();
         $this -> xmlw -> startElement('feeds');
         $this -> xmlw -> endElement();
@@ -30,7 +26,7 @@ class rss_conf extends fs_configuration {
      *
      * @return array
      */
-    function get_feeds_array() {
+    public function get_feeds_array() {
         $query = sprintf(
         'SELECT * FROM rss_conf ORDER BY priority, local_file;'
         );
@@ -38,6 +34,7 @@ class rss_conf extends fs_configuration {
         if (FS_PDO::isError($res)) {
             return false;
         }
+        $feeds_array = [];
         while ($row = $res -> fetchRow()) {
             $feeds_array[] = $row;
         }
@@ -47,9 +44,9 @@ class rss_conf extends fs_configuration {
     /**
      * Write XML for RSS feeds that were pulled by get_feeds_arrray
      * @see get_feeds_array
-     * @param unknown_type $feeds_in
+     * @param array $feeds_in
      */
-    function write_xml($feeds_in) {
+    public function write_xml($feeds_in) {
         $this -> xmlw -> startElement('configuration');
         $this -> xmlw -> writeAttribute('name', basename(__FILE__, '.php'));
         $this -> xmlw -> writeAttribute('description', 'RSS Parser');
@@ -66,5 +63,3 @@ class rss_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-
-?>

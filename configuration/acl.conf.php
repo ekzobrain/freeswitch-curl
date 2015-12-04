@@ -15,10 +15,6 @@
  */
 class acl_conf extends fs_configuration {
 
-    public function acl_conf() {
-        $this -> fs_configuration();
-    }
-
     public function main() {
         $acl = $this -> get_acl();
         $this -> write_acl($acl);
@@ -46,7 +42,7 @@ class acl_conf extends fs_configuration {
         'SELECT * FROM acl_lists al JOIN acl_nodes an ON an.list_id=al.id;'
         );
         $acl_data = $this -> db -> queryAll($query);
-        if (FS_PDO::isError($profiles)) {
+        if (FS_PDO::isError($acl_data)) {
             $this -> comment($query);
             $this -> comment($this -> db -> getMessage());
             return array();
@@ -85,4 +81,3 @@ class acl_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-?>

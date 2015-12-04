@@ -15,10 +15,6 @@
  */
 class voicemail_conf extends fs_configuration {
 
-    public function voicemail_conf() {
-        $this -> fs_configuration();
-    }
-
     public function main() {
         $profiles = $this -> get_profiles();
         $this -> write_config($profiles);
@@ -126,5 +122,3 @@ class voicemail_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-
-?>

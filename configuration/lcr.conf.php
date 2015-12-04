@@ -14,9 +14,6 @@
  * @see fs_configuration
  */
 class lcr_conf extends fs_configuration {
-    public function lcr_conf() {
-        $this->fs_configuration();
-    }
 
     public function main() {
         $this->write_config();
@@ -101,4 +98,3 @@ class lcr_conf extends fs_configuration {
         $this->xmlw->endElement(); // </profiles>
     }
 }
-

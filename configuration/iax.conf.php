@@ -14,9 +14,6 @@
  * Class to write XML for iax.conf
 */
 class iax_conf extends fs_configuration {
-    public function iax_conf() {
-        $this -> fs_configuration();
-    }
 
     public function main() {
         $profiles = $this -> get_profiles();
@@ -83,7 +80,7 @@ class iax_conf extends fs_configuration {
         $gateway_array = $this -> db -> queryAll($query);
         $gateway_count = count($gateway_array);
         //$this -> comment_array($gateway_array);
-        if (MDB2::isError($gateway_array)) {
+        if (FS_PDO::isError($gateway_array)) {
             $this -> comment($query);
             $this -> comment($this -> db -> getMessage());
             return ;
@@ -150,7 +147,7 @@ class iax_conf extends fs_configuration {
     /**
      * Write XML for iax.conf profiles
      *
-     * @param unknown_type $profiles
+     * @param array $profiles
      */
     private function write_config($profiles) {
         $profile_count = count($profiles);
@@ -168,5 +165,3 @@ class iax_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-
-?>

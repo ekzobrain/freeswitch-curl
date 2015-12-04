@@ -15,12 +15,8 @@
 */
 class post_load_modules_conf extends fs_configuration {
 
-    public function post_load_modules_conf() {
-        $this -> fs_configuration();
-    }
-
     public function main() {
-        $params = $this -> get_modules_array($this -> db);
+        $params = $this -> get_modules_array();
         $this -> write_modules_array($params);
         $this -> output_xml();
 
@@ -30,20 +26,21 @@ class post_load_modules_conf extends fs_configuration {
      * This method will pull the postloaded modules from the database
      * @return array
      */
-    function get_modules_array() {
+    public function get_modules_array() {
         $query = sprintf(
         "SELECT * FROM post_load_modules_conf WHERE load_module='1' ORDER BY priority;"
         );
         $res = $this -> db -> query($query);
         if (FS_PDO::isError($res)) {
             $this -> comment($query);
-            $this -> comment($res -> getMessage());
+            $this -> comment($this->db->getMessage());
             return array();
         }
         $this -> comment($res -> numRows() . ' rows');
         if ($res -> numRows() == 0) {
             return array();
         }
+        $feeds_array = [];
         while ($row = $res -> fetchRow()) {
             $feeds_array[] = $row;
         }
@@ -55,7 +52,7 @@ class post_load_modules_conf extends fs_configuration {
      * @see post_load_modules_conf::get_modules_array
      * @param array $params array of modules to load
      */
-    function write_modules_array($params) {
+    public function write_modules_array($params) {
         $this -> xmlw -> startElement('configuration');
         $this -> xmlw -> writeAttribute('name', basename(__FILE__, '.php'));
         $this -> xmlw -> writeAttribute(
@@ -72,6 +69,4 @@ class post_load_modules_conf extends fs_configuration {
         $this -> xmlw -> endElement();
         $this -> xmlw -> endElement();
     }
-
 }
-?>

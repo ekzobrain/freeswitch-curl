@@ -16,11 +16,8 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
  * Class for XML dialplan
  */
 class fs_dialplan extends fs_curl {
-    private $special_class_file;
 
-    public function fs_dialplan() {
-        $this -> fs_curl();
-    }
+    private $special_class_file;
 
     /**
      * This is the method that determines the XML output. Customized dialplans can

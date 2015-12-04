@@ -15,11 +15,7 @@
 */
 class spidermonkey_conf extends fs_configuration {
 
-    function spidermonkey_conf() {
-        $this -> fs_configuration();
-    }
-
-    function main() {
+    public function main() {
         $params = $this -> get_params();
         $this -> write_params($params);
     }
@@ -47,5 +43,3 @@ class spidermonkey_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-
-?>

@@ -17,15 +17,6 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
  * Write XML for conference.conf
 */
 class conference_conf extends fs_configuration {
-    /**
-     * Initializer method
-     * This method calls fs_configuration to initialize all of the
-     * objects and variables that we want to inherit
-     * @return void
-    */
-    public function conference_conf() {
-        $this -> fs_configuration();
-    }
 
     /**
      * Main sub-routine
@@ -34,13 +25,13 @@ class conference_conf extends fs_configuration {
      * @return void
     */
     public function main() {
-	$this -> xmlw -> startElement('configuration');
-	$this -> xmlw -> writeAttribute('name', 'conference.conf');
-	$this -> xmlw -> writeAttribute('description', 'Audio Conference');
-	$this -> write_advertises();
-	if($this -> request['Controls']) {$this -> write_controls();}
-        if($this -> request['profile_name']) {$this -> write_profiles();}
-	$this -> xmlw -> endElement();
+        $this -> xmlw -> startElement('configuration');
+        $this -> xmlw -> writeAttribute('name', 'conference.conf');
+        $this -> xmlw -> writeAttribute('description', 'Audio Conference');
+        $this -> write_advertises();
+        if($this -> request['Controls']) {$this -> write_controls();}
+            if($this -> request['profile_name']) {$this -> write_profiles();}
+        $this -> xmlw -> endElement();
     }
 
     /**
@@ -81,7 +72,7 @@ class conference_conf extends fs_configuration {
     */
     private function get_profiles_array() {
 	
-	$prof = $this -> request['profile_name'];
+	    $prof = $this -> request['profile_name'];
         $query = "SELECT * FROM conference_profiles where profile_name='$prof'";
         $res = $this -> db -> query($query);
         if (FS_PDO::isError($res)) {
@@ -187,4 +178,3 @@ class conference_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-?>

@@ -68,6 +68,3 @@ class dialplan_lcr {
         return $results;
     }
 }
-
-
-?>

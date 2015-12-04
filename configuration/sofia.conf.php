@@ -13,9 +13,6 @@
  * Write XML for sofia.conf
 */
 class sofia_conf extends fs_configuration {
-    public function sofia_conf() {
-        $this -> fs_configuration();
-    }
 
     public function main() {
         $profiles = $this -> get_profiles();
@@ -192,5 +189,3 @@ class sofia_conf extends fs_configuration {
         $this -> xmlw -> endElement();
     }
 }
-
-?>
