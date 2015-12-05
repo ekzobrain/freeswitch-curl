@@ -23,27 +23,29 @@ class fs_curl {
 	/**
 	 * FS_PDO Object
 	 * @link http://www.php.net/pdo
-	 * @var $db FS_PDO
+	 * @var FS_PDO
 	 */
 	public $db;
+
 	/**
 	 * Array of _REQUEST parameters passed
-	 *
 	 * @var array
 	 */
 	public $request;
+
 	/**
-	 * XMLWriter object
+     * XMLWriter Object
 	 * @link http://php.net/XMLWriter
-	 * @var object
+	 * @var XMLWriter
 	 */
 	public $xmlw;
+
 	/**
 	 * Array of comments to be output in the XML
 	 * @see fs_curl::comment
 	 * @var array
 	 */
-	private $comments;
+	private $comments = [];
 
 	public function __construct() {
 		openlog( 'fs_curl', LOG_NDELAY | LOG_PID, LOG_USER );
@@ -62,8 +64,8 @@ class fs_curl {
 	 * Connect to a database via FS_PDO
 	 *
 	 * @param mixed $dsn data source for database connection (array or string)
-	 *
-	 * @return void
+	 * @param $login
+	 * @param $password
 	 */
 	public function connect_db( $dsn, $login, $password ) {
 		try {
@@ -354,7 +356,7 @@ class fs_curl {
 						break;
 					case 2:
 						$ptr = fopen( FS_DEBUG_FILE, 'a' );
-						fputs( $ptr, "$debug_str\r\n" );
+						fputs( $ptr, "$debug_str\n" );
 						fclose( $ptr );
 						break;
 					default:
