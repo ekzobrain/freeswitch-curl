@@ -1,0 +1,27 @@
+{
+  "name": "soulhunter/freeswitch-curl",
+  "description": "A PHP module to generate and serve FreeSwitch configuration via mod_curl",
+  "keywords": [
+    "freeswitch",
+    "php",
+    "mod_curl",
+    "mysql",
+    "postgres",
+    "oracle",
+    "mssql"
+  ],
+  "authors": [
+    {
+      "name": "Balaji BHR",
+      "email": "balajibhr@gmail.com"
+    },
+    {
+      "name": "Dmitry Arkhipov",
+      "email": "da@netcitylife.ru"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.6.0"
+  }
+}
