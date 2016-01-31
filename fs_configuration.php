@@ -10,29 +10,31 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 /**
  * @package FS_CURL
  * @license BSD
- * @author Raymond Chandler (intralanman) <intralanman@gmail.com>
+ * @author  Raymond Chandler (intralanman) <intralanman@gmail.com>
  * @version 0.1
  * Class for all module configurations
  * @return object
-*/
-class fs_configuration extends fs_curl {
-
-    public function __construct() {
+ */
+class fs_configuration extends fs_curl
+{
+    public function __construct()
+    {
         parent::__construct();
 
         $conf_file = $this->request['key_value'];
         $this->debug("RECEIVED REQUEST FOR $conf_file");
         $mod_name = sprintf('mod_%s', str_replace('.conf', '', $conf_file));
-        $this -> comment("module name is $mod_name");
-        if (!($this -> is_mod_enabled($mod_name))
-        && !($this -> is_modless_conf($this -> request['key_value']))) {
-            $this -> comment('module not enabled and not modless config file');
-            $this -> file_not_found();
+        $this->comment("module name is $mod_name");
+        if (!($this->is_mod_enabled($mod_name))
+            && !($this->is_modless_conf($this->request['key_value']))
+        ) {
+            $this->comment('module not enabled and not modless config file');
+            $this->file_not_found();
         }
-        $this -> xmlw -> startElement('section');
-        $this -> xmlw -> writeAttribute('name', 'configuration');
-        $this -> xmlw -> writeAttribute(
-        'description', 'FreeSWITCH Configuration'
+        $this->xmlw->startElement('section');
+        $this->xmlw->writeAttribute('name', 'configuration');
+        $this->xmlw->writeAttribute(
+            'description', 'FreeSWITCH Configuration'
         );
     }
 
@@ -41,21 +43,24 @@ class fs_configuration extends fs_curl {
      * This method will check if a module is enabled before
      * returning the XML for the module. If the module's not
      * enabled, the file_not_found method will be called.
+     *
      * @param string $mod_name name of module to check
+     *
      * @return bool
-    */
-    public function is_mod_enabled($mod_name) {
+     */
+    public function is_mod_enabled($mod_name)
+    {
         $query = sprintf('%s %s'
-        , "SELECT * FROM post_load_modules_conf"
-        , "WHERE module_name='$mod_name' AND load_module=1"
+            , "SELECT * FROM post_load_modules_conf"
+            , "WHERE module_name='$mod_name' AND load_module=1"
         );
-        $res = $this -> db -> query($query);
+        $res = $this->db->query($query);
         if ($this->db->errorCode() !== FS_SQL_SUCCESS) {
-            $this -> comment($query);
-            $this -> comment($this->db->errorCode());
+            $this->comment($query);
+            $this->comment($this->db->errorCode());
             return true; //default allow policy
             //return false; //comment previous line to default deny
-        } elseif ($res -> rowCount() == 1) {
+        } elseif ($res->rowCount() == 1) {
             return true;
         } else {
             return false;
@@ -66,21 +71,23 @@ class fs_configuration extends fs_curl {
      * Allow config files that aren't tied to any module
      *
      * @param string $conf
+     *
      * @return bool
      */
-    private function is_modless_conf($conf) {
-        $this -> comment("conf is $conf");
+    private function is_modless_conf($conf)
+    {
+        $this->comment("conf is $conf");
         $query = sprintf(
-        "SELECT COUNT(*) cnt FROM modless_conf WHERE conf_name = '$conf';"
+            "SELECT COUNT(*) cnt FROM modless_conf WHERE conf_name = '$conf';"
         );
-        $res = $this -> db -> query($query);
+        $res = $this->db->query($query);
         if (FS_PDO::isError($res)) {
-            $this -> comment($query);
-            $this -> comment($this->db->getMessage());
+            $this->comment($query);
+            $this->comment($this->db->getMessage());
             return true; //default allow policy
             //return false; //comment previous line to default deny
         }
-        $row = $res -> fetchRow();
+        $row = $res->fetchRow();
         //$this -> comment($row['cnt']);
         return $row['cnt'];
     }

@@ -10,12 +10,13 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 /**
  * @package FS_CURL
  * @license BSD
- * @author Raymond Chandler (intralanman) <intralanman@gmail.com>
+ * @author  Raymond Chandler (intralanman) <intralanman@gmail.com>
  * @version 0.1
  * Class for inserting xml CDR records
  * @return object
  */
-class fs_cdr extends fs_curl {
+class fs_cdr extends fs_curl
+{
     /**
      * This variable will hold the XML CDR string
      * @var string
@@ -31,34 +32,35 @@ class fs_cdr extends fs_curl {
      * This array will hold the db field and their corresponding value
      * @var array
      */
-    public $values = array();
+    public $values = [];
 
     /**
      * This array maps the database field names to XMLSimple paths
      * @var array
      */
-    public $fields = array(
-    'caller_id_name' => '$this->xml_cdr->callflow[0]->caller_profile->caller_id_name',
-    'caller_id_number' => '$this->xml_cdr->callflow[0]->caller_profile->caller_id_number',
-    'destination_number' => '$this->xml_cdr->callflow[0]->caller_profile->destination_number',
-    'context' => '$this->xml_cdr->callflow[0]->caller_profile->context',
-    'start_stamp' => 'urldecode($this->xml_cdr->variables->start_stamp)',
-    'answer_stamp' => 'urldecode($this->xml_cdr->variables->answer_stamp)',
-    'end_stamp' => 'urldecode($this->xml_cdr->variables->end_stamp)',
-    'duration' => '$this->xml_cdr->variables->duration',
-    'billsec' => '$this->xml_cdr->variables->billsec',
-    'hangup_cause' => '$this->xml_cdr->variables->hangup_cause',
-    'uuid' => '$this->xml_cdr->callflow[0]->caller_profile->uuid',
-    'bleg_uuid' => '$this->xml_cdr->callflow[0]->caller_profile->bleg_uuid',
-    'accountcode' => '$this->xml_cdr->variables->accountcode',
-    'read_codec' => '$this->xml_cdr->variables->read_codec',
-    'write_codec' => '$this->xml_cdr->variables->write_codec'
-    );
+    public $fields = [
+        'caller_id_name'     => '$this->xml_cdr->callflow[0]->caller_profile->caller_id_name',
+        'caller_id_number'   => '$this->xml_cdr->callflow[0]->caller_profile->caller_id_number',
+        'destination_number' => '$this->xml_cdr->callflow[0]->caller_profile->destination_number',
+        'context'            => '$this->xml_cdr->callflow[0]->caller_profile->context',
+        'start_stamp'        => 'urldecode($this->xml_cdr->variables->start_stamp)',
+        'answer_stamp'       => 'urldecode($this->xml_cdr->variables->answer_stamp)',
+        'end_stamp'          => 'urldecode($this->xml_cdr->variables->end_stamp)',
+        'duration'           => '$this->xml_cdr->variables->duration',
+        'billsec'            => '$this->xml_cdr->variables->billsec',
+        'hangup_cause'       => '$this->xml_cdr->variables->hangup_cause',
+        'uuid'               => '$this->xml_cdr->callflow[0]->caller_profile->uuid',
+        'bleg_uuid'          => '$this->xml_cdr->callflow[0]->caller_profile->bleg_uuid',
+        'accountcode'        => '$this->xml_cdr->variables->accountcode',
+        'read_codec'         => '$this->xml_cdr->variables->read_codec',
+        'write_codec'        => '$this->xml_cdr->variables->write_codec',
+    ];
 
     /**
      * This is where we instantiate our parent and set up our CDR object
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->cdr = stripslashes($this->request['cdr']);
         $this->xml_cdr = new SimpleXMLElement($this->cdr);
@@ -67,7 +69,8 @@ class fs_cdr extends fs_curl {
     /**
      * This is where we run the bulk of our logic through other methods
      */
-    public function main() {
+    public function main()
+    {
         $this->set_record_values();
         $this->insert_cdr();
     }
@@ -76,7 +79,8 @@ class fs_cdr extends fs_curl {
      * This method will take the db fields and paths defined above and
      * set the values array to be used for the insert
      */
-    public function set_record_values() {
+    public function set_record_values()
+    {
         foreach ($this->fields as $field => $run) {
             eval("\$str = $run;");
             $this->values["$field"] = "'$str'";
@@ -89,7 +93,8 @@ class fs_cdr extends fs_curl {
     /**
      * finally do the insert of the CDR
      */
-    public function insert_cdr() {
+    public function insert_cdr()
+    {
         $query = sprintf(
             "INSERT INTO cdr (%s) VALUES (%s);",
             join(',', array_keys($this->values)), join(',', $this->values)

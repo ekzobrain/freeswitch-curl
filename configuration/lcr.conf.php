@@ -1,25 +1,28 @@
 <?php
 /**
- * @package FS_CURL
+ * @package    FS_CURL
  * @subpackage FS_CURL_Configuration
  * lcr.conf.php
  */
+
 /**
- * @package  FS_CURL
+ * @package    FS_CURL
  * @subpackage FS_CURL_Configuration
  * @license
- * @author Raymond Chandler (intralanman) <intralanman@gmail.com>
- * @version 0.1
+ * @author     Raymond Chandler (intralanman) <intralanman@gmail.com>
+ * @version    0.1
  * Writes out lcr.conf XML
- * @see fs_configuration
+ * @see        fs_configuration
  */
-class lcr_conf extends fs_configuration {
-
-    public function main() {
+class lcr_conf extends fs_configuration
+{
+    public function main()
+    {
         $this->write_config();
     }
 
-    private function write_config() {
+    private function write_config()
+    {
 
         $this->xmlw->startElement('configuration');
         $this->xmlw->writeAttribute('name', basename(__FILE__, '.php'));
@@ -27,12 +30,12 @@ class lcr_conf extends fs_configuration {
 
         $this->xmlw->startElement('settings');
         $query = sprintf('SELECT * FROM lcr_conf;');
-        $settings_array = $this -> db -> queryAll($query);
+        $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
         if (FS_PDO::isError($settings_array)) {
-            $this -> comment($query);
-            $this -> comment($this -> db -> getMessage());
-            return ;
+            $this->comment($query);
+            $this->comment($this->db->getMessage());
+            return;
         }
         for ($i = 0; $i < $settings_count; $i++) {
             $this->xmlw->startElement('param');
@@ -49,21 +52,22 @@ class lcr_conf extends fs_configuration {
         $this->xmlw->endElement(); // </configuration>
     }
 
-    private function get_profiles() {
+    private function get_profiles()
+    {
         $query = sprintf(
             'SELECT *, lp.id AS lcr_id FROM lcr_profiles lp
                 LEFT JOIN lcr_settings ls ON ls.lcr_id = lp.id
                 ORDER BY lp.id;'
         );
-        $settings_array = $this -> db -> queryAll($query);
+        $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
         if (FS_PDO::isError($settings_array)) {
-            $this -> comment($query);
-            $this -> comment($this -> db -> getMessage());
-            return ;
+            $this->comment($query);
+            $this->comment($this->db->getMessage());
+            return;
         }
 
-        $settings = array();
+        $settings = [];
         for ($i = 0; $i < $settings_count; $i++) {
             $profile = $settings_array[$i]['profile_name'];
             $param = $settings_array[$i]['param_name'];
@@ -73,10 +77,11 @@ class lcr_conf extends fs_configuration {
         return $settings;
     }
 
-    private function write_profiles($settings_array) {
+    private function write_profiles($settings_array)
+    {
         $this->xmlw->startElement('profiles');
 
-        
+
         foreach ($settings_array as $profile => $profile_data) {
             $this->xmlw->startElement('profile');
             $this->xmlw->writeAttribute('name', $profile);
@@ -92,7 +97,6 @@ class lcr_conf extends fs_configuration {
             }
             $this->xmlw->endElement(); // </profile>
         }
-
 
 
         $this->xmlw->endElement(); // </profiles>

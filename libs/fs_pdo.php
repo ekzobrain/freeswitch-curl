@@ -1,14 +1,15 @@
 <?php
-/**
-* FS_CURL was originally written using the MDB2 pear class for database interactions.
-* MDB2 was deprecated in favor or PHP's PDO.
-*
-* This has been tested with MySQL but should work with many other RDBMSs
-* @author Michael Phillips <michael.j.phillips@gmail.com>
-* @license bsd http://www.opensource.org/licenses/bsd-license.php
-*/
 
-class FS_PDO extends PDO {
+/**
+ * FS_CURL was originally written using the MDB2 pear class for database interactions.
+ * MDB2 was deprecated in favor or PHP's PDO.
+ *
+ * This has been tested with MySQL but should work with many other RDBMSs
+ * @author  Michael Phillips <michael.j.phillips@gmail.com>
+ * @license bsd http://www.opensource.org/licenses/bsd-license.php
+ */
+class FS_PDO extends PDO
+{
 	/**
 	 * Default fetch mode. Associative arrays seem to be used most often
 	 */
@@ -19,28 +20,34 @@ class FS_PDO extends PDO {
 	 */
 	public $counter = 0;
 
-	public function __construct($dsn, $login = NULL, $password = NULL, $options = NULL) {
+	public function __construct($dsn, $login = NULL, $password = NULL, $options = NULL)
+	{
 		parent::__construct($dsn, $login, $password, $options);
-		$this->setAttribute( PDO::ATTR_STATEMENT_CLASS, array( 'FS_PDOStatement', array() ) );
+		$this->setAttribute(PDO::ATTR_STATEMENT_CLASS, ['FS_PDOStatement', []]);
 	}
 
 	/**
 	 * Set the fetch mode i.e. PDO::FETCH_ASSOC
+	 *
 	 * @param string $fetch_mode
 	 */
-	public function setFetchMode($fetch_mode) {
+	public function setFetchMode($fetch_mode)
+	{
 		$this->fetch_mode = $fetch_mode;
 	}
 
 	/**
 	 * Return an associative array instead of a PDO statement object
+	 *
 	 * @param string $query Query to be executed
+	 *
 	 * @return mixed Associative array result set
 	 */
-	public function queryAll($query) {
+	public function queryAll($query)
+	{
 		$this->counter++;
 		$res = $this->query($query);
-		if(!$res) {
+		if (!$res) {
 			return false;
 		} else {
 			return $res->fetchAll($this->fetch_mode);
@@ -50,11 +57,14 @@ class FS_PDO extends PDO {
 	/**
 	 * Backwards compatibility for error checking with MDB2
 	 * @static
+	 *
 	 * @param string $result The return status of a previous query operation
+	 *
 	 * @return bool
 	 */
-	public static function isError($result) {
-		if($result === false) {
+	public static function isError($result)
+	{
+		if ($result === false) {
 			return true;
 		} else {
 			return false;
@@ -64,9 +74,11 @@ class FS_PDO extends PDO {
 	/**
 	 *
 	 * @param string $query Query to be executed
+	 *
 	 * @return FS_PDOStatement
 	 */
-	public function query($query) {
+	public function query($query)
+	{
 		$this->counter++;
 		return PDO::query($query);
 	}
@@ -75,9 +87,10 @@ class FS_PDO extends PDO {
 	 * Takes and array and converts to a string
 	 * @return string $full_error A formated message
 	 */
-	public function getMessage() {
+	public function getMessage()
+	{
 		$full_error = "";
-		foreach($this->errorInfo() as $error) {
+		foreach ($this->errorInfo() as $error) {
 			$full_error .= $error . "\n";
 		}
 		return $full_error;
@@ -89,19 +102,22 @@ class FS_PDO extends PDO {
  * fetchRow and rowCount. At some point all references to numRow() should be
  * replaced with rowCount()
  */
+class FS_PDOStatement extends PDOStatement
+{
 
-class FS_PDOStatement extends PDOStatement {
-
-	protected function __construct() {
+	protected function __construct()
+	{
 
 	}
 
-	public function fetchRow() {
+	public function fetchRow()
+	{
 
 		return $this->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public function numRows() {
+	public function numRows()
+	{
 		if (preg_match('/^select/i', $this->queryString)) {
 			$results = $this->fetchAll();
 			$this->execute();
