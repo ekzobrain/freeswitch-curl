@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `acl_lists` (
   `acl_name` varchar(128) NOT NULL,
   `default_policy` varchar(45) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `acl_lists`
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `acl_nodes` (
   `type` varchar(16) NOT NULL,
   `list_id` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `acl_nodes`
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `cdr` (
   `write_codec` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uuid` (`uuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `conference_advertise`
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `conference_advertise` (
   `status` varchar(128) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_room` (`room`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `conference_advertise`
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `conference_controls` (
   `digits` varchar(16) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_group_action` USING BTREE (`conf_group`,`action`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `conference_controls`
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `conference_profiles` (
   `param_value` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `unique_profile_param` (`profile_name`,`param_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `conference_profiles`
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `dialplan` (
   `domain` varchar(128) NOT NULL,
   `ip_address` varchar(15) NOT NULL,
   PRIMARY KEY  (`dialplan_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `dialplan`
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_actions` (
   `type` varchar(32) NOT NULL,
   `weight` int(11) NOT NULL,
   PRIMARY KEY  (`action_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=170 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=170 ;
 
 --
 -- Dumping data for table `dialplan_actions`
@@ -397,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_condition` (
   `expression` varchar(128) NOT NULL,
   `weight` int(11) NOT NULL,
   PRIMARY KEY  (`condition_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=76 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=76 ;
 
 --
 -- Dumping data for table `dialplan_condition`
@@ -492,7 +492,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_context` (
   `context` varchar(64) NOT NULL,
   `weight` int(11) NOT NULL,
   PRIMARY KEY  (`context_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `dialplan_context`
@@ -515,7 +515,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_extension` (
   `continue` varchar(32) NOT NULL,
   `weight` int(11) NOT NULL,
   PRIMARY KEY  (`extension_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
 
 --
 -- Dumping data for table `dialplan_extension`
@@ -592,7 +592,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_special` (
   `class_file` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_context` (`context`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `dialplan_special`
@@ -611,7 +611,7 @@ CREATE TABLE IF NOT EXISTS `dingaling_profiles` (
   `type` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_name` (`profile_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `dingaling_profiles`
@@ -633,7 +633,7 @@ CREATE TABLE IF NOT EXISTS `dingaling_profile_params` (
   `param_value` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_type_name` (`dingaling_id`,`param_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `dingaling_profile_params`
@@ -657,7 +657,7 @@ CREATE TABLE IF NOT EXISTS `dingaling_settings` (
   `param_value` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_param` (`param_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `dingaling_settings`
@@ -707,7 +707,7 @@ CREATE TABLE IF NOT EXISTS `directory_domains` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `domain_name` varchar(128) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `directory_domains`
@@ -728,7 +728,7 @@ CREATE TABLE IF NOT EXISTS `directory_gateways` (
   `directory_id` int(10) unsigned NOT NULL,
   `gateway_name` varchar(128) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `directory_gateways`
@@ -748,7 +748,7 @@ CREATE TABLE IF NOT EXISTS `directory_gateway_params` (
   `param_value` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_gw_param` (`d_gw_id`,`param_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `directory_gateway_params`
@@ -767,7 +767,7 @@ CREATE TABLE IF NOT EXISTS `directory_global_params` (
   `param_value` varchar(128) NOT NULL,
   `domain_id` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `directory_global_params`
@@ -788,7 +788,7 @@ CREATE TABLE IF NOT EXISTS `directory_global_vars` (
   `var_value` varchar(128) NOT NULL,
   `domain_id` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `directory_global_vars`
@@ -870,7 +870,7 @@ CREATE TABLE IF NOT EXISTS `iax_conf` (
   `id` int(11) NOT NULL auto_increment,
   `profile_name` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `iax_conf`
@@ -891,7 +891,7 @@ CREATE TABLE IF NOT EXISTS `iax_settings` (
   `param_name` varchar(255) default NULL,
   `param_value` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
 -- Dumping data for table `iax_settings`
@@ -926,7 +926,7 @@ CREATE TABLE IF NOT EXISTS `ivr_conf` (
   `tts_voice` varchar(64) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `ivr_conf`
@@ -951,7 +951,7 @@ CREATE TABLE IF NOT EXISTS `ivr_entries` (
   `params` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_ivr_digits` USING BTREE (`ivr_id`,`digits`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `ivr_entries`
@@ -1035,7 +1035,7 @@ CREATE TABLE IF NOT EXISTS `modless_conf` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `conf_name` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `modless_conf`
@@ -1059,7 +1059,7 @@ CREATE TABLE IF NOT EXISTS `post_load_modules_conf` (
   `priority` int(10) unsigned NOT NULL default '1000',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_mod` (`module_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- Dumping data for table `post_load_modules_conf`
@@ -1147,7 +1147,7 @@ CREATE TABLE IF NOT EXISTS `rss_conf` (
 CREATE TABLE IF NOT EXISTS `sip_authentication` (
   `nonce` varchar(255) default NULL,
   `expires` int(11) default NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sip_authentication`
@@ -1172,7 +1172,7 @@ CREATE TABLE IF NOT EXISTS `sip_dialogs` (
   `state` varchar(255) default NULL,
   `direction` varchar(255) default NULL,
   `user_agent` varchar(255) default NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sip_dialogs`
@@ -1194,7 +1194,7 @@ CREATE TABLE IF NOT EXISTS `sip_registrations` (
   `rpid` varchar(255) default NULL,
   `expires` int(11) default NULL,
   `user_agent` varchar(255) default NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sip_registrations`
@@ -1221,7 +1221,7 @@ CREATE TABLE IF NOT EXISTS `sip_subscriptions` (
   `expires` int(11) default NULL,
   `user_agent` varchar(255) default NULL,
   `accept` varchar(255) default NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sip_subscriptions`
@@ -1239,7 +1239,7 @@ CREATE TABLE IF NOT EXISTS `sofia_aliases` (
   `sofia_id` int(10) unsigned NOT NULL,
   `alias_name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `sofia_aliases`
@@ -1259,7 +1259,7 @@ CREATE TABLE IF NOT EXISTS `sofia_conf` (
   `id` int(11) NOT NULL auto_increment,
   `profile_name` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `sofia_conf`
@@ -1280,7 +1280,7 @@ CREATE TABLE IF NOT EXISTS `sofia_domains` (
   `domain_name` varchar(255) default NULL,
   `parse` tinyint(1) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `sofia_domains`
@@ -1300,7 +1300,7 @@ CREATE TABLE IF NOT EXISTS `sofia_gateways` (
   `gateway_param` varchar(255) default NULL,
   `gateway_value` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `sofia_gateways`
@@ -1327,7 +1327,7 @@ CREATE TABLE IF NOT EXISTS `sofia_settings` (
   `param_name` varchar(255) default NULL,
   `param_value` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `sofia_settings`
@@ -1365,7 +1365,7 @@ CREATE TABLE IF NOT EXISTS `voicemail_conf` (
   `vm_profile` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_profile` (`vm_profile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `voicemail_conf`
@@ -1387,7 +1387,7 @@ CREATE TABLE IF NOT EXISTS `voicemail_email` (
   `param_value` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `unique_profile_param` (`param_name`,`voicemail_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `voicemail_email`
@@ -1410,7 +1410,7 @@ CREATE TABLE IF NOT EXISTS `voicemail_settings` (
   `param_name` varchar(255) default NULL,
   `param_value` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `voicemail_settings`
