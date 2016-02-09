@@ -9,14 +9,14 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -29,7 +29,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: accounts; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: accounts; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE accounts (
@@ -39,21 +39,21 @@ CREATE TABLE accounts (
 );
 
 
-ALTER TABLE public.accounts OWNER TO freeswitch;
+--ALTER TABLE public.accounts OWNER TO freeswitch;
 
 --
 -- Name: accounts_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE accounts_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.accounts_id_seq OWNER TO freeswitch;
+----ALTER TABLE public.accounts_id_seq OWNER TO freeswitch;
 
 --
 -- Name: accounts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -63,7 +63,7 @@ ALTER SEQUENCE accounts_id_seq OWNED BY accounts.id;
 
 
 --
--- Name: acl_lists; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: acl_lists; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE acl_lists (
@@ -73,21 +73,21 @@ CREATE TABLE acl_lists (
 );
 
 
-ALTER TABLE public.acl_lists OWNER TO freeswitch;
+--ALTER TABLE public.acl_lists OWNER TO freeswitch;
 
 --
 -- Name: acl_lists_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE acl_lists_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.acl_lists_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.acl_lists_id_seq OWNER TO freeswitch;
 
 --
 -- Name: acl_lists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -97,7 +97,7 @@ ALTER SEQUENCE acl_lists_id_seq OWNED BY acl_lists.id;
 
 
 --
--- Name: acl_nodes; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: acl_nodes; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE acl_nodes (
@@ -108,21 +108,21 @@ CREATE TABLE acl_nodes (
 );
 
 
-ALTER TABLE public.acl_nodes OWNER TO freeswitch;
+--ALTER TABLE public.acl_nodes OWNER TO freeswitch;
 
 --
 -- Name: acl_nodes_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE acl_nodes_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.acl_nodes_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.acl_nodes_id_seq OWNER TO freeswitch;
 
 --
 -- Name: acl_nodes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -132,7 +132,7 @@ ALTER SEQUENCE acl_nodes_id_seq OWNED BY acl_nodes.id;
 
 
 --
--- Name: carrier_gateway; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: carrier_gateway; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE carrier_gateway (
@@ -145,21 +145,21 @@ CREATE TABLE carrier_gateway (
 );
 
 
-ALTER TABLE public.carrier_gateway OWNER TO freeswitch;
+--ALTER TABLE public.carrier_gateway OWNER TO freeswitch;
 
 --
 -- Name: carrier_gateway_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE carrier_gateway_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.carrier_gateway_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.carrier_gateway_id_seq OWNER TO freeswitch;
 
 --
 -- Name: carrier_gateway_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -169,7 +169,7 @@ ALTER SEQUENCE carrier_gateway_id_seq OWNED BY carrier_gateway.id;
 
 
 --
--- Name: carriers; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: carriers; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE carriers (
@@ -179,21 +179,21 @@ CREATE TABLE carriers (
 );
 
 
-ALTER TABLE public.carriers OWNER TO freeswitch;
+--ALTER TABLE public.carriers OWNER TO freeswitch;
 
 --
 -- Name: carriers_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE carriers_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.carriers_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.carriers_id_seq OWNER TO freeswitch;
 
 --
 -- Name: carriers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -203,7 +203,7 @@ ALTER SEQUENCE carriers_id_seq OWNED BY carriers.id;
 
 
 --
--- Name: cdr; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: cdr; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE cdr (
@@ -226,21 +226,21 @@ CREATE TABLE cdr (
 );
 
 
-ALTER TABLE public.cdr OWNER TO freeswitch;
+--ALTER TABLE public.cdr OWNER TO freeswitch;
 
 --
 -- Name: cdr_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE cdr_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.cdr_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.cdr_id_seq OWNER TO freeswitch;
 
 --
 -- Name: cdr_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -250,7 +250,7 @@ ALTER SEQUENCE cdr_id_seq OWNED BY cdr.id;
 
 
 --
--- Name: conference_advertise; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: conference_advertise; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE conference_advertise (
@@ -260,21 +260,21 @@ CREATE TABLE conference_advertise (
 );
 
 
-ALTER TABLE public.conference_advertise OWNER TO freeswitch;
+--ALTER TABLE public.conference_advertise OWNER TO freeswitch;
 
 --
 -- Name: conference_advertise_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE conference_advertise_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.conference_advertise_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.conference_advertise_id_seq OWNER TO freeswitch;
 
 --
 -- Name: conference_advertise_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -284,7 +284,7 @@ ALTER SEQUENCE conference_advertise_id_seq OWNED BY conference_advertise.id;
 
 
 --
--- Name: conference_controls; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: conference_controls; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE conference_controls (
@@ -295,21 +295,21 @@ CREATE TABLE conference_controls (
 );
 
 
-ALTER TABLE public.conference_controls OWNER TO freeswitch;
+--ALTER TABLE public.conference_controls OWNER TO freeswitch;
 
 --
 -- Name: conference_controls_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE conference_controls_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.conference_controls_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.conference_controls_id_seq OWNER TO freeswitch;
 
 --
 -- Name: conference_controls_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -319,7 +319,7 @@ ALTER SEQUENCE conference_controls_id_seq OWNED BY conference_controls.id;
 
 
 --
--- Name: conference_profiles; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: conference_profiles; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE conference_profiles (
@@ -330,21 +330,21 @@ CREATE TABLE conference_profiles (
 );
 
 
-ALTER TABLE public.conference_profiles OWNER TO freeswitch;
+--ALTER TABLE public.conference_profiles OWNER TO freeswitch;
 
 --
 -- Name: conference_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE conference_profiles_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.conference_profiles_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.conference_profiles_id_seq OWNER TO freeswitch;
 
 --
 -- Name: conference_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -354,7 +354,7 @@ ALTER SEQUENCE conference_profiles_id_seq OWNED BY conference_profiles.id;
 
 
 --
--- Name: dialplan; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dialplan (
@@ -364,10 +364,10 @@ CREATE TABLE dialplan (
 );
 
 
-ALTER TABLE public.dialplan OWNER TO freeswitch;
+--ALTER TABLE public.dialplan OWNER TO freeswitch;
 
 --
--- Name: dialplan_actions; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_actions; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dialplan_actions (
@@ -380,21 +380,21 @@ CREATE TABLE dialplan_actions (
 );
 
 
-ALTER TABLE public.dialplan_actions OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_actions OWNER TO freeswitch;
 
 --
 -- Name: dialplan_actions_action_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dialplan_actions_action_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dialplan_actions_action_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_actions_action_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dialplan_actions_action_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -404,7 +404,7 @@ ALTER SEQUENCE dialplan_actions_action_id_seq OWNED BY dialplan_actions.action_i
 
 
 --
--- Name: dialplan_condition; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_condition; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dialplan_condition (
@@ -416,21 +416,21 @@ CREATE TABLE dialplan_condition (
 );
 
 
-ALTER TABLE public.dialplan_condition OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_condition OWNER TO freeswitch;
 
 --
 -- Name: dialplan_condition_condition_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dialplan_condition_condition_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dialplan_condition_condition_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_condition_condition_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dialplan_condition_condition_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -440,7 +440,7 @@ ALTER SEQUENCE dialplan_condition_condition_id_seq OWNED BY dialplan_condition.c
 
 
 --
--- Name: dialplan_context; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_context; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dialplan_context (
@@ -451,21 +451,21 @@ CREATE TABLE dialplan_context (
 );
 
 
-ALTER TABLE public.dialplan_context OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_context OWNER TO freeswitch;
 
 --
 -- Name: dialplan_context_context_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dialplan_context_context_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dialplan_context_context_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_context_context_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dialplan_context_context_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -479,14 +479,14 @@ ALTER SEQUENCE dialplan_context_context_id_seq OWNED BY dialplan_context.context
 --
 
 CREATE SEQUENCE dialplan_dialplan_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dialplan_dialplan_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_dialplan_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dialplan_dialplan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -496,7 +496,7 @@ ALTER SEQUENCE dialplan_dialplan_id_seq OWNED BY dialplan.dialplan_id;
 
 
 --
--- Name: dialplan_extension; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_extension; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dialplan_extension (
@@ -508,21 +508,21 @@ CREATE TABLE dialplan_extension (
 );
 
 
-ALTER TABLE public.dialplan_extension OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_extension OWNER TO freeswitch;
 
 --
 -- Name: dialplan_extension_extension_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dialplan_extension_extension_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dialplan_extension_extension_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_extension_extension_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dialplan_extension_extension_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -532,7 +532,7 @@ ALTER SEQUENCE dialplan_extension_extension_id_seq OWNED BY dialplan_extension.e
 
 
 --
--- Name: dialplan_special; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_special; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dialplan_special (
@@ -542,21 +542,21 @@ CREATE TABLE dialplan_special (
 );
 
 
-ALTER TABLE public.dialplan_special OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_special OWNER TO freeswitch;
 
 --
 -- Name: dialplan_special_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dialplan_special_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dialplan_special_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dialplan_special_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dialplan_special_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -566,7 +566,7 @@ ALTER SEQUENCE dialplan_special_id_seq OWNED BY dialplan_special.id;
 
 
 --
--- Name: dingaling_profile_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dingaling_profile_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dingaling_profile_params (
@@ -577,21 +577,21 @@ CREATE TABLE dingaling_profile_params (
 );
 
 
-ALTER TABLE public.dingaling_profile_params OWNER TO freeswitch;
+--ALTER TABLE public.dingaling_profile_params OWNER TO freeswitch;
 
 --
 -- Name: dingaling_profile_params_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dingaling_profile_params_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dingaling_profile_params_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dingaling_profile_params_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dingaling_profile_params_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -601,7 +601,7 @@ ALTER SEQUENCE dingaling_profile_params_id_seq OWNED BY dingaling_profile_params
 
 
 --
--- Name: dingaling_profiles; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dingaling_profiles; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dingaling_profiles (
@@ -611,21 +611,21 @@ CREATE TABLE dingaling_profiles (
 );
 
 
-ALTER TABLE public.dingaling_profiles OWNER TO freeswitch;
+--ALTER TABLE public.dingaling_profiles OWNER TO freeswitch;
 
 --
 -- Name: dingaling_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dingaling_profiles_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dingaling_profiles_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dingaling_profiles_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dingaling_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -635,7 +635,7 @@ ALTER SEQUENCE dingaling_profiles_id_seq OWNED BY dingaling_profiles.id;
 
 
 --
--- Name: dingaling_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dingaling_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE dingaling_settings (
@@ -645,21 +645,21 @@ CREATE TABLE dingaling_settings (
 );
 
 
-ALTER TABLE public.dingaling_settings OWNER TO freeswitch;
+--ALTER TABLE public.dingaling_settings OWNER TO freeswitch;
 
 --
 -- Name: dingaling_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE dingaling_settings_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.dingaling_settings_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.dingaling_settings_id_seq OWNER TO freeswitch;
 
 --
 -- Name: dingaling_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -669,7 +669,7 @@ ALTER SEQUENCE dingaling_settings_id_seq OWNED BY dingaling_settings.id;
 
 
 --
--- Name: directory; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory (
@@ -680,10 +680,10 @@ CREATE TABLE directory (
 );
 
 
-ALTER TABLE public.directory OWNER TO freeswitch;
+--ALTER TABLE public.directory OWNER TO freeswitch;
 
 --
--- Name: directory_domains; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_domains; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_domains (
@@ -692,21 +692,21 @@ CREATE TABLE directory_domains (
 );
 
 
-ALTER TABLE public.directory_domains OWNER TO freeswitch;
+--ALTER TABLE public.directory_domains OWNER TO freeswitch;
 
 --
 -- Name: directory_domains_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_domains_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_domains_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_domains_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_domains_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -716,7 +716,7 @@ ALTER SEQUENCE directory_domains_id_seq OWNED BY directory_domains.id;
 
 
 --
--- Name: directory_gateway_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_gateway_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_gateway_params (
@@ -727,21 +727,21 @@ CREATE TABLE directory_gateway_params (
 );
 
 
-ALTER TABLE public.directory_gateway_params OWNER TO freeswitch;
+--ALTER TABLE public.directory_gateway_params OWNER TO freeswitch;
 
 --
 -- Name: directory_gateway_params_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_gateway_params_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_gateway_params_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_gateway_params_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_gateway_params_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -751,7 +751,7 @@ ALTER SEQUENCE directory_gateway_params_id_seq OWNED BY directory_gateway_params
 
 
 --
--- Name: directory_gateways; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_gateways; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_gateways (
@@ -761,21 +761,21 @@ CREATE TABLE directory_gateways (
 );
 
 
-ALTER TABLE public.directory_gateways OWNER TO freeswitch;
+--ALTER TABLE public.directory_gateways OWNER TO freeswitch;
 
 --
 -- Name: directory_gateways_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_gateways_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_gateways_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_gateways_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_gateways_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -785,7 +785,7 @@ ALTER SEQUENCE directory_gateways_id_seq OWNED BY directory_gateways.id;
 
 
 --
--- Name: directory_global_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_global_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_global_params (
@@ -796,21 +796,21 @@ CREATE TABLE directory_global_params (
 );
 
 
-ALTER TABLE public.directory_global_params OWNER TO freeswitch;
+--ALTER TABLE public.directory_global_params OWNER TO freeswitch;
 
 --
 -- Name: directory_global_params_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_global_params_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_global_params_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_global_params_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_global_params_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -820,7 +820,7 @@ ALTER SEQUENCE directory_global_params_id_seq OWNED BY directory_global_params.i
 
 
 --
--- Name: directory_global_vars; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_global_vars; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_global_vars (
@@ -831,21 +831,21 @@ CREATE TABLE directory_global_vars (
 );
 
 
-ALTER TABLE public.directory_global_vars OWNER TO freeswitch;
+--ALTER TABLE public.directory_global_vars OWNER TO freeswitch;
 
 --
 -- Name: directory_global_vars_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_global_vars_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_global_vars_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_global_vars_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_global_vars_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -855,7 +855,7 @@ ALTER SEQUENCE directory_global_vars_id_seq OWNED BY directory_global_vars.id;
 
 
 --
--- Name: directory_group_user_map; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_group_user_map; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_group_user_map (
@@ -865,21 +865,21 @@ CREATE TABLE directory_group_user_map (
 );
 
 
-ALTER TABLE public.directory_group_user_map OWNER TO freeswitch;
+--ALTER TABLE public.directory_group_user_map OWNER TO freeswitch;
 
 --
 -- Name: directory_group_user_map_map_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_group_user_map_map_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_group_user_map_map_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_group_user_map_map_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_group_user_map_map_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -889,7 +889,7 @@ ALTER SEQUENCE directory_group_user_map_map_id_seq OWNED BY directory_group_user
 
 
 --
--- Name: directory_groups; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_groups; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_groups (
@@ -898,21 +898,21 @@ CREATE TABLE directory_groups (
 );
 
 
-ALTER TABLE public.directory_groups OWNER TO freeswitch;
+--ALTER TABLE public.directory_groups OWNER TO freeswitch;
 
 --
 -- Name: directory_groups_group_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_groups_group_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_groups_group_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_groups_group_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_groups_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -926,14 +926,14 @@ ALTER SEQUENCE directory_groups_group_id_seq OWNED BY directory_groups.group_id;
 --
 
 CREATE SEQUENCE directory_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -943,7 +943,7 @@ ALTER SEQUENCE directory_id_seq OWNED BY directory.id;
 
 
 --
--- Name: directory_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_params; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_params (
@@ -954,21 +954,21 @@ CREATE TABLE directory_params (
 );
 
 
-ALTER TABLE public.directory_params OWNER TO freeswitch;
+--ALTER TABLE public.directory_params OWNER TO freeswitch;
 
 --
 -- Name: directory_params_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_params_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_params_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_params_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_params_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -978,7 +978,7 @@ ALTER SEQUENCE directory_params_id_seq OWNED BY directory_params.id;
 
 
 --
--- Name: directory_vars; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_vars; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE directory_vars (
@@ -989,21 +989,21 @@ CREATE TABLE directory_vars (
 );
 
 
-ALTER TABLE public.directory_vars OWNER TO freeswitch;
+--ALTER TABLE public.directory_vars OWNER TO freeswitch;
 
 --
 -- Name: directory_vars_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE directory_vars_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.directory_vars_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.directory_vars_id_seq OWNER TO freeswitch;
 
 --
 -- Name: directory_vars_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1013,7 +1013,7 @@ ALTER SEQUENCE directory_vars_id_seq OWNED BY directory_vars.id;
 
 
 --
--- Name: easyroute_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: easyroute_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE easyroute_conf (
@@ -1023,21 +1023,21 @@ CREATE TABLE easyroute_conf (
 );
 
 
-ALTER TABLE public.easyroute_conf OWNER TO freeswitch;
+--ALTER TABLE public.easyroute_conf OWNER TO freeswitch;
 
 --
 -- Name: easyroute_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE easyroute_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.easyroute_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.easyroute_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: easyroute_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1047,7 +1047,7 @@ ALTER SEQUENCE easyroute_conf_id_seq OWNED BY easyroute_conf.id;
 
 
 --
--- Name: easyroute_data; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: easyroute_data; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE easyroute_data (
@@ -1061,21 +1061,21 @@ CREATE TABLE easyroute_data (
 );
 
 
-ALTER TABLE public.easyroute_data OWNER TO freeswitch;
+--ALTER TABLE public.easyroute_data OWNER TO freeswitch;
 
 --
 -- Name: easyroute_data_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE easyroute_data_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.easyroute_data_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.easyroute_data_id_seq OWNER TO freeswitch;
 
 --
 -- Name: easyroute_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1085,7 +1085,7 @@ ALTER SEQUENCE easyroute_data_id_seq OWNED BY easyroute_data.id;
 
 
 --
--- Name: iax_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: iax_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE iax_conf (
@@ -1094,21 +1094,21 @@ CREATE TABLE iax_conf (
 );
 
 
-ALTER TABLE public.iax_conf OWNER TO freeswitch;
+--ALTER TABLE public.iax_conf OWNER TO freeswitch;
 
 --
 -- Name: iax_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE iax_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.iax_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.iax_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: iax_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1118,7 +1118,7 @@ ALTER SEQUENCE iax_conf_id_seq OWNED BY iax_conf.id;
 
 
 --
--- Name: iax_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: iax_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE iax_settings (
@@ -1129,21 +1129,21 @@ CREATE TABLE iax_settings (
 );
 
 
-ALTER TABLE public.iax_settings OWNER TO freeswitch;
+--ALTER TABLE public.iax_settings OWNER TO freeswitch;
 
 --
 -- Name: iax_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE iax_settings_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.iax_settings_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.iax_settings_id_seq OWNER TO freeswitch;
 
 --
 -- Name: iax_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1153,7 +1153,7 @@ ALTER SEQUENCE iax_settings_id_seq OWNED BY iax_settings.id;
 
 
 --
--- Name: ivr_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ivr_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE ivr_conf (
@@ -1170,21 +1170,21 @@ CREATE TABLE ivr_conf (
 );
 
 
-ALTER TABLE public.ivr_conf OWNER TO freeswitch;
+--ALTER TABLE public.ivr_conf OWNER TO freeswitch;
 
 --
 -- Name: ivr_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE ivr_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.ivr_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.ivr_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: ivr_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1194,7 +1194,7 @@ ALTER SEQUENCE ivr_conf_id_seq OWNED BY ivr_conf.id;
 
 
 --
--- Name: ivr_entries; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ivr_entries; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE ivr_entries (
@@ -1206,21 +1206,21 @@ CREATE TABLE ivr_entries (
 );
 
 
-ALTER TABLE public.ivr_entries OWNER TO freeswitch;
+--ALTER TABLE public.ivr_entries OWNER TO freeswitch;
 
 --
 -- Name: ivr_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE ivr_entries_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.ivr_entries_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.ivr_entries_id_seq OWNER TO freeswitch;
 
 --
 -- Name: ivr_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1230,7 +1230,7 @@ ALTER SEQUENCE ivr_entries_id_seq OWNED BY ivr_entries.id;
 
 
 --
--- Name: lcr; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE lcr (
@@ -1255,10 +1255,10 @@ CREATE TABLE lcr (
 );
 
 
-ALTER TABLE public.lcr OWNER TO freeswitch;
+--ALTER TABLE public.lcr OWNER TO freeswitch;
 
 --
--- Name: lcr_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE lcr_conf (
@@ -1268,21 +1268,21 @@ CREATE TABLE lcr_conf (
 );
 
 
-ALTER TABLE public.lcr_conf OWNER TO freeswitch;
+--ALTER TABLE public.lcr_conf OWNER TO freeswitch;
 
 --
 -- Name: lcr_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE lcr_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.lcr_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.lcr_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: lcr_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1296,14 +1296,14 @@ ALTER SEQUENCE lcr_conf_id_seq OWNED BY lcr_conf.id;
 --
 
 CREATE SEQUENCE lcr_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.lcr_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.lcr_id_seq OWNER TO freeswitch;
 
 --
 -- Name: lcr_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1313,7 +1313,7 @@ ALTER SEQUENCE lcr_id_seq OWNED BY lcr.id;
 
 
 --
--- Name: lcr_profiles; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_profiles; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE lcr_profiles (
@@ -1322,21 +1322,21 @@ CREATE TABLE lcr_profiles (
 );
 
 
-ALTER TABLE public.lcr_profiles OWNER TO freeswitch;
+--ALTER TABLE public.lcr_profiles OWNER TO freeswitch;
 
 --
 -- Name: lcr_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE lcr_profiles_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.lcr_profiles_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.lcr_profiles_id_seq OWNER TO freeswitch;
 
 --
 -- Name: lcr_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1346,7 +1346,7 @@ ALTER SEQUENCE lcr_profiles_id_seq OWNED BY lcr_profiles.id;
 
 
 --
--- Name: lcr_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE lcr_settings (
@@ -1357,21 +1357,21 @@ CREATE TABLE lcr_settings (
 );
 
 
-ALTER TABLE public.lcr_settings OWNER TO freeswitch;
+--ALTER TABLE public.lcr_settings OWNER TO freeswitch;
 
 --
 -- Name: lcr_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE lcr_settings_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.lcr_settings_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.lcr_settings_id_seq OWNER TO freeswitch;
 
 --
 -- Name: lcr_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1381,7 +1381,7 @@ ALTER SEQUENCE lcr_settings_id_seq OWNED BY lcr_settings.id;
 
 
 --
--- Name: limit_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: limit_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE limit_conf (
@@ -1391,21 +1391,21 @@ CREATE TABLE limit_conf (
 );
 
 
-ALTER TABLE public.limit_conf OWNER TO freeswitch;
+--ALTER TABLE public.limit_conf OWNER TO freeswitch;
 
 --
 -- Name: limit_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE limit_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.limit_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.limit_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: limit_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1415,7 +1415,7 @@ ALTER SEQUENCE limit_conf_id_seq OWNED BY limit_conf.id;
 
 
 --
--- Name: limit_data; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: limit_data; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE limit_data (
@@ -1426,10 +1426,10 @@ CREATE TABLE limit_data (
 );
 
 
-ALTER TABLE public.limit_data OWNER TO freeswitch;
+--ALTER TABLE public.limit_data OWNER TO freeswitch;
 
 --
--- Name: local_stream_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: local_stream_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE local_stream_conf (
@@ -1441,21 +1441,21 @@ CREATE TABLE local_stream_conf (
 );
 
 
-ALTER TABLE public.local_stream_conf OWNER TO freeswitch;
+--ALTER TABLE public.local_stream_conf OWNER TO freeswitch;
 
 --
 -- Name: local_stream_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE local_stream_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.local_stream_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.local_stream_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: local_stream_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1465,7 +1465,7 @@ ALTER SEQUENCE local_stream_conf_id_seq OWNED BY local_stream_conf.id;
 
 
 --
--- Name: modless_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: modless_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE modless_conf (
@@ -1474,21 +1474,21 @@ CREATE TABLE modless_conf (
 );
 
 
-ALTER TABLE public.modless_conf OWNER TO freeswitch;
+--ALTER TABLE public.modless_conf OWNER TO freeswitch;
 
 --
 -- Name: modless_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE modless_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.modless_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.modless_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: modless_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1498,7 +1498,7 @@ ALTER SEQUENCE modless_conf_id_seq OWNED BY modless_conf.id;
 
 
 --
--- Name: npa_nxx_company_ocn; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: npa_nxx_company_ocn; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE npa_nxx_company_ocn (
@@ -1513,10 +1513,10 @@ CREATE TABLE npa_nxx_company_ocn (
 );
 
 
-ALTER TABLE public.npa_nxx_company_ocn OWNER TO freeswitch;
+--ALTER TABLE public.npa_nxx_company_ocn OWNER TO freeswitch;
 
 --
--- Name: post_load_modules_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: post_load_modules_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE post_load_modules_conf (
@@ -1527,21 +1527,21 @@ CREATE TABLE post_load_modules_conf (
 );
 
 
-ALTER TABLE public.post_load_modules_conf OWNER TO freeswitch;
+--ALTER TABLE public.post_load_modules_conf OWNER TO freeswitch;
 
 --
 -- Name: post_load_modules_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE post_load_modules_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.post_load_modules_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.post_load_modules_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: post_load_modules_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1551,7 +1551,7 @@ ALTER SEQUENCE post_load_modules_conf_id_seq OWNED BY post_load_modules_conf.id;
 
 
 --
--- Name: rss_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: rss_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE rss_conf (
@@ -1564,21 +1564,21 @@ CREATE TABLE rss_conf (
 );
 
 
-ALTER TABLE public.rss_conf OWNER TO freeswitch;
+--ALTER TABLE public.rss_conf OWNER TO freeswitch;
 
 --
 -- Name: rss_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE rss_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.rss_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.rss_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: rss_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1588,7 +1588,7 @@ ALTER SEQUENCE rss_conf_id_seq OWNED BY rss_conf.id;
 
 
 --
--- Name: sip_authentication; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sip_authentication; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sip_authentication (
@@ -1599,10 +1599,10 @@ CREATE TABLE sip_authentication (
 );
 
 
-ALTER TABLE public.sip_authentication OWNER TO freeswitch;
+--ALTER TABLE public.sip_authentication OWNER TO freeswitch;
 
 --
--- Name: sip_dialogs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sip_dialogs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sip_dialogs (
@@ -1622,10 +1622,10 @@ CREATE TABLE sip_dialogs (
 );
 
 
-ALTER TABLE public.sip_dialogs OWNER TO freeswitch;
+--ALTER TABLE public.sip_dialogs OWNER TO freeswitch;
 
 --
--- Name: sip_presence; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sip_presence; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sip_presence (
@@ -1642,10 +1642,10 @@ CREATE TABLE sip_presence (
 );
 
 
-ALTER TABLE public.sip_presence OWNER TO freeswitch;
+--ALTER TABLE public.sip_presence OWNER TO freeswitch;
 
 --
--- Name: sip_registrations; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sip_registrations; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sip_registrations (
@@ -1671,10 +1671,10 @@ CREATE TABLE sip_registrations (
 );
 
 
-ALTER TABLE public.sip_registrations OWNER TO freeswitch;
+--ALTER TABLE public.sip_registrations OWNER TO freeswitch;
 
 --
--- Name: sip_shared_appearance_dialogs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sip_shared_appearance_dialogs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sip_shared_appearance_dialogs (
@@ -1687,10 +1687,10 @@ CREATE TABLE sip_shared_appearance_dialogs (
 );
 
 
-ALTER TABLE public.sip_shared_appearance_dialogs OWNER TO freeswitch;
+--ALTER TABLE public.sip_shared_appearance_dialogs OWNER TO freeswitch;
 
 --
--- Name: sip_shared_appearance_subscriptions; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sip_shared_appearance_subscriptions; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sip_shared_appearance_subscriptions (
@@ -1704,10 +1704,10 @@ CREATE TABLE sip_shared_appearance_subscriptions (
 );
 
 
-ALTER TABLE public.sip_shared_appearance_subscriptions OWNER TO freeswitch;
+--ALTER TABLE public.sip_shared_appearance_subscriptions OWNER TO freeswitch;
 
 --
--- Name: sip_subscriptions; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sip_subscriptions; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sip_subscriptions (
@@ -1732,10 +1732,10 @@ CREATE TABLE sip_subscriptions (
 );
 
 
-ALTER TABLE public.sip_subscriptions OWNER TO freeswitch;
+--ALTER TABLE public.sip_subscriptions OWNER TO freeswitch;
 
 --
--- Name: sofia_aliases; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_aliases; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sofia_aliases (
@@ -1745,21 +1745,21 @@ CREATE TABLE sofia_aliases (
 );
 
 
-ALTER TABLE public.sofia_aliases OWNER TO freeswitch;
+--ALTER TABLE public.sofia_aliases OWNER TO freeswitch;
 
 --
 -- Name: sofia_aliases_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE sofia_aliases_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.sofia_aliases_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.sofia_aliases_id_seq OWNER TO freeswitch;
 
 --
 -- Name: sofia_aliases_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1769,7 +1769,7 @@ ALTER SEQUENCE sofia_aliases_id_seq OWNED BY sofia_aliases.id;
 
 
 --
--- Name: sofia_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sofia_conf (
@@ -1778,21 +1778,21 @@ CREATE TABLE sofia_conf (
 );
 
 
-ALTER TABLE public.sofia_conf OWNER TO freeswitch;
+--ALTER TABLE public.sofia_conf OWNER TO freeswitch;
 
 --
 -- Name: sofia_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE sofia_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.sofia_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.sofia_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: sofia_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1802,7 +1802,7 @@ ALTER SEQUENCE sofia_conf_id_seq OWNED BY sofia_conf.id;
 
 
 --
--- Name: sofia_domains; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_domains; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sofia_domains (
@@ -1813,21 +1813,21 @@ CREATE TABLE sofia_domains (
 );
 
 
-ALTER TABLE public.sofia_domains OWNER TO freeswitch;
+--ALTER TABLE public.sofia_domains OWNER TO freeswitch;
 
 --
 -- Name: sofia_domains_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE sofia_domains_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.sofia_domains_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.sofia_domains_id_seq OWNER TO freeswitch;
 
 --
 -- Name: sofia_domains_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1837,7 +1837,7 @@ ALTER SEQUENCE sofia_domains_id_seq OWNED BY sofia_domains.id;
 
 
 --
--- Name: sofia_gateways; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_gateways; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sofia_gateways (
@@ -1849,21 +1849,21 @@ CREATE TABLE sofia_gateways (
 );
 
 
-ALTER TABLE public.sofia_gateways OWNER TO freeswitch;
+--ALTER TABLE public.sofia_gateways OWNER TO freeswitch;
 
 --
 -- Name: sofia_gateways_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE sofia_gateways_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.sofia_gateways_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.sofia_gateways_id_seq OWNER TO freeswitch;
 
 --
 -- Name: sofia_gateways_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1873,7 +1873,7 @@ ALTER SEQUENCE sofia_gateways_id_seq OWNED BY sofia_gateways.id;
 
 
 --
--- Name: sofia_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE sofia_settings (
@@ -1884,21 +1884,21 @@ CREATE TABLE sofia_settings (
 );
 
 
-ALTER TABLE public.sofia_settings OWNER TO freeswitch;
+--ALTER TABLE public.sofia_settings OWNER TO freeswitch;
 
 --
 -- Name: sofia_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE sofia_settings_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.sofia_settings_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.sofia_settings_id_seq OWNER TO freeswitch;
 
 --
 -- Name: sofia_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1908,7 +1908,7 @@ ALTER SEQUENCE sofia_settings_id_seq OWNED BY sofia_settings.id;
 
 
 --
--- Name: voicemail_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_conf; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE voicemail_conf (
@@ -1917,21 +1917,21 @@ CREATE TABLE voicemail_conf (
 );
 
 
-ALTER TABLE public.voicemail_conf OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_conf OWNER TO freeswitch;
 
 --
 -- Name: voicemail_conf_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE voicemail_conf_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.voicemail_conf_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_conf_id_seq OWNER TO freeswitch;
 
 --
 -- Name: voicemail_conf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1941,7 +1941,7 @@ ALTER SEQUENCE voicemail_conf_id_seq OWNED BY voicemail_conf.id;
 
 
 --
--- Name: voicemail_email; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_email; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE voicemail_email (
@@ -1952,21 +1952,21 @@ CREATE TABLE voicemail_email (
 );
 
 
-ALTER TABLE public.voicemail_email OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_email OWNER TO freeswitch;
 
 --
 -- Name: voicemail_email_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE voicemail_email_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.voicemail_email_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_email_id_seq OWNER TO freeswitch;
 
 --
 -- Name: voicemail_email_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -1976,7 +1976,7 @@ ALTER SEQUENCE voicemail_email_id_seq OWNED BY voicemail_email.id;
 
 
 --
--- Name: voicemail_msgs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_msgs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE voicemail_msgs (
@@ -1995,10 +1995,10 @@ CREATE TABLE voicemail_msgs (
 );
 
 
-ALTER TABLE public.voicemail_msgs OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_msgs OWNER TO freeswitch;
 
 --
--- Name: voicemail_prefs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_prefs; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE voicemail_prefs (
@@ -2010,10 +2010,10 @@ CREATE TABLE voicemail_prefs (
 );
 
 
-ALTER TABLE public.voicemail_prefs OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_prefs OWNER TO freeswitch;
 
 --
--- Name: voicemail_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_settings; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE TABLE voicemail_settings (
@@ -2024,21 +2024,21 @@ CREATE TABLE voicemail_settings (
 );
 
 
-ALTER TABLE public.voicemail_settings OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_settings OWNER TO freeswitch;
 
 --
 -- Name: voicemail_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
 --
 
 CREATE SEQUENCE voicemail_settings_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+START WITH 1
+INCREMENT BY 1
+NO MINVALUE
+NO MAXVALUE
+CACHE 1;
 
 
-ALTER TABLE public.voicemail_settings_id_seq OWNER TO freeswitch;
+--ALTER TABLE public.voicemail_settings_id_seq OWNER TO freeswitch;
 
 --
 -- Name: voicemail_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
@@ -3289,1014 +3289,1014 @@ ALTER TABLE ONLY voicemail_settings ALTER COLUMN id SET DEFAULT nextval('voicema
 
 
 --
--- Name: acl_lists_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: acl_lists_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY acl_lists
-    ADD CONSTRAINT acl_lists_pkey PRIMARY KEY (id);
+ADD CONSTRAINT acl_lists_pkey PRIMARY KEY (id);
 
 
 --
--- Name: acl_nodes_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: acl_nodes_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY acl_nodes
-    ADD CONSTRAINT acl_nodes_pkey PRIMARY KEY (id);
+ADD CONSTRAINT acl_nodes_pkey PRIMARY KEY (id);
 
 
 --
--- Name: carrier_gateway_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: carrier_gateway_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY carrier_gateway
-    ADD CONSTRAINT carrier_gateway_pkey PRIMARY KEY (id);
+ADD CONSTRAINT carrier_gateway_pkey PRIMARY KEY (id);
 
 
 --
--- Name: carriers_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: carriers_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY carriers
-    ADD CONSTRAINT carriers_pkey PRIMARY KEY (id);
+ADD CONSTRAINT carriers_pkey PRIMARY KEY (id);
 
 
 --
--- Name: cdr_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: cdr_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY cdr
-    ADD CONSTRAINT cdr_pkey PRIMARY KEY (id);
+ADD CONSTRAINT cdr_pkey PRIMARY KEY (id);
 
 
 --
--- Name: conference_advertise_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: conference_advertise_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY conference_advertise
-    ADD CONSTRAINT conference_advertise_pkey PRIMARY KEY (id);
+ADD CONSTRAINT conference_advertise_pkey PRIMARY KEY (id);
 
 
 --
--- Name: conference_controls_conf_group_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY conference_controls
-    ADD CONSTRAINT conference_controls_conf_group_key UNIQUE (conf_group, action);
-
-
---
--- Name: conference_controls_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: conference_controls_conf_group_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY conference_controls
-    ADD CONSTRAINT conference_controls_pkey PRIMARY KEY (id);
+ADD CONSTRAINT conference_controls_conf_group_key UNIQUE (conf_group, action);
 
 
 --
--- Name: conference_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: conference_controls_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY conference_controls
+ADD CONSTRAINT conference_controls_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: conference_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY conference_profiles
-    ADD CONSTRAINT conference_profiles_pkey PRIMARY KEY (id);
+ADD CONSTRAINT conference_profiles_pkey PRIMARY KEY (id);
 
 
 --
--- Name: conference_profiles_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: conference_profiles_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY conference_profiles
-    ADD CONSTRAINT conference_profiles_profile_name_key UNIQUE (profile_name, param_name);
+ADD CONSTRAINT conference_profiles_profile_name_key UNIQUE (profile_name, param_name);
 
 
 --
--- Name: dialplan_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dialplan_actions
-    ADD CONSTRAINT dialplan_actions_pkey PRIMARY KEY (action_id);
+ADD CONSTRAINT dialplan_actions_pkey PRIMARY KEY (action_id);
 
 
 --
--- Name: dialplan_condition_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_condition_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dialplan_condition
-    ADD CONSTRAINT dialplan_condition_pkey PRIMARY KEY (condition_id);
+ADD CONSTRAINT dialplan_condition_pkey PRIMARY KEY (condition_id);
 
 
 --
--- Name: dialplan_context_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_context_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dialplan_context
-    ADD CONSTRAINT dialplan_context_pkey PRIMARY KEY (context_id);
+ADD CONSTRAINT dialplan_context_pkey PRIMARY KEY (context_id);
 
 
 --
--- Name: dialplan_extension_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_extension_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dialplan_extension
-    ADD CONSTRAINT dialplan_extension_pkey PRIMARY KEY (extension_id);
+ADD CONSTRAINT dialplan_extension_pkey PRIMARY KEY (extension_id);
 
 
 --
--- Name: dialplan_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dialplan
-    ADD CONSTRAINT dialplan_pkey PRIMARY KEY (dialplan_id);
+ADD CONSTRAINT dialplan_pkey PRIMARY KEY (dialplan_id);
 
 
 --
--- Name: dialplan_special_context_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY dialplan_special
-    ADD CONSTRAINT dialplan_special_context_key UNIQUE (context);
-
-
---
--- Name: dialplan_special_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_special_context_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dialplan_special
-    ADD CONSTRAINT dialplan_special_pkey PRIMARY KEY (id);
+ADD CONSTRAINT dialplan_special_context_key UNIQUE (context);
 
 
 --
--- Name: dingaling_profile_params_dingaling_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dialplan_special_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY dialplan_special
+ADD CONSTRAINT dialplan_special_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: dingaling_profile_params_dingaling_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dingaling_profile_params
-    ADD CONSTRAINT dingaling_profile_params_dingaling_id_key UNIQUE (dingaling_id, param_name);
+ADD CONSTRAINT dingaling_profile_params_dingaling_id_key UNIQUE (dingaling_id, param_name);
 
 
 --
--- Name: dingaling_profile_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dingaling_profile_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dingaling_profile_params
-    ADD CONSTRAINT dingaling_profile_params_pkey PRIMARY KEY (id);
+ADD CONSTRAINT dingaling_profile_params_pkey PRIMARY KEY (id);
 
 
 --
--- Name: dingaling_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY dingaling_profiles
-    ADD CONSTRAINT dingaling_profiles_pkey PRIMARY KEY (id);
-
-
---
--- Name: dingaling_profiles_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dingaling_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dingaling_profiles
-    ADD CONSTRAINT dingaling_profiles_profile_name_key UNIQUE (profile_name);
+ADD CONSTRAINT dingaling_profiles_pkey PRIMARY KEY (id);
 
 
 --
--- Name: dingaling_settings_param_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dingaling_profiles_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY dingaling_profiles
+ADD CONSTRAINT dingaling_profiles_profile_name_key UNIQUE (profile_name);
+
+
+--
+-- Name: dingaling_settings_param_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dingaling_settings
-    ADD CONSTRAINT dingaling_settings_param_name_key UNIQUE (param_name);
+ADD CONSTRAINT dingaling_settings_param_name_key UNIQUE (param_name);
 
 
 --
--- Name: dingaling_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: dingaling_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY dingaling_settings
-    ADD CONSTRAINT dingaling_settings_pkey PRIMARY KEY (id);
+ADD CONSTRAINT dingaling_settings_pkey PRIMARY KEY (id);
 
 
 --
--- Name: directory_domains_domain_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY directory_domains
-    ADD CONSTRAINT directory_domains_domain_name_key UNIQUE (domain_name);
-
-
---
--- Name: directory_domains_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_domains_domain_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_domains
-    ADD CONSTRAINT directory_domains_pkey PRIMARY KEY (id);
+ADD CONSTRAINT directory_domains_domain_name_key UNIQUE (domain_name);
 
 
 --
--- Name: directory_gateway_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_domains_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY directory_domains
+ADD CONSTRAINT directory_domains_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: directory_gateway_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_gateway_params
-    ADD CONSTRAINT directory_gateway_params_pkey PRIMARY KEY (id);
+ADD CONSTRAINT directory_gateway_params_pkey PRIMARY KEY (id);
 
 
 --
--- Name: directory_gateways_gateway_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY directory_gateways
-    ADD CONSTRAINT directory_gateways_gateway_name_key UNIQUE (gateway_name);
-
-
---
--- Name: directory_gateways_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_gateways_gateway_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_gateways
-    ADD CONSTRAINT directory_gateways_pkey PRIMARY KEY (id);
+ADD CONSTRAINT directory_gateways_gateway_name_key UNIQUE (gateway_name);
 
 
 --
--- Name: directory_global_params_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_gateways_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY directory_gateways
+ADD CONSTRAINT directory_gateways_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: directory_global_params_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_global_params
-    ADD CONSTRAINT directory_global_params_directory_id_key UNIQUE (domain_id, param_name);
+ADD CONSTRAINT directory_global_params_directory_id_key UNIQUE (domain_id, param_name);
 
 
 --
--- Name: directory_global_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_global_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_global_params
-    ADD CONSTRAINT directory_global_params_pkey PRIMARY KEY (id);
+ADD CONSTRAINT directory_global_params_pkey PRIMARY KEY (id);
 
 
 --
--- Name: directory_global_vars_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY directory_global_vars
-    ADD CONSTRAINT directory_global_vars_directory_id_key UNIQUE (domain_id, var_name);
-
-
---
--- Name: directory_global_vars_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_global_vars_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_global_vars
-    ADD CONSTRAINT directory_global_vars_pkey PRIMARY KEY (id);
+ADD CONSTRAINT directory_global_vars_directory_id_key UNIQUE (domain_id, var_name);
 
 
 --
--- Name: directory_group_user_map_group_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_global_vars_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY directory_global_vars
+ADD CONSTRAINT directory_global_vars_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: directory_group_user_map_group_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_group_user_map
-    ADD CONSTRAINT directory_group_user_map_group_id_key UNIQUE (group_id, user_id);
+ADD CONSTRAINT directory_group_user_map_group_id_key UNIQUE (group_id, user_id);
 
 
 --
--- Name: directory_group_user_map_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_group_user_map_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_group_user_map
-    ADD CONSTRAINT directory_group_user_map_pkey PRIMARY KEY (map_id);
+ADD CONSTRAINT directory_group_user_map_pkey PRIMARY KEY (map_id);
 
 
 --
--- Name: directory_groups_group_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY directory_groups
-    ADD CONSTRAINT directory_groups_group_name_key UNIQUE (group_name);
-
-
---
--- Name: directory_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_groups_group_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_groups
-    ADD CONSTRAINT directory_groups_pkey PRIMARY KEY (group_id);
+ADD CONSTRAINT directory_groups_group_name_key UNIQUE (group_name);
 
 
 --
--- Name: directory_params_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY directory_groups
+ADD CONSTRAINT directory_groups_pkey PRIMARY KEY (group_id);
+
+
+--
+-- Name: directory_params_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_params
-    ADD CONSTRAINT directory_params_directory_id_key UNIQUE (directory_id, param_name);
+ADD CONSTRAINT directory_params_directory_id_key UNIQUE (directory_id, param_name);
 
 
 --
--- Name: directory_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_params_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_params
-    ADD CONSTRAINT directory_params_pkey PRIMARY KEY (id);
+ADD CONSTRAINT directory_params_pkey PRIMARY KEY (id);
 
 
 --
--- Name: directory_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY directory
-    ADD CONSTRAINT directory_pkey PRIMARY KEY (id);
-
-
---
--- Name: directory_username_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory
-    ADD CONSTRAINT directory_username_key UNIQUE (username, domain_id);
+ADD CONSTRAINT directory_pkey PRIMARY KEY (id);
 
 
 --
--- Name: directory_vars_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_username_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY directory
+ADD CONSTRAINT directory_username_key UNIQUE (username, domain_id);
+
+
+--
+-- Name: directory_vars_directory_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_vars
-    ADD CONSTRAINT directory_vars_directory_id_key UNIQUE (directory_id, var_name);
+ADD CONSTRAINT directory_vars_directory_id_key UNIQUE (directory_id, var_name);
 
 
 --
--- Name: directory_vars_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: directory_vars_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY directory_vars
-    ADD CONSTRAINT directory_vars_pkey PRIMARY KEY (id);
+ADD CONSTRAINT directory_vars_pkey PRIMARY KEY (id);
 
 
 --
--- Name: easyroute_conf_param_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY easyroute_conf
-    ADD CONSTRAINT easyroute_conf_param_name_key UNIQUE (param_name);
-
-
---
--- Name: easyroute_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: easyroute_conf_param_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY easyroute_conf
-    ADD CONSTRAINT easyroute_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT easyroute_conf_param_name_key UNIQUE (param_name);
 
 
 --
--- Name: easyroute_data_destination_number_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: easyroute_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY easyroute_conf
+ADD CONSTRAINT easyroute_conf_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: easyroute_data_destination_number_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY easyroute_data
-    ADD CONSTRAINT easyroute_data_destination_number_key UNIQUE (destination_number);
+ADD CONSTRAINT easyroute_data_destination_number_key UNIQUE (destination_number);
 
 
 --
--- Name: easyroute_data_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: easyroute_data_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY easyroute_data
-    ADD CONSTRAINT easyroute_data_pkey PRIMARY KEY (id);
+ADD CONSTRAINT easyroute_data_pkey PRIMARY KEY (id);
 
 
 --
--- Name: iax_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY iax_conf
-    ADD CONSTRAINT iax_conf_pkey PRIMARY KEY (id);
-
-
---
--- Name: iax_conf_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: iax_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY iax_conf
-    ADD CONSTRAINT iax_conf_profile_name_key UNIQUE (profile_name);
+ADD CONSTRAINT iax_conf_pkey PRIMARY KEY (id);
 
 
 --
--- Name: iax_settings_iax_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: iax_conf_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY iax_conf
+ADD CONSTRAINT iax_conf_profile_name_key UNIQUE (profile_name);
+
+
+--
+-- Name: iax_settings_iax_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY iax_settings
-    ADD CONSTRAINT iax_settings_iax_id_key UNIQUE (iax_id, param_name);
+ADD CONSTRAINT iax_settings_iax_id_key UNIQUE (iax_id, param_name);
 
 
 --
--- Name: iax_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: iax_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY iax_settings
-    ADD CONSTRAINT iax_settings_pkey PRIMARY KEY (id);
+ADD CONSTRAINT iax_settings_pkey PRIMARY KEY (id);
 
 
 --
--- Name: ivr_conf_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY ivr_conf
-    ADD CONSTRAINT ivr_conf_name_key UNIQUE (name);
-
-
---
--- Name: ivr_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ivr_conf_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY ivr_conf
-    ADD CONSTRAINT ivr_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT ivr_conf_name_key UNIQUE (name);
 
 
 --
--- Name: ivr_entries_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ivr_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY ivr_conf
+ADD CONSTRAINT ivr_conf_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: ivr_entries_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY ivr_entries
-    ADD CONSTRAINT ivr_entries_pkey PRIMARY KEY (id);
+ADD CONSTRAINT ivr_entries_pkey PRIMARY KEY (id);
 
 
 --
--- Name: lcr_conf_param_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY lcr_conf
-    ADD CONSTRAINT lcr_conf_param_name_key UNIQUE (param_name);
-
-
---
--- Name: lcr_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_conf_param_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY lcr_conf
-    ADD CONSTRAINT lcr_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT lcr_conf_param_name_key UNIQUE (param_name);
 
 
 --
--- Name: lcr_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY lcr_conf
+ADD CONSTRAINT lcr_conf_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: lcr_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY lcr
-    ADD CONSTRAINT lcr_pkey PRIMARY KEY (id);
+ADD CONSTRAINT lcr_pkey PRIMARY KEY (id);
 
 
 --
--- Name: lcr_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY lcr_profiles
-    ADD CONSTRAINT lcr_profiles_pkey PRIMARY KEY (id);
-
-
---
--- Name: lcr_profiles_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY lcr_profiles
-    ADD CONSTRAINT lcr_profiles_profile_name_key UNIQUE (profile_name);
+ADD CONSTRAINT lcr_profiles_pkey PRIMARY KEY (id);
 
 
 --
--- Name: lcr_settings_lcr_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_profiles_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY lcr_profiles
+ADD CONSTRAINT lcr_profiles_profile_name_key UNIQUE (profile_name);
+
+
+--
+-- Name: lcr_settings_lcr_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY lcr_settings
-    ADD CONSTRAINT lcr_settings_lcr_id_key UNIQUE (lcr_id, param_name);
+ADD CONSTRAINT lcr_settings_lcr_id_key UNIQUE (lcr_id, param_name);
 
 
 --
--- Name: lcr_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: lcr_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY lcr_settings
-    ADD CONSTRAINT lcr_settings_pkey PRIMARY KEY (id);
+ADD CONSTRAINT lcr_settings_pkey PRIMARY KEY (id);
 
 
 --
--- Name: limit_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: limit_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY limit_conf
-    ADD CONSTRAINT limit_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT limit_conf_pkey PRIMARY KEY (id);
 
 
 --
--- Name: local_stream_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: local_stream_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY local_stream_conf
-    ADD CONSTRAINT local_stream_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT local_stream_conf_pkey PRIMARY KEY (id);
 
 
 --
--- Name: modless_conf_conf_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY modless_conf
-    ADD CONSTRAINT modless_conf_conf_name_key UNIQUE (conf_name);
-
-
---
--- Name: modless_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: modless_conf_conf_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY modless_conf
-    ADD CONSTRAINT modless_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT modless_conf_conf_name_key UNIQUE (conf_name);
 
 
 --
--- Name: npa_nxx_company_ocn_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: modless_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY modless_conf
+ADD CONSTRAINT modless_conf_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: npa_nxx_company_ocn_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY npa_nxx_company_ocn
-    ADD CONSTRAINT npa_nxx_company_ocn_pkey PRIMARY KEY (npa, nxx);
+ADD CONSTRAINT npa_nxx_company_ocn_pkey PRIMARY KEY (npa, nxx);
 
 
 --
--- Name: post_load_modules_conf_module_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY post_load_modules_conf
-    ADD CONSTRAINT post_load_modules_conf_module_name_key UNIQUE (module_name);
-
-
---
--- Name: post_load_modules_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: post_load_modules_conf_module_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY post_load_modules_conf
-    ADD CONSTRAINT post_load_modules_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT post_load_modules_conf_module_name_key UNIQUE (module_name);
 
 
 --
--- Name: rss_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: post_load_modules_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY post_load_modules_conf
+ADD CONSTRAINT post_load_modules_conf_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rss_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY rss_conf
-    ADD CONSTRAINT rss_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT rss_conf_pkey PRIMARY KEY (id);
 
 
 --
--- Name: sofia_aliases_alias_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY sofia_aliases
-    ADD CONSTRAINT sofia_aliases_alias_name_key UNIQUE (alias_name);
-
-
---
--- Name: sofia_aliases_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_aliases_alias_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY sofia_aliases
-    ADD CONSTRAINT sofia_aliases_pkey PRIMARY KEY (id);
+ADD CONSTRAINT sofia_aliases_alias_name_key UNIQUE (alias_name);
 
 
 --
--- Name: sofia_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_aliases_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY sofia_aliases
+ADD CONSTRAINT sofia_aliases_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sofia_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY sofia_conf
-    ADD CONSTRAINT sofia_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT sofia_conf_pkey PRIMARY KEY (id);
 
 
 --
--- Name: sofia_conf_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_conf_profile_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY sofia_conf
-    ADD CONSTRAINT sofia_conf_profile_name_key UNIQUE (profile_name);
+ADD CONSTRAINT sofia_conf_profile_name_key UNIQUE (profile_name);
 
 
 --
--- Name: sofia_domains_domain_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY sofia_domains
-    ADD CONSTRAINT sofia_domains_domain_name_key UNIQUE (domain_name);
-
-
---
--- Name: sofia_domains_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_domains_domain_name_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY sofia_domains
-    ADD CONSTRAINT sofia_domains_pkey PRIMARY KEY (id);
+ADD CONSTRAINT sofia_domains_domain_name_key UNIQUE (domain_name);
 
 
 --
--- Name: sofia_gateways_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_domains_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY sofia_domains
+ADD CONSTRAINT sofia_domains_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sofia_gateways_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY sofia_gateways
-    ADD CONSTRAINT sofia_gateways_pkey PRIMARY KEY (id);
+ADD CONSTRAINT sofia_gateways_pkey PRIMARY KEY (id);
 
 
 --
--- Name: sofia_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY sofia_settings
-    ADD CONSTRAINT sofia_settings_pkey PRIMARY KEY (id);
-
-
---
--- Name: sofia_settings_sofia_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY sofia_settings
-    ADD CONSTRAINT sofia_settings_sofia_id_key UNIQUE (sofia_id, param_name);
+ADD CONSTRAINT sofia_settings_pkey PRIMARY KEY (id);
 
 
 --
--- Name: voicemail_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sofia_settings_sofia_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY sofia_settings
+ADD CONSTRAINT sofia_settings_sofia_id_key UNIQUE (sofia_id, param_name);
+
+
+--
+-- Name: voicemail_conf_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY voicemail_conf
-    ADD CONSTRAINT voicemail_conf_pkey PRIMARY KEY (id);
+ADD CONSTRAINT voicemail_conf_pkey PRIMARY KEY (id);
 
 
 --
--- Name: voicemail_conf_vm_profile_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_conf_vm_profile_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY voicemail_conf
-    ADD CONSTRAINT voicemail_conf_vm_profile_key UNIQUE (vm_profile);
+ADD CONSTRAINT voicemail_conf_vm_profile_key UNIQUE (vm_profile);
 
 
 --
--- Name: voicemail_email_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
---
-
-ALTER TABLE ONLY voicemail_email
-    ADD CONSTRAINT voicemail_email_pkey PRIMARY KEY (id);
-
-
---
--- Name: voicemail_email_voicemail_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_email_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY voicemail_email
-    ADD CONSTRAINT voicemail_email_voicemail_id_key UNIQUE (voicemail_id, param_name);
+ADD CONSTRAINT voicemail_email_pkey PRIMARY KEY (id);
 
 
 --
--- Name: voicemail_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_email_voicemail_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY voicemail_email
+ADD CONSTRAINT voicemail_email_voicemail_id_key UNIQUE (voicemail_id, param_name);
+
+
+--
+-- Name: voicemail_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY voicemail_settings
-    ADD CONSTRAINT voicemail_settings_pkey PRIMARY KEY (id);
+ADD CONSTRAINT voicemail_settings_pkey PRIMARY KEY (id);
 
 
 --
--- Name: voicemail_settings_voicemail_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_settings_voicemail_id_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 ALTER TABLE ONLY voicemail_settings
-    ADD CONSTRAINT voicemail_settings_voicemail_id_key UNIQUE (voicemail_id, param_name);
+ADD CONSTRAINT voicemail_settings_voicemail_id_key UNIQUE (voicemail_id, param_name);
 
 
 --
--- Name: digits_rate; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: digits_rate; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX digits_rate ON lcr USING btree (digits, rate);
 
 
 --
--- Name: fki_; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: fki_; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX fki_ ON acl_nodes USING btree (list_id);
 
 
 --
--- Name: fki_lcr_profile; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: fki_lcr_profile; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX fki_lcr_profile ON lcr USING btree (lcr_profile);
 
 
 --
--- Name: gateway; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: gateway; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE UNIQUE INDEX gateway ON carrier_gateway USING btree (prefix, suffix);
 
 
 --
--- Name: profile_digits_15; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: profile_digits_15; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX profile_digits_15 ON lcr USING btree (digits, lcr_profile);
 
 
 --
--- Name: sa_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sa_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sa_hostname ON sip_authentication USING btree (hostname);
 
 
 --
--- Name: sa_nonce; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sa_nonce; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sa_nonce ON sip_authentication USING btree (nonce);
 
 
 --
--- Name: sd_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sd_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sd_hostname ON sip_dialogs USING btree (hostname);
 
 
 --
--- Name: sd_uuid; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sd_uuid; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sd_uuid ON sip_dialogs USING btree (uuid);
 
 
 --
--- Name: sp_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sp_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sp_hostname ON sip_presence USING btree (hostname);
 
 
 --
--- Name: sr_call_id; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_call_id; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_call_id ON sip_registrations USING btree (call_id);
 
 
 --
--- Name: sr_contact; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_contact; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_contact ON sip_registrations USING btree (contact);
 
 
 --
--- Name: sr_expires; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_expires; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_expires ON sip_registrations USING btree (expires);
 
 
 --
--- Name: sr_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_hostname ON sip_registrations USING btree (hostname);
 
 
 --
--- Name: sr_network_ip; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_network_ip; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_network_ip ON sip_registrations USING btree (network_ip);
 
 
 --
--- Name: sr_network_port; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_network_port; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_network_port ON sip_registrations USING btree (network_port);
 
 
 --
--- Name: sr_presence_hosts; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_presence_hosts; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_presence_hosts ON sip_registrations USING btree (presence_hosts);
 
 
 --
--- Name: sr_profile_name; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_profile_name; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_profile_name ON sip_registrations USING btree (profile_name);
 
 
 --
--- Name: sr_sip_host; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_sip_host; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_sip_host ON sip_registrations USING btree (sip_host);
 
 
 --
--- Name: sr_sip_realm; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_sip_realm; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_sip_realm ON sip_registrations USING btree (sip_realm);
 
 
 --
--- Name: sr_sip_user; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_sip_user; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_sip_user ON sip_registrations USING btree (sip_user);
 
 
 --
--- Name: sr_sip_username; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_sip_username; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_sip_username ON sip_registrations USING btree (sip_username);
 
 
 --
--- Name: sr_status; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: sr_status; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX sr_status ON sip_registrations USING btree (status);
 
 
 --
--- Name: ss_call_id; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_call_id; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_call_id ON sip_subscriptions USING btree (call_id);
 
 
 --
--- Name: ss_event; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_event; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_event ON sip_subscriptions USING btree (event);
 
 
 --
--- Name: ss_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_hostname ON sip_subscriptions USING btree (hostname);
 
 
 --
--- Name: ss_presence_hosts; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_presence_hosts; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_presence_hosts ON sip_subscriptions USING btree (presence_hosts);
 
 
 --
--- Name: ss_proto; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_proto; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_proto ON sip_subscriptions USING btree (proto);
 
 
 --
--- Name: ss_sip_host; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_sip_host; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_sip_host ON sip_subscriptions USING btree (sip_host);
 
 
 --
--- Name: ss_sip_user; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_sip_user; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_sip_user ON sip_subscriptions USING btree (sip_user);
 
 
 --
--- Name: ss_sub_to_host; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_sub_to_host; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_sub_to_host ON sip_subscriptions USING btree (sub_to_host);
 
 
 --
--- Name: ss_sub_to_user; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ss_sub_to_user; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ss_sub_to_user ON sip_subscriptions USING btree (sub_to_user);
 
 
 --
--- Name: ssa_aor; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssa_aor; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssa_aor ON sip_shared_appearance_subscriptions USING btree (aor);
 
 
 --
--- Name: ssa_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssa_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssa_hostname ON sip_shared_appearance_subscriptions USING btree (hostname);
 
 
 --
--- Name: ssa_profile_name; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssa_profile_name; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssa_profile_name ON sip_shared_appearance_subscriptions USING btree (profile_name);
 
 
 --
--- Name: ssa_subscriber; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssa_subscriber; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssa_subscriber ON sip_shared_appearance_subscriptions USING btree (subscriber);
 
 
 --
--- Name: ssd_call_id; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssd_call_id; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssd_call_id ON sip_shared_appearance_dialogs USING btree (call_id);
 
 
 --
--- Name: ssd_contact_str; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssd_contact_str; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssd_contact_str ON sip_shared_appearance_dialogs USING btree (contact_str);
 
 
 --
--- Name: ssd_expires; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssd_expires; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssd_expires ON sip_shared_appearance_dialogs USING btree (expires);
 
 
 --
--- Name: ssd_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssd_hostname; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssd_hostname ON sip_shared_appearance_dialogs USING btree (hostname);
 
 
 --
--- Name: ssd_profile_name; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: ssd_profile_name; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX ssd_profile_name ON sip_shared_appearance_dialogs USING btree (profile_name);
 
 
 --
--- Name: unique_route; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: unique_route; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX unique_route ON lcr USING btree (digits, carrier_id);
 
 
 --
--- Name: voicemail_msgs_idx1; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_msgs_idx1; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_msgs_idx1 ON voicemail_msgs USING btree (created_epoch);
 
 
 --
--- Name: voicemail_msgs_idx2; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_msgs_idx2; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_msgs_idx2 ON voicemail_msgs USING btree (username);
 
 
 --
--- Name: voicemail_msgs_idx3; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_msgs_idx3; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_msgs_idx3 ON voicemail_msgs USING btree (domain);
 
 
 --
--- Name: voicemail_msgs_idx4; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_msgs_idx4; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_msgs_idx4 ON voicemail_msgs USING btree (uuid);
 
 
 --
--- Name: voicemail_msgs_idx5; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_msgs_idx5; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_msgs_idx5 ON voicemail_msgs USING btree (in_folder);
 
 
 --
--- Name: voicemail_msgs_idx6; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_msgs_idx6; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_msgs_idx6 ON voicemail_msgs USING btree (read_flags);
 
 
 --
--- Name: voicemail_prefs_idx1; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_prefs_idx1; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_prefs_idx1 ON voicemail_prefs USING btree (username);
 
 
 --
--- Name: voicemail_prefs_idx2; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace: 
+-- Name: voicemail_prefs_idx2; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
 CREATE INDEX voicemail_prefs_idx2 ON voicemail_prefs USING btree (domain);
@@ -4307,7 +4307,7 @@ CREATE INDEX voicemail_prefs_idx2 ON voicemail_prefs USING btree (domain);
 --
 
 ALTER TABLE ONLY acl_nodes
-    ADD CONSTRAINT acl_nodes_list_id_fkey FOREIGN KEY (list_id) REFERENCES acl_lists(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT acl_nodes_list_id_fkey FOREIGN KEY (list_id) REFERENCES acl_lists(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4315,7 +4315,7 @@ ALTER TABLE ONLY acl_nodes
 --
 
 ALTER TABLE ONLY carrier_gateway
-    ADD CONSTRAINT carrier_gateway_carrier_id_fkey FOREIGN KEY (carrier_id) REFERENCES carriers(id);
+ADD CONSTRAINT carrier_gateway_carrier_id_fkey FOREIGN KEY (carrier_id) REFERENCES carriers(id);
 
 
 --
@@ -4323,7 +4323,7 @@ ALTER TABLE ONLY carrier_gateway
 --
 
 ALTER TABLE ONLY dialplan_actions
-    ADD CONSTRAINT dialplan_actions_condition_id_fkey FOREIGN KEY (condition_id) REFERENCES dialplan_condition(condition_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT dialplan_actions_condition_id_fkey FOREIGN KEY (condition_id) REFERENCES dialplan_condition(condition_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4331,7 +4331,7 @@ ALTER TABLE ONLY dialplan_actions
 --
 
 ALTER TABLE ONLY dialplan_condition
-    ADD CONSTRAINT dialplan_condition_extension_id_fkey FOREIGN KEY (extension_id) REFERENCES dialplan_extension(extension_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT dialplan_condition_extension_id_fkey FOREIGN KEY (extension_id) REFERENCES dialplan_extension(extension_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4339,7 +4339,7 @@ ALTER TABLE ONLY dialplan_condition
 --
 
 ALTER TABLE ONLY dialplan_context
-    ADD CONSTRAINT dialplan_context_dialplan_id_fkey FOREIGN KEY (dialplan_id) REFERENCES dialplan(dialplan_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT dialplan_context_dialplan_id_fkey FOREIGN KEY (dialplan_id) REFERENCES dialplan(dialplan_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4347,7 +4347,7 @@ ALTER TABLE ONLY dialplan_context
 --
 
 ALTER TABLE ONLY dialplan_extension
-    ADD CONSTRAINT dialplan_extension_context_id_fkey FOREIGN KEY (context_id) REFERENCES dialplan_context(context_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT dialplan_extension_context_id_fkey FOREIGN KEY (context_id) REFERENCES dialplan_context(context_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4355,7 +4355,7 @@ ALTER TABLE ONLY dialplan_extension
 --
 
 ALTER TABLE ONLY dingaling_profile_params
-    ADD CONSTRAINT dingaling_profile_params_dingaling_id_fkey FOREIGN KEY (dingaling_id) REFERENCES dingaling_profiles(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT dingaling_profile_params_dingaling_id_fkey FOREIGN KEY (dingaling_id) REFERENCES dingaling_profiles(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4363,7 +4363,7 @@ ALTER TABLE ONLY dingaling_profile_params
 --
 
 ALTER TABLE ONLY directory_gateway_params
-    ADD CONSTRAINT directory_gateway_params_d_gw_id_fkey FOREIGN KEY (d_gw_id) REFERENCES directory_gateways(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_gateway_params_d_gw_id_fkey FOREIGN KEY (d_gw_id) REFERENCES directory_gateways(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4371,7 +4371,7 @@ ALTER TABLE ONLY directory_gateway_params
 --
 
 ALTER TABLE ONLY directory_gateways
-    ADD CONSTRAINT directory_gateways_directory_id_fkey FOREIGN KEY (directory_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_gateways_directory_id_fkey FOREIGN KEY (directory_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4379,7 +4379,7 @@ ALTER TABLE ONLY directory_gateways
 --
 
 ALTER TABLE ONLY directory_global_params
-    ADD CONSTRAINT directory_global_params_directory_id_fkey1 FOREIGN KEY (domain_id) REFERENCES directory_domains(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_global_params_directory_id_fkey1 FOREIGN KEY (domain_id) REFERENCES directory_domains(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4387,7 +4387,7 @@ ALTER TABLE ONLY directory_global_params
 --
 
 ALTER TABLE ONLY directory_global_vars
-    ADD CONSTRAINT directory_global_vars_directory_id_fkey1 FOREIGN KEY (domain_id) REFERENCES directory_domains(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_global_vars_directory_id_fkey1 FOREIGN KEY (domain_id) REFERENCES directory_domains(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4395,7 +4395,7 @@ ALTER TABLE ONLY directory_global_vars
 --
 
 ALTER TABLE ONLY directory_group_user_map
-    ADD CONSTRAINT directory_group_user_map_group_id_fkey FOREIGN KEY (group_id) REFERENCES directory_groups(group_id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_group_user_map_group_id_fkey FOREIGN KEY (group_id) REFERENCES directory_groups(group_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4403,7 +4403,7 @@ ALTER TABLE ONLY directory_group_user_map
 --
 
 ALTER TABLE ONLY directory_group_user_map
-    ADD CONSTRAINT directory_group_user_map_user_id_fkey FOREIGN KEY (user_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_group_user_map_user_id_fkey FOREIGN KEY (user_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4411,7 +4411,7 @@ ALTER TABLE ONLY directory_group_user_map
 --
 
 ALTER TABLE ONLY directory_params
-    ADD CONSTRAINT directory_params_directory_id_fkey FOREIGN KEY (directory_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_params_directory_id_fkey FOREIGN KEY (directory_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4419,7 +4419,7 @@ ALTER TABLE ONLY directory_params
 --
 
 ALTER TABLE ONLY directory_vars
-    ADD CONSTRAINT directory_vars_directory_id_fkey FOREIGN KEY (directory_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT directory_vars_directory_id_fkey FOREIGN KEY (directory_id) REFERENCES directory(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4427,7 +4427,7 @@ ALTER TABLE ONLY directory_vars
 --
 
 ALTER TABLE ONLY iax_settings
-    ADD CONSTRAINT iax_settings_iax_id_fkey FOREIGN KEY (iax_id) REFERENCES iax_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT iax_settings_iax_id_fkey FOREIGN KEY (iax_id) REFERENCES iax_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4435,7 +4435,7 @@ ALTER TABLE ONLY iax_settings
 --
 
 ALTER TABLE ONLY ivr_entries
-    ADD CONSTRAINT ivr_entries_ivr_id_fkey FOREIGN KEY (ivr_id) REFERENCES ivr_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT ivr_entries_ivr_id_fkey FOREIGN KEY (ivr_id) REFERENCES ivr_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4443,7 +4443,7 @@ ALTER TABLE ONLY ivr_entries
 --
 
 ALTER TABLE ONLY lcr
-    ADD CONSTRAINT lcr_carrier_id_fkey FOREIGN KEY (carrier_id) REFERENCES carriers(id);
+ADD CONSTRAINT lcr_carrier_id_fkey FOREIGN KEY (carrier_id) REFERENCES carriers(id);
 
 
 --
@@ -4451,7 +4451,7 @@ ALTER TABLE ONLY lcr
 --
 
 ALTER TABLE ONLY lcr
-    ADD CONSTRAINT lcr_profile FOREIGN KEY (lcr_profile) REFERENCES lcr_profiles(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT lcr_profile FOREIGN KEY (lcr_profile) REFERENCES lcr_profiles(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4459,7 +4459,7 @@ ALTER TABLE ONLY lcr
 --
 
 ALTER TABLE ONLY lcr_settings
-    ADD CONSTRAINT lcr_settings_lcr_id_fkey FOREIGN KEY (lcr_id) REFERENCES lcr_profiles(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT lcr_settings_lcr_id_fkey FOREIGN KEY (lcr_id) REFERENCES lcr_profiles(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4467,7 +4467,7 @@ ALTER TABLE ONLY lcr_settings
 --
 
 ALTER TABLE ONLY sofia_aliases
-    ADD CONSTRAINT sofia_aliases_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT sofia_aliases_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4475,7 +4475,7 @@ ALTER TABLE ONLY sofia_aliases
 --
 
 ALTER TABLE ONLY sofia_domains
-    ADD CONSTRAINT sofia_domains_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT sofia_domains_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4483,7 +4483,7 @@ ALTER TABLE ONLY sofia_domains
 --
 
 ALTER TABLE ONLY sofia_gateways
-    ADD CONSTRAINT sofia_gateways_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT sofia_gateways_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4491,7 +4491,7 @@ ALTER TABLE ONLY sofia_gateways
 --
 
 ALTER TABLE ONLY sofia_settings
-    ADD CONSTRAINT sofia_settings_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT sofia_settings_sofia_id_fkey FOREIGN KEY (sofia_id) REFERENCES sofia_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4499,7 +4499,7 @@ ALTER TABLE ONLY sofia_settings
 --
 
 ALTER TABLE ONLY voicemail_email
-    ADD CONSTRAINT voicemail_email_voicemail_id_fkey FOREIGN KEY (voicemail_id) REFERENCES voicemail_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT voicemail_email_voicemail_id_fkey FOREIGN KEY (voicemail_id) REFERENCES voicemail_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
@@ -4507,7 +4507,7 @@ ALTER TABLE ONLY voicemail_email
 --
 
 ALTER TABLE ONLY voicemail_settings
-    ADD CONSTRAINT voicemail_settings_voicemail_id_fkey FOREIGN KEY (voicemail_id) REFERENCES voicemail_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ADD CONSTRAINT voicemail_settings_voicemail_id_fkey FOREIGN KEY (voicemail_id) REFERENCES voicemail_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
