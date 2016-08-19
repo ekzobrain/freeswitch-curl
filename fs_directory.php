@@ -416,12 +416,21 @@ class fs_directory extends fs_curl
 
 			$this->xmlw->startElement('user');
 			$this->xmlw->writeAttribute('id', $entry['username']);
-			if ($entry['number_alias']) {
+
+            // https://freeswitch.org/confluence/display/FREESWITCH/XML+User+Directory#XMLUserDirectory-Alphanumerictonumericusermapping
+            if ($entry['number_alias'] && $entry['number_alias'] != $entry['username']) {
                 $this->xmlw->writeAttribute('number-alias', $entry['number_alias']);
             }
-            if ($entry['cache'] > 0) {
-                $this->xmlw->writeAttribute('cacheable', $entry['cache']);
+
+            // https://freeswitch.org/confluence/display/FREESWITCH/mod_xml_curl#mod_xml_curl-Caching
+            if ($entry['cache'] == -1) {
+                $cache = 'true';
+            } else if ($entry['cache'] > 0) {
+                $cache = $entry['cache'];
+            } else {
+                $cache = 'false';
             }
+            $this->xmlw->writeAttribute('cacheable', $cache);
 
 			$this->write_params($entry['id']);
 			$this->write_variables($entry['id']);
