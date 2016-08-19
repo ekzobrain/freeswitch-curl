@@ -93,21 +93,14 @@ class fs_directory extends fs_curl
 			$join_clause   = "JOIN directory_group_user_map dgum ON d.id=dgum.user_id ";
 			$join_clause .= "JOIN directory_groups dg ON dgum.group_id=dg.group_id ";
 		}
-		if (! empty ($where_array)) {
-			if (count($where_array) > 1) {
-				$where_clause = sprintf('WHERE %s', implode(' AND ', $where_array));
-			} else {
-				$where_clause = sprintf('WHERE %s', $where_array[0]);
-			}
-		} else {
-			$where_clause = '';
-		}
-		$query = sprintf("SELECT * FROM directory d %s %s ORDER BY username", $join_clause, $where_clause);
+
+        $where_clause = sprintf('WHERE %s', implode(' AND ', $where_array));
+
+		$query = "SELECT * FROM directory d $join_clause $where_clause ORDER BY username";
 		$this->debug($query);
 		$res = $this->db->queryAll($query);
 		if (FS_PDO::isError($res)) {
 			$this->comment($query);
-			$this->comment($this->db->getMessage());
 			$this->comment($this->db->getMessage());
 			$this->file_not_found();
 		}
@@ -417,21 +410,23 @@ class fs_directory extends fs_curl
 			$this->xmlw->writeAttribute('name', 'default');
 		}
 		$this->xmlw->startElement('users');
-		for ($i = 0; $i < $directory_count; $i ++) {
-			$cacheable = 0;
-			$username  = $directory[$i]['username'];
-			$mailbox   = empty ($directory[$i]['mailbox']) ? $username : $directory[$i]['mailbox'];
-			$this->xmlw->startElement('user');
-			$this->xmlw->writeAttribute('id', $username);
-			if (array_key_exists('cache', $directory[$i])) {
-				$cacheable = $directory[$i]['cache'];
-			}
-			$this->xmlw->writeAttribute('cacheable', $cacheable);
-			$this->xmlw->writeAttribute('mailbox', $mailbox);
 
-			$this->write_params($directory[$i]['id']);
-			$this->write_variables($directory[$i]['id']);
-			$this->write_gateways($directory[$i]['id']);
+		for ($i = 0; $i < $directory_count; $i ++) {
+		    $entry = $directory[$i];
+
+			$this->xmlw->startElement('user');
+			$this->xmlw->writeAttribute('id', $entry['username']);
+			if ($entry['number_alias']) {
+                $this->xmlw->writeAttribute('number-alias', $entry['number_alias']);
+            }
+            if ($entry['cache'] > 0) {
+                $this->xmlw->writeAttribute('cacheable', $entry['cache']);
+            }
+
+			$this->write_params($entry['id']);
+			$this->write_variables($entry['id']);
+			$this->write_gateways($entry['id']);
+
 			$this->xmlw->endElement();
 		}
 		$this->xmlw->endElement(); // </users>

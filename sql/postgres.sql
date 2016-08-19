@@ -676,7 +676,8 @@ CREATE TABLE directory (
     id integer NOT NULL,
     username character varying(256) NOT NULL,
     domain_id integer NOT NULL,
-    cache integer DEFAULT 0 NOT NULL
+    cache integer DEFAULT 0 NOT NULL,
+    number_alias integer DEFAULT NULL
 );
 
 

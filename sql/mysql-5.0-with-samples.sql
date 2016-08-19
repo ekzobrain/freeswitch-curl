@@ -678,6 +678,7 @@ CREATE TABLE IF NOT EXISTS `directory` (
   `username` varchar(255) NOT NULL,
   `domain_id` int(10) NOT NULL,
   `cache` int(10) NOT NULL,
+  `number_alias` int(10) UNSIGNED DEFAULT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 

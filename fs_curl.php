@@ -52,7 +52,7 @@ class fs_curl
 		openlog('fs_curl', LOG_NDELAY | LOG_PID, LOG_USER);
 		header('Content-Type: text/xml');
 		$this->generate_request_array();
-		$this->open_xml();
+        $this->xmlw = $this->open_xml();
 		$inc
 			= ['required' => 'libs/fs_pdo.php']; // include an external file. i.e. 'required'=>'important_file.php'
 		$this->include_files($inc);
@@ -127,25 +127,27 @@ class fs_curl
 	/**
 	 * Actual Instantiation of XMLWriter Object
 	 * This method creates an XMLWriter Object and sets some needed options
-	 * @return void
+     *
+	 * @return XMLWriter
 	 */
 	private function open_xml()
 	{
-		$this->xmlw = new XMLWriter();
-		$this->xmlw->openMemory();
-		if (array_key_exists('fs_curl_debug', $this->request)
-			&& $this->request['fs_curl_debug'] > 0
-		) {
-			$this->xmlw->setIndent(TRUE);
-			$this->xmlw->setIndentString('  ');
+		$xmlw = new XMLWriter();
+		$xmlw->openMemory();
+
+		if (isset($this->request['fs_curl_debug']) && $this->request['fs_curl_debug'] > 0) {
+			$indent = true;
 		} else {
-			$this->xmlw->setIndent(FALSE);
-			$this->xmlw->setIndentString('  ');
+            $indent = false;
 		}
-		$this->xmlw->startDocument('1.0', 'UTF-8', 'no');
-		//set the freeswitch document type
-		$this->xmlw->startElement('document');
-		$this->xmlw->writeAttribute('type', 'freeswitch/xml');
+        $xmlw->setIndent($indent);
+        $xmlw->setIndentString('  ');
+
+		$xmlw->startDocument('1.0', 'UTF-8', 'no');
+		$xmlw->startElement('document');
+		$xmlw->writeAttribute('type', 'freeswitch/xml');
+
+        return $xmlw;
 	}
 
 	/**
@@ -158,14 +160,8 @@ class fs_curl
 	public function file_not_found()
 	{
 		$this->comment('Include Path = ' . ini_get('include_path'));
-		$not_found = new XMLWriter();
-		$not_found->openMemory();
-		$not_found->setIndent(TRUE);
-		$not_found->setIndentString('  ');
-		$not_found->startDocument('1.0', 'UTF-8', 'no');
-		//set the freeswitch document type
-		$not_found->startElement('document');
-		$not_found->writeAttribute('type', 'freeswitch/xml');
+
+        $not_found = $this->open_xml();
 		$not_found->startElement('section');
 		$not_found->writeAttribute('name', 'result');
 		$not_found->startElement('result');
@@ -176,8 +172,9 @@ class fs_curl
 		 * get complaints about markup outside of it */
 		$this->comments2xml($not_found, $this->comments);
 		$not_found->endElement();
+
 		echo $not_found->outputMemory();
-		exit();
+		exit;
 	}
 
 	/**
