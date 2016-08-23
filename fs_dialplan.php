@@ -88,24 +88,25 @@ class fs_dialplan extends fs_curl
     {
         $dp_array = [];
         $dpQuery = sprintf('SELECT
-			%1$scontext%1$s,
-			%1$sname%1$s AS extension,
-			%1$sapplication%1$s AS application_name,
-			%1$sdata%1$s AS application_data,
+			dialplan_context.%1$sname%1$s AS context_name,
+			dialplan_extension.%1$sname%1$s AS extension_name,
+			%1$scontinue%1$s AS extension_continue,
 			%1$sfield%1$s AS condition_field,
 			%1$sexpression%1$s AS condition_expression,
-			%1$scontinue%1$s AS ext_continue,
-			%1$stype%1$s
-		FROM dialplan
-			INNER JOIN dialplan_context USING(dialplan_id)
+			%1$sbreak%1$s AS condition_break,
+			%1$sapplication%1$s AS action_application,
+			%1$sdata%1$s AS action_data,	
+			%1$santi_action%1$s AS action_anti_action,
+			%1$sinline%1$s AS action_inline,
+		FROM dialplan_context
 			INNER JOIN dialplan_extension USING(context_id)
 			INNER JOIN dialplan_condition USING(extension_id)
-			INNER JOIN dialplan_actions USING(condition_id)
-		WHERE CONTEXT = \'%2$s\'
+			LEFT JOIN dialplan_action USING(condition_id)
+		WHERE dialplan_context.%1$sname%1$s = \'%2$s\'
 		ORDER BY dialplan_context.weight,
                  dialplan_extension.weight,
                  dialplan_condition.weight,
-                 dialplan_actions.weight'
+                 dialplan_action.weight'
             , DB_FIELD_QUOTE, $context
         );
         $this->debug($dpQuery);
@@ -118,26 +119,23 @@ class fs_dialplan extends fs_curl
             $this->debug("nothing to do, let's just return not found");
             $this->file_not_found();
         }
-        $condition_number = 0;
+
         while ($row = $res->fetchRow()) {
-            $ct = $row['context'];
-            $et = $row['extension'];
-            $ec = $row['ext_continue'];
-            $app = $row['application_name'];
-            $data = $row['application_data'];
-            //$app_cdata = $row['app_cdata'];
-            $type = $row['type'];
+            $ct = $row['context_name'];
+            $en = $row['extension_name'];
+            $ec = $row['extension_continue'] === null ? '' : $row['extension_continue'] ? 'true' : 'false';
             $cf = $row['condition_field'];
             $ce = $row['condition_expression'];
-            //$rcd = $row['re_cdata'];
-            $cc = empty($row['cond_break']) ? '0' : $row['cond_break'];
-            $dp_array[$ct]["$et;$ec"]["$cf;$ce;$cc"][] = [
-                'type'        => $type,
-                'application' => $app,
-                'data'        => $data,
-                'is_cdata'    => (empty($app_cdata) ? '' : $app_cdata),
+            $cb = $row['condition_break'];
+
+            $dp_array[$ct]["$en;$ec"]["$cf;$ce;$cb"][] = [
+                'anti_action' => $row['action_anti_action'],
+                'application' => $row['action_application'],
+                'data'        => $row['action_data'],
+                'inline'      => $row['action_inline'],
             ];
         }
+
         return $dp_array;
     }
 
@@ -152,89 +150,66 @@ class fs_dialplan extends fs_curl
      */
     private function writeDialplan($dpArray)
     {
-        //print_r($dpArray);
-        if (is_array($dpArray)) {
-            $this->xmlw->startElement('section');
-            $this->xmlw->writeAttribute('name', 'dialplan');
-            $this->xmlw->writeAttribute('description', 'FreeSWITCH Dialplan');
-            //$this -> comment('dpArray is an array');
-            foreach ($dpArray as $context => $extensions_array) {
-                //$this -> comment($context);
-                //start the context
-                $this->xmlw->startElement('context');
-                $this->xmlw->writeAttribute('name', $context);
-                if (is_array($extensions_array)) {
-                    foreach ($extensions_array as $extension => $conditions) {
-                        //start an extension
-                        $ex_split = preg_split('/;/', $extension);
-                        $this->xmlw->startElement('extension');
-                        $this->xmlw->writeAttribute('name', $ex_split[0]);
-                        if (strlen($ex_split[1]) > 0) {
-                            $this->xmlw->writeAttribute('continue', $ex_split[1]);
+
+        $this->xmlw->startElement('section');
+        $this->xmlw->writeAttribute('name', 'dialplan');
+        $this->xmlw->writeAttribute('description', 'FreeSWITCH Dialplan');
+
+        foreach ($dpArray as $context => $extensions) {
+
+            $this->xmlw->startElement('context');
+            $this->xmlw->writeAttribute('name', $context);
+
+            $this->debug($extensions);
+            foreach ($extensions as $extension => $conditions) {
+                $this->xmlw->startElement('extension');
+
+                $ex_split = explode(';', $extension);
+                $this->xmlw->writeAttribute('name', $ex_split[0]);
+                if ($ex_split[1]) {
+                    $this->xmlw->writeAttribute('continue', $ex_split[1]);
+                }
+
+                $this->debug($conditions);
+                foreach ($conditions as $condition => $actions) {
+                    $this->xmlw->startElement('condition');
+
+                    $c_split = explode(';', $condition);
+                    if ($c_split[0]) {
+                        $this->xmlw->writeAttribute('field', $c_split[0]);
+                    }
+                    if ($c_split[1]) {
+                        $this->xmlw->writeAttribute('expression', $c_split[1]);
+                    }
+                    if ($c_split[2]) {
+                        $this->xmlw->writeAttribute('break', $c_split[2]);
+                    }
+
+                    $this->debug($actions);
+                    foreach ($actions as $action) {
+                        if (empty($action['application'])) {
+                            continue;
                         }
-                        $this->debug($conditions);
-                        foreach ($conditions as $condition => $app_array) {
-                            $c_split = preg_split('/;/', $condition);
-                            $this->xmlw->startElement('condition');
-                            if (!empty($c_split[0])) {
-                                $this->xmlw->writeAttribute('field', $c_split[0]);
-                            }
-                            if (!empty($c_split[1])) {
-                                if (array_key_exists(3, $c_split)
-                                    && $c_split[3] == true
-                                ) {
-                                    $this->xmlw->startElement('expression');
-                                    $this->xmlw->writeCdata($c_split[1]);
-                                    $this->xmlw->endElement();
-                                } else {
-                                    $this->xmlw->writeAttribute(
-                                        'expression', $c_split[1]
-                                    );
-                                }
-                            }
-                            //$this -> debug($c_split[2]);
-                            if ($c_split[2] != '0') {
-                                $this->xmlw->writeAttribute(
-                                    'break', $c_split[2]
-                                );
-                            }
-                            //$this -> debug($app_array);
-                            foreach ($app_array as $app) {
-                                if (empty($app['application'])) {
-                                    continue;
-                                }
-                                $this->xmlw->startElement($app['type']);
-                                $this->xmlw->writeAttribute(
-                                    'application', $app['application']
-                                );
-                                if (!empty($app['data'])) {
-                                    if (array_key_exists('is_cdata', $app)
-                                        && $app['is_cdata'] == true
-                                    ) {
-                                        $this->xmlw->writeCdata($app['data']);
-                                    } else {
-                                        $this->xmlw->writeAttribute(
-                                            'data', $app['data']
-                                        );
-                                    }
-                                }
-                                if ($app['application'] == 'set') {
-                                    $this->xmlw->writeAttribute('inline', 'true');
-                                }
-                                $this->xmlw->endElement();
-                            }
-                            //</condition>
-                            $this->xmlw->endElement();
+                        $this->xmlw->startElement($action['anti_action'] ? 'anti-action' : 'action');
+                        $this->xmlw->writeAttribute('application', $action['application']);
+                        if ($action['data'] !== null) {
+                            $this->xmlw->writeAttribute('data', $action['data']);
                         }
-                        // </extension>
+                        if ($action['inline'] !== null && $action['application'] == 'set') {
+                            $this->xmlw->writeAttribute('inline', $action['inline'] ? 'true' : 'false');
+                        }
                         $this->xmlw->endElement();
                     }
+                    //</condition>
+                    $this->xmlw->endElement();
                 }
-                // </context>
+                // </extension>
                 $this->xmlw->endElement();
             }
-            // </section>
+            // </context>
             $this->xmlw->endElement();
         }
+        // </section>
+        $this->xmlw->endElement();
     }
 }
