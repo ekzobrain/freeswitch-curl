@@ -493,7 +493,8 @@ CREATE TABLE IF NOT EXISTS `dialplan_context` (
   `dialplan_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `weight` int(11) NOT NULL,
-  PRIMARY KEY  (`context_id`)
+  PRIMARY KEY  (`context_id`),
+  KEY (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --

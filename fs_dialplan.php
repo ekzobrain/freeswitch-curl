@@ -135,6 +135,7 @@ class fs_dialplan extends fs_curl
                 'inline'      => $row['action_inline'],
             ];
         }
+        $this->debug($dp_array);
 
         return $dp_array;
     }
@@ -156,11 +157,9 @@ class fs_dialplan extends fs_curl
         $this->xmlw->writeAttribute('description', 'FreeSWITCH Dialplan');
 
         foreach ($dpArray as $context => $extensions) {
-
             $this->xmlw->startElement('context');
             $this->xmlw->writeAttribute('name', $context);
 
-            $this->debug($extensions);
             foreach ($extensions as $extension => $conditions) {
                 $this->xmlw->startElement('extension');
 
@@ -170,7 +169,6 @@ class fs_dialplan extends fs_curl
                     $this->xmlw->writeAttribute('continue', $ex_split[1]);
                 }
 
-                $this->debug($conditions);
                 foreach ($conditions as $condition => $actions) {
                     $this->xmlw->startElement('condition');
 
@@ -185,7 +183,6 @@ class fs_dialplan extends fs_curl
                         $this->xmlw->writeAttribute('break', $c_split[2]);
                     }
 
-                    $this->debug($actions);
                     foreach ($actions as $action) {
                         if (empty($action['application'])) {
                             continue;

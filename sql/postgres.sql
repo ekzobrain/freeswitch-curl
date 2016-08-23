@@ -3411,6 +3411,13 @@ CREATE INDEX voicemail_prefs_idx2 ON voicemail_prefs USING btree (domain);
 
 
 --
+-- Name: dialplan_context_name_idx; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+CREATE INDEX dialplan_context_name_idx ON dialplan_context USING btree (name);
+
+
+--
 -- Name: acl_nodes_list_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freeswitch
 --
 

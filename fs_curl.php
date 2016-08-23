@@ -341,38 +341,26 @@ class fs_curl
 	{
 		if (defined('FS_CURL_DEBUG') && $debug_level <= FS_CURL_DEBUG) {
 			if (is_array($input)) {
-				$this->debug('Array (', $debug_level, $spaces);
-				foreach ($input as $key => $val) {
-					if (is_array($val) || is_object($val)) {
-						$this->debug("[$key] => $val", $debug_level, $spaces + 4);
-						$this->debug('(', $debug_level, $spaces + 8);
-						$this->debug($val, $debug_level, $spaces + 8);
-					} else {
-						$this->debug("[$key] => '$val'", $debug_level, $spaces + 4);
-					}
-				}
-				$this->debug(")", $debug_level, $spaces);
-			} else {
-				$debug_str = sprintf("%s%s"
-					, str_repeat(' ', $spaces), $input
-				);
-				switch (FS_DEBUG_TYPE) {
-					case 0:
-						syslog(LOG_NOTICE, $debug_str);
-						break;
-					case 1:
-						$debug_str = preg_replace('/--/', '- - ', $debug_str);
-						$this->comment($debug_str);
-						break;
-					case 2:
-						$ptr = fopen(FS_DEBUG_FILE, 'a');
-						fputs($ptr, "$debug_str\n");
-						fclose($ptr);
-						break;
-					default:
-						return;
-				}
+			    $input = print_r($input, true);
 			}
+
+            $debug_str = sprintf("%s%s", str_repeat(' ', $spaces), $input);
+            switch (FS_DEBUG_TYPE) {
+                case 0:
+                    syslog(LOG_NOTICE, $debug_str);
+                    break;
+                case 1:
+                    $debug_str = preg_replace('/--/', '- - ', $debug_str);
+                    $this->comment($debug_str);
+                    break;
+                case 2:
+                    $ptr = fopen(FS_DEBUG_FILE, 'a');
+                    fputs($ptr, "$debug_str\n");
+                    fclose($ptr);
+                    break;
+                default:
+                    return;
+            }
 		}
 	}
 }
