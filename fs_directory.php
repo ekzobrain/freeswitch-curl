@@ -85,8 +85,15 @@ class fs_directory extends fs_curl
     {
 		$join_clause     = '';
 		$where_array[]   = sprintf("domain_id='%s'", $domain['id']);
-		if (array_key_exists('user', $this->request)) {
-			$where_array[] = sprintf("username='%s'", $this->user);
+		if (isset($this->request['user'])) {
+		    switch ($this->request['key']) {
+                case 'number-alias':
+                    $field = 'number_alias';
+                    break;
+                default:
+                    $field = 'username';
+            }
+			$where_array[] = sprintf("$field='%s'", $this->user);
 		}
 		if (array_key_exists('group', $this->request)) {
 			$where_array[] = sprintf("group_name='%s'", $this->request['group']);
@@ -312,6 +319,7 @@ class fs_directory extends fs_curl
 	function write_global_params($domain)
     {
 		$query = sprintf('SELECT * FROM directory_global_params WHERE domain_id = %d', $domain['id']);
+        $this->debug($query);
 		$res   = $this->db->queryAll($query);
 		if (FS_PDO::isError($res)) {
 			$this->comment($query);
@@ -340,6 +348,7 @@ class fs_directory extends fs_curl
 	function write_global_vars($domain)
     {
 		$query = sprintf('SELECT * FROM directory_global_vars WHERE domain_id = %d', $domain['id']);
+        $this->debug($query);
 		$res   = $this->db->queryAll($query);
 		if (FS_PDO::isError($res)) {
 			$this->comment($query);
