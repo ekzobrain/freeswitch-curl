@@ -97,7 +97,7 @@ class fs_dialplan extends fs_curl
 			%1$sapplication%1$s AS action_application,
 			%1$sdata%1$s AS action_data,	
 			%1$santi_action%1$s AS action_anti_action,
-			%1$sinline%1$s AS action_inline,
+			%1$sinline%1$s AS action_inline
 		FROM dialplan_context
 			INNER JOIN dialplan_extension USING(context_id)
 			INNER JOIN dialplan_condition USING(extension_id)
