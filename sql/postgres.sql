@@ -3475,6 +3475,14 @@ ADD CONSTRAINT directory_gateway_params_d_gw_id_fkey FOREIGN KEY (d_gw_id) REFER
 
 
 --
+-- Name: directory_domain_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freeswitch
+--
+
+ALTER TABLE ONLY directory
+  ADD CONSTRAINT directory_domain_id_fkey FOREIGN KEY (id) REFERENCES directory_domains(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
 -- Name: directory_gateways_directory_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freeswitch
 --
 

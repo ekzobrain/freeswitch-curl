@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `dialplan` (
   `domain` varchar(128) NOT NULL,
   `ip_address` varchar(15) NOT NULL,
   PRIMARY KEY  (`dialplan_id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `dialplan`
@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_action` (
   `inline` BOOLEAN DEFAULT NULL,
   `weight` int(11) NOT NULL,
   PRIMARY KEY  (`action_id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=170 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=170 ;
 
 --
 -- Dumping data for table `dialplan_action`
@@ -399,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_condition` (
   `break` ENUM('on-true', 'on-false', 'never') DEFAULT NULL,
   `weight` int(11) NOT NULL,
   PRIMARY KEY  (`condition_id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=76 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=76 ;
 
 --
 -- Dumping data for table `dialplan_condition`
@@ -682,7 +682,7 @@ CREATE TABLE IF NOT EXISTS `directory` (
   `cache` int(10) NOT NULL,
   `number_alias` int(10) UNSIGNED DEFAULT NULL,
   PRIMARY KEY  (`id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `directory`
@@ -850,7 +850,7 @@ CREATE TABLE IF NOT EXISTS `directory_vars` (
   `var_name` varchar(255) default NULL,
   `var_value` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `directory_vars`
@@ -983,7 +983,7 @@ CREATE TABLE IF NOT EXISTS `limit_conf` (
   `name` varchar(255) default NULL,
   `value` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `limit_conf`
@@ -1001,7 +1001,7 @@ CREATE TABLE IF NOT EXISTS `limit_data` (
   `realm` varchar(255) default NULL,
   `id` varchar(255) default NULL,
   `uuid` varchar(255) default NULL
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `limit_data`
@@ -1021,7 +1021,7 @@ CREATE TABLE IF NOT EXISTS `local_stream_conf` (
   `param_name` varchar(255) default NULL,
   `param_value` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `local_stream_conf`
@@ -1134,7 +1134,7 @@ CREATE TABLE IF NOT EXISTS `rss_conf` (
   `description` text,
   `priority` int(11) NOT NULL default '1000',
   PRIMARY KEY  (`id`)
-) DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `rss_conf`
