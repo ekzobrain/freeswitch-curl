@@ -59,21 +59,21 @@ class fs_cdr extends fs_curl
         $variables = $xml->variables;
 
         $this->values = [
-            'username'           => $caller_profile->username,
-            'caller_id_name'     => $variables->effective_caller_id_name,
-            'caller_id_number'   => $variables->effective_caller_id_number,
-            'destination_number' => $caller_profile->destination_number,
-            'context'            => $caller_profile->context,
-            'start_stamp'        => urldecode($variables->start_stamp),
-            'answer_stamp'       => urldecode($variables->answer_stamp),
-            'end_stamp'          => urldecode($variables->end_stamp),
-            'duration'           => $variables->duration,
-            'billsec'            => $variables->billsec,
-            'hangup_cause'       => $variables->hangup_cause,
-            'uuid'               => $caller_profile->uuid,
-            'accountcode'        => $variables->accountcode,
-            'read_codec'         => $variables->read_codec,
-            'write_codec'        => $variables->write_codec,
+            'username'           => (string)$caller_profile->username ?: null,
+            'caller_id_name'     => urldecode((string)$variables->effective_caller_id_name) ?: null,
+            'caller_id_number'   => (string)$variables->effective_caller_id_number ?: null,
+            'destination_number' => (string)$caller_profile->destination_number,
+            'context'            => (string)$caller_profile->context,
+            'start_stamp'        => urldecode((string)$variables->start_stamp),
+            'answer_stamp'       => urldecode((string)$variables->answer_stamp) ?: null,
+            'end_stamp'          => urldecode((string)$variables->end_stamp),
+            'duration'           => (int)$variables->duration,
+            'billsec'            => (int)$variables->billsec,
+            'hangup_cause'       => (string)$variables->hangup_cause,
+            'uuid'               => (string)$caller_profile->uuid,
+            'accountcode'        => (string)$variables->accountcode ?: null,
+            'read_codec'         => (string)$variables->read_codec ?: null,
+            'write_codec'        => (string)$variables->write_codec ?: null,
         ];
         $this->debug($this->values);
     }
