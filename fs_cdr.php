@@ -83,11 +83,13 @@ class fs_cdr extends fs_curl
      */
     public function insert_cdr()
     {
-        $query = sprintf(
-            "INSERT INTO cdr (%s) VALUES (%s)",
-            join(',', array_keys($this->values)), join(',', $this->values)
-        );
+        $keys = array_keys($this->values);
+
+        $query = sprintf("INSERT INTO cdr (%s) VALUES (:%s)", implode(', ', $keys), implode(', :', $keys));
         $this->debug($query);
-        $this->db->exec($query);
+
+        $statement = $this->db->prepare($query);
+        $statement->execute($this->values);
+        $this->db->counter += 1;
     }
 }
