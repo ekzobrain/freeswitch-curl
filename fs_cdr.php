@@ -11,12 +11,6 @@
 class fs_cdr extends fs_curl
 {
     /**
-     * This variable will hold the XML CDR string
-     * @var string
-     */
-    public $cdr;
-
-    /**
      * This object is the objectified representation of the XML CDR
      * @var SimpleXMLElement
      */
@@ -29,35 +23,16 @@ class fs_cdr extends fs_curl
     public $values = [];
 
     /**
-     * This array maps the database field names to XMLSimple paths
-     * @var array
-     */
-    public $fields = [
-        'caller_id_name'     => '$this->xml_cdr->callflow[0]->caller_profile->caller_id_name',
-        'caller_id_number'   => '$this->xml_cdr->callflow[0]->caller_profile->caller_id_number',
-        'destination_number' => '$this->xml_cdr->callflow[0]->caller_profile->destination_number',
-        'context'            => '$this->xml_cdr->callflow[0]->caller_profile->context',
-        'start_stamp'        => 'urldecode($this->xml_cdr->variables->start_stamp)',
-        'answer_stamp'       => 'urldecode($this->xml_cdr->variables->answer_stamp)',
-        'end_stamp'          => 'urldecode($this->xml_cdr->variables->end_stamp)',
-        'duration'           => '$this->xml_cdr->variables->duration',
-        'billsec'            => '$this->xml_cdr->variables->billsec',
-        'hangup_cause'       => '$this->xml_cdr->variables->hangup_cause',
-        'uuid'               => '$this->xml_cdr->callflow[0]->caller_profile->uuid',
-        'bleg_uuid'          => '$this->xml_cdr->callflow[0]->caller_profile->bleg_uuid',
-        'accountcode'        => '$this->xml_cdr->variables->accountcode',
-        'read_codec'         => '$this->xml_cdr->variables->read_codec',
-        'write_codec'        => '$this->xml_cdr->variables->write_codec',
-    ];
-
-    /**
      * This is where we instantiate our parent and set up our CDR object
      */
     public function __construct()
     {
         parent::__construct();
-        $this->cdr = stripslashes($this->request['cdr']);
-        $this->xml_cdr = new SimpleXMLElement($this->cdr);
+
+        $cdr = stripslashes($this->request['cdr']);
+        $this->debug($cdr);
+
+        $this->xml_cdr = new SimpleXMLElement($cdr);
     }
 
     /**

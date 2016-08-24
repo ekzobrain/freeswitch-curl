@@ -346,9 +346,7 @@ class fs_curl
                     $this->comment($debug_str);
                     break;
                 case 2:
-                    $ptr = fopen(FS_DEBUG_FILE, 'a');
-                    fputs($ptr, "$debug_str\n");
-                    fclose($ptr);
+                    file_put_contents(FS_DEBUG_FILE, "$debug_str\n", FILE_APPEND);
                     break;
                 default:
                     return;
