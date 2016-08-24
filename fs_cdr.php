@@ -89,7 +89,10 @@ class fs_cdr extends fs_curl
         $this->debug($query);
 
         $statement = $this->db->prepare($query);
-        $statement->execute($this->values);
+        $res = $statement->execute($this->values);
         $this->db->counter += 1;
+        if (FS_PDO::isError($res)) {
+            $this->debug($this->db->getMessage());
+        }
     }
 }
