@@ -46,11 +46,7 @@ class voicemail_conf extends fs_configuration
         );
         $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
-        if (FS_PDO::isError($settings_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($settings_count < 1) {
             return;
         }
@@ -78,11 +74,7 @@ class voicemail_conf extends fs_configuration
         );
         $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
-        if (FS_PDO::isError($settings_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($settings_count < 1) {
             return;
         }

@@ -106,11 +106,7 @@ class fs_directory extends fs_curl
 		$query = "SELECT * FROM directory d $join_clause $where_clause ORDER BY username";
 		$this->debug($query);
 		$res = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($query);
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
+
 		if (! empty ($this->user)) {
 			$this->userid = $res[0]['id'];
 			$this->comment(sprintf('user id is: %d', $this->userid));
@@ -131,11 +127,6 @@ class fs_directory extends fs_curl
 		}
 		$query = sprintf("SELECT * FROM directory_params %s", $where);
 		$res   = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($query);
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
 
 		$record_count = count($res);
 		for ($i = 0; $i < $record_count; $i ++) {
@@ -184,10 +175,6 @@ class fs_directory extends fs_curl
 		$query = sprintf("SELECT * FROM directory_vars %s", $where);
 		$this->debug($query);
 		$res = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
 
 		$record_count = count($res);
 		for ($i = 0; $i < $record_count; $i ++) {
@@ -233,10 +220,7 @@ class fs_directory extends fs_curl
 		$query = sprintf("SELECT * FROM directory_gateways %s", $where);
 		$this->debug($query);
 		$res = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
+
 		$record_count = count($res);
 		for ($i = 0; $i < $record_count; $i ++) {
 			$di                          = $res[$i]['directory_id'];
@@ -279,10 +263,7 @@ class fs_directory extends fs_curl
     {
 		$query = sprintf("SELECT * FROM directory_gateway_params;");
 		$res   = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
+
 		$param_count = count($res);
 		for ($i = 0; $i < $param_count; $i ++) {
 			$dgwid                                      = $res[$i]['id'];
@@ -321,11 +302,7 @@ class fs_directory extends fs_curl
 		$query = sprintf('SELECT * FROM directory_global_params WHERE domain_id = %d', $domain['id']);
         $this->debug($query);
 		$res   = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($query);
-			$error_msg = sprintf("Error while selecting global params - %s", $this->db->getMessage());
-			trigger_error($error_msg);
-		}
+
 		$param_count = count($res);
 		$this->xmlw->startElement('params');
 		for ($i = 0; $i < $param_count; $i ++) {
@@ -350,11 +327,7 @@ class fs_directory extends fs_curl
 		$query = sprintf('SELECT * FROM directory_global_vars WHERE domain_id = %d', $domain['id']);
         $this->debug($query);
 		$res   = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($query);
-			$error_msg = sprintf("Error while selecting global vars - %s", $this->db->getMessage());
-			trigger_error($error_msg);
-		}
+
 		$param_count = count($res);
 		$this->xmlw->startElement('variables');
 		for ($i = 0; $i < $param_count; $i ++) {
@@ -379,12 +352,6 @@ class fs_directory extends fs_curl
 		$query = "SELECT * FROM directory_domains $where";
 		$this->debug($query);
 		$res = $this->db->queryAll($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($query);
-			$this->comment($this->db->getMessage());
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
 
 		return $res;
 	}

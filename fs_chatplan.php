@@ -52,11 +52,6 @@ class fs_chatplan extends fs_curl
 		);
 		$this->debug($query);
 		$res = $this->db->query($query);
-		if (FS_PDO::isError($res)) {
-			$this->comment($query);
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
 
 		if ($res->numRows() == 1) {
 			$this->debug("numRows() == 1");
@@ -102,15 +97,12 @@ class fs_chatplan extends fs_curl
 		);
 		$this->debug($dpQuery);
 		$res = $this->db->query($dpQuery);
-		if (FS_PDO::isError($res)) {
-			$this->comment($this->db->getMessage());
-			$this->file_not_found();
-		}
+
 		if ($res->numRows() < 1) {
 			$this->debug("nothing to do, let's just return not found");
 			$this->file_not_found();
 		}
-		$condition_number = 0;
+
 		while ($row = $res->fetchRow()) {
 			$ct = $row['context'];
 			$et = $row['extension'];

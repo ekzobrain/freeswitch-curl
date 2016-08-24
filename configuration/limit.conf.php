@@ -30,11 +30,7 @@ class limit_conf extends fs_configuration
     {
         $query = sprintf('SELECT * FROM limit_conf;');
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return [];
-        }
+
         $this->comment($res->numRows() . 'rows');
         if ($res->numRows() == 0) {
             return [];

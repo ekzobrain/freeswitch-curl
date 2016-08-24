@@ -41,11 +41,7 @@ class dingaling_conf extends fs_configuration
             , "ORDER BY dingaling_id"
         );
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return [];
-        }
+
         while ($row = $res->fetchRow()) {
             $id = $row['dingaling_id'];
             $profiles[$id][] = $row;
@@ -61,11 +57,7 @@ class dingaling_conf extends fs_configuration
     {
         $query = sprintf('SELECT * FROM dingaling_profiles');
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            $this->file_not_found();
-        }
+
         while ($row = $res->fetchRow()) {
             $id = $row['id'];
             $profiles[$id] = $row['type'];
@@ -115,11 +107,7 @@ class dingaling_conf extends fs_configuration
     {
         $query = sprintf('SELECT * FROM dingaling_settings');
         $res = $this->db->queryAll($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            $this->file_not_found();
-        }
+        
         $setting_count = count($res);
         if ($setting_count > 0) {
             $this->xmlw->startElement('settings');

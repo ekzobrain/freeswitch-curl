@@ -34,11 +34,7 @@ class iax_conf extends fs_configuration
         $query = "SELECT * FROM iax_aliases WHERE iax_id=$profile_id ";
         $aliases_array = $this->db->queryAll($query);
         $aliases_count = count($aliases_array);
-        if (FS_PDO::isError($aliases_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($aliases_count < 1) {
             return;
         }
@@ -59,11 +55,7 @@ class iax_conf extends fs_configuration
             . "ORDER BY iax_id, param_name";
         $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
-        if (FS_PDO::isError($settings_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($settings_count < 1) {
             return;
         }
@@ -85,12 +77,7 @@ class iax_conf extends fs_configuration
             . "ORDER BY gateway_name, gateway_param";
         $gateway_array = $this->db->queryAll($query);
         $gateway_count = count($gateway_array);
-        //$this -> comment_array($gateway_array);
-        if (FS_PDO::isError($gateway_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($gateway_count < 1) {
             return;
         }
@@ -120,11 +107,7 @@ class iax_conf extends fs_configuration
         $query = "SELECT * FROM iax_domains WHERE iax_id=$profile_id";
         $domain_array = $this->db->queryAll($query);
         $domain_count = count($domain_array);
-        if (FS_PDO::isError($domain_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($domain_count < 1) {
             return;
         }

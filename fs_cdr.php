@@ -30,8 +30,6 @@ class fs_cdr extends fs_curl
         parent::__construct();
 
         $cdr = stripslashes($this->request['cdr']);
-        $this->debug($cdr);
-
         $this->xml_cdr = new SimpleXMLElement($cdr);
     }
 
@@ -89,10 +87,7 @@ class fs_cdr extends fs_curl
         $this->debug($query);
 
         $statement = $this->db->prepare($query);
-        $res = $statement->execute($this->values);
+        $statement->execute($this->values);
         $this->db->counter += 1;
-        if (FS_PDO::isError($res)) {
-            $this->debug($this->db->getMessage());
-        }
     }
 }

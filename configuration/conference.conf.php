@@ -49,11 +49,7 @@ class conference_conf extends fs_configuration
     {
         $query = "SELECT * FROM conference_advertise ORDER BY room";
         $advertises = $this->db->queryAll($query);
-        if (FS_PDO::isError($advertises)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         $advertise_count = count($advertises);
         if ($advertise_count < 1) {
             return;
@@ -81,11 +77,7 @@ class conference_conf extends fs_configuration
         $prof = $this->request['profile_name'];
         $query = "SELECT * FROM conference_profiles where profile_name='$prof'";
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return [];
-        }
+
         while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
             $pn = $row['profile_name'];
             $profiles[$pn][] = $row;
@@ -137,11 +129,7 @@ class conference_conf extends fs_configuration
             "SELECT * FROM conference_controls where conf_group = '$cont'"
         );
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return [];
-        }
+
         while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
             $cg = $row['conf_group'];
             $profiles[$cg][] = $row;
@@ -159,11 +147,7 @@ class conference_conf extends fs_configuration
     {
         $controls_array = $this->get_controls_array();
         $controls_count = count($controls_array);
-        if (FS_PDO::isError($controls_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($controls_count < 1) {
             return;
         }

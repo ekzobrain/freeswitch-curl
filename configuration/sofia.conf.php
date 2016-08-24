@@ -29,11 +29,7 @@ class sofia_conf extends fs_configuration
     {
         $query = "SELECT * FROM sofia_conf";
         $profiles = $this->db->queryAll($query);
-        if (FS_PDO::isError($profiles)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            $this->file_not_found();
-        }
+
         return $profiles;
     }
 
@@ -47,11 +43,7 @@ class sofia_conf extends fs_configuration
         $query = "SELECT * FROM sofia_aliases WHERE sofia_id=$profile_id ";
         $aliases_array = $this->db->queryAll($query);
         $aliases_count = count($aliases_array);
-        if (FS_PDO::isError($aliases_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($aliases_count < 1) {
             return;
         }
@@ -77,11 +69,7 @@ class sofia_conf extends fs_configuration
             . "ORDER BY sofia_id, param_name";
         $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
-        if (FS_PDO::isError($settings_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($settings_count < 1) {
             return;
         }
@@ -109,11 +97,7 @@ class sofia_conf extends fs_configuration
         $gateway_array = $this->db->queryAll($query);
         $gateway_count = count($gateway_array);
         //$this -> comment_array($gateway_array);
-        if (FS_PDO::isError($gateway_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($gateway_count < 1) {
             return;
         }
@@ -145,11 +129,7 @@ class sofia_conf extends fs_configuration
         $query = "SELECT * FROM sofia_domains WHERE sofia_id=$profile_id";
         $domain_array = $this->db->queryAll($query);
         $domain_count = count($domain_array);
-        if (FS_PDO::isError($domain_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         if ($domain_count < 1) {
             return;
         }

@@ -45,11 +45,7 @@ class acl_conf extends fs_configuration
             'SELECT * FROM acl_lists al JOIN acl_nodes an ON an.list_id=al.id;'
         );
         $acl_data = $this->db->queryAll($query);
-        if (FS_PDO::isError($acl_data)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return [];
-        }
+
         return $acl_data;
     }
 

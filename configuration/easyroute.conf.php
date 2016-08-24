@@ -26,12 +26,6 @@ class easyroute_conf extends fs_configuration
     {
         $query = sprintf('SELECT * FROM easyroute_conf');
         $settings_array = $this->db->queryAll($query);
-        $settings_count = count($settings_array);
-        if (FS_PDO::isError($settings_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
 
         return $settings_array;
     }

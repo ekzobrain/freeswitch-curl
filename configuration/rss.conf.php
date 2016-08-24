@@ -34,9 +34,7 @@ class rss_conf extends fs_configuration
             'SELECT * FROM rss_conf ORDER BY priority, local_file;'
         );
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            return false;
-        }
+
         $feeds_array = [];
         while ($row = $res->fetchRow()) {
             $feeds_array[] = $row;

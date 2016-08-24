@@ -88,5 +88,9 @@ switch ($section) {
 $conf->debug('---- Start _REQUEST ----');
 $conf->debug($_REQUEST);
 $conf->debug('---- End _REQUEST ----');
-$conf->main();
+try {
+    $conf->main();
+} catch (PDOException $e) {
+    trigger_error($e->getMessage(), E_USER_ERROR);
+}
 $conf->output_xml();

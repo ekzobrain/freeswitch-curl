@@ -49,11 +49,7 @@ class ivr_conf extends fs_configuration
             "SELECT * FROM ivr_entries WHERE ivr_id=$ivr_id ORDER BY digits"
         );
         $entries_array = $this->db->queryAll($query);
-        if (FS_PDO::isError($entries_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         $entries_count = count($entries_array);
         if ($entries_count < 1) {
             return;

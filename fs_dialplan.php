@@ -52,11 +52,6 @@ class fs_dialplan extends fs_curl
         );
         $this->debug($query);
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            $this->file_not_found();
-        }
 
         if ($res->numRows() == 1) {
             $this->debug("numRows() == 1");
@@ -79,7 +74,7 @@ class fs_dialplan extends fs_curl
     private function get_dialplan($context)
     {
         $dp_array = [];
-        $dpQuery = sprintf('SELECT
+        $query = sprintf('SELECT
 			dialplan_context.%1$sname%1$s AS context_name,
 			dialplan_extension.%1$sname%1$s AS extension_name,
 			%1$scontinue%1$s AS extension_continue,
@@ -101,12 +96,9 @@ class fs_dialplan extends fs_curl
                  dialplan_action.weight'
             , DB_FIELD_QUOTE, $context
         );
-        $this->debug($dpQuery);
-        $res = $this->db->query($dpQuery);
-        if (FS_PDO::isError($res)) {
-            $this->comment($this->db->getMessage());
-            $this->file_not_found();
-        }
+        $this->debug($query);
+        $res = $this->db->query($query);
+
         if ($res->numRows() < 1) {
             $this->debug("nothing to do, let's just return not found");
             $this->file_not_found();

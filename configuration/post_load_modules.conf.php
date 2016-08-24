@@ -33,11 +33,7 @@ class post_load_modules_conf extends fs_configuration
             "SELECT * FROM post_load_modules_conf WHERE load_module='1' ORDER BY priority;"
         );
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return [];
-        }
+
         $this->comment($res->numRows() . ' rows');
         if ($res->numRows() == 0) {
             return [];

@@ -48,16 +48,8 @@ class fs_configuration extends fs_curl
             , "WHERE module_name='$mod_name' AND load_module=1"
         );
         $res = $this->db->query($query);
-        if ($this->db->errorCode() !== FS_SQL_SUCCESS) {
-            $this->comment($query);
-            $this->comment($this->db->errorCode());
-            return true; //default allow policy
-            //return false; //comment previous line to default deny
-        } elseif ($res->rowCount() == 1) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return $res->rowCount() == 1;
     }
 
     /**
@@ -74,14 +66,8 @@ class fs_configuration extends fs_curl
             "SELECT COUNT(*) cnt FROM modless_conf WHERE conf_name = '$conf';"
         );
         $res = $this->db->query($query);
-        if (FS_PDO::isError($res)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return true; //default allow policy
-            //return false; //comment previous line to default deny
-        }
         $row = $res->fetchRow();
-        //$this -> comment($row['cnt']);
+
         return $row['cnt'];
     }
 }

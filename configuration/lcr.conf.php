@@ -32,11 +32,7 @@ class lcr_conf extends fs_configuration
         $query = sprintf('SELECT * FROM lcr_conf;');
         $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
-        if (FS_PDO::isError($settings_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
+
         for ($i = 0; $i < $settings_count; $i++) {
             $this->xmlw->startElement('param');
             $this->xmlw->writeAttribute('name', $settings_array[$i]['param_name']);
@@ -61,11 +57,6 @@ class lcr_conf extends fs_configuration
         );
         $settings_array = $this->db->queryAll($query);
         $settings_count = count($settings_array);
-        if (FS_PDO::isError($settings_array)) {
-            $this->comment($query);
-            $this->comment($this->db->getMessage());
-            return;
-        }
 
         $settings = [];
         for ($i = 0; $i < $settings_count; $i++) {
