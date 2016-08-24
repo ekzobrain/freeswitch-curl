@@ -1,12 +1,4 @@
 <?php
-/**
- * @package  FS_CURL
- * @todo     i should probably add a condition_weight to order the conditions inside a given extension
- * fs_dialplan.php
- */
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-    header('Location: index.php');
-}
 
 /**
  * @package FS_CURL

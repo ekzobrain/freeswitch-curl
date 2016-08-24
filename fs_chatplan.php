@@ -1,11 +1,4 @@
 <?php
-/**
- * @package  FS_CURL
- * fs_chatplan.php
- */
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-	header('Location: index.php');
-}
 
 /**
  * @package FS_CURL

@@ -1,11 +1,4 @@
 <?php
-/**
- * @package  FS_CURL
- * fs_cdr.php
- */
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-    header('Location: index.php');
-}
 
 /**
  * @package FS_CURL
@@ -22,9 +15,10 @@ class fs_cdr extends fs_curl
      * @var string
      */
     public $cdr;
+
     /**
      * This object is the objectified representation of the XML CDR
-     * @var SimpleXMLElement Object
+     * @var SimpleXMLElement
      */
     public $xml_cdr;
 
@@ -81,13 +75,32 @@ class fs_cdr extends fs_curl
      */
     public function set_record_values()
     {
-        foreach ($this->fields as $field => $run) {
-            eval("\$str = $run;");
-            $this->values["$field"] = "'$str'";
-            $this->debug($str);
-        }
-        $this->debug(print_r($this->values, true));
-        print_r($this->values);
+        /**
+         * @var stdClass $xml
+         */
+        $xml = $this->xml_cdr;
+        $callflow = is_array($xml->callflow) ? $xml->callflow[0] : $xml->callflow;
+        $caller_profile = $callflow->caller_profile;
+        $variables = $xml->variables;
+
+        $this->values = [
+            'username'           => $caller_profile->username,
+            'caller_id_name'     => $variables->effective_caller_id_name,
+            'caller_id_number'   => $variables->effective_caller_id_number,
+            'destination_number' => $caller_profile->destination_number,
+            'context'            => $caller_profile->context,
+            'start_stamp'        => urldecode($variables->start_stamp),
+            'answer_stamp'       => urldecode($variables->answer_stamp),
+            'end_stamp'          => urldecode($variables->end_stamp),
+            'duration'           => $variables->duration,
+            'billsec'            => $variables->billsec,
+            'hangup_cause'       => $variables->hangup_cause,
+            'uuid'               => $caller_profile->uuid,
+            'accountcode'        => $variables->accountcode,
+            'read_codec'         => $variables->read_codec,
+            'write_codec'        => $variables->write_codec,
+        ];
+        $this->debug($this->values);
     }
 
     /**
@@ -96,7 +109,7 @@ class fs_cdr extends fs_curl
     public function insert_cdr()
     {
         $query = sprintf(
-            "INSERT INTO cdr (%s) VALUES (%s);",
+            "INSERT INTO cdr (%s) VALUES (%s)",
             join(',', array_keys($this->values)), join(',', $this->values)
         );
         $this->debug($query);

@@ -72,24 +72,24 @@ INSERT INTO `acl_nodes` (`id`, `cidr`, `type`, `list_id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `cdr` (
   `id` int(11) NOT NULL auto_increment,
-  `caller_id_name` varchar(255) NOT NULL default '',
-  `caller_id_number` varchar(255) NOT NULL default '',
-  `destination_number` varchar(255) NOT NULL default '',
-  `context` varchar(255) NOT NULL default '',
-  `start_stamp` varchar(255) NOT NULL default '',
-  `answer_stamp` varchar(255) NOT NULL default '',
-  `end_stamp` varchar(255) NOT NULL default '',
-  `duration` varchar(255) NOT NULL default '',
-  `billsec` varchar(255) NOT NULL default '',
-  `hangup_cause` varchar(255) NOT NULL default '',
-  `uuid` varchar(255) NOT NULL default '',
-  `bleg_uuid` varchar(255) NOT NULL default '',
-  `accountcode` varchar(255) NOT NULL default '',
-  `read_codec` varchar(255) NOT NULL default '',
-  `write_codec` varchar(255) NOT NULL default '',
+  `username` varchar(255) DEFAULT NULL,
+  `caller_id_name` varchar(255) NOT NULL,
+  `caller_id_number` varchar(255) NOT NULL,
+  `destination_number` varchar(255) NOT NULL,
+  `context` varchar(255) NOT NULL,
+  `start_stamp` DATETIME NOT NULL,
+  `answer_stamp` DATETIME DEFAULT NULL,
+  `end_stamp` DATETIME NOT NULL,
+  `duration` int(10) UNSIGNED NOT NULL,
+  `billsec` int(10) UNSIGNED DEFAULT NULL,
+  `hangup_cause` varchar(255) NOT NULL,
+  `uuid` char(36) NOT NULL,
+  `accountcode` varchar(255) DEFAULT NULL,
+  `read_codec` varchar(255) DEFAULT NULL,
+  `write_codec` varchar(255) DEFAULT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `uuid` (`uuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `conference_advertise`

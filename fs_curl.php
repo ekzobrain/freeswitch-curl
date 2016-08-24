@@ -1,12 +1,4 @@
 <?php
-/**
- * @package    FS_CURL
- * @subpackage FS_CURL_Configuration
- *             fs_curl.php
- */
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-	header('Location: index.php');
-}
 
 /**
  * @package FS_CURL

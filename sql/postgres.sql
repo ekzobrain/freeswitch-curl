@@ -208,21 +208,21 @@ ALTER SEQUENCE carriers_id_seq OWNED BY carriers.id;
 
 CREATE TABLE cdr (
     id integer NOT NULL,
-    caller_id_name character varying NOT NULL,
-    caller_id_number character varying NOT NULL,
-    destination_number character varying NOT NULL,
-    context character varying NOT NULL,
-    start_stamp character varying NOT NULL,
-    answer_stamp character varying NOT NULL,
-    end_stamp character varying NOT NULL,
-    duration character varying NOT NULL,
-    billsec character varying NOT NULL,
-    hangup_cause character(128) NOT NULL,
-    uuid character varying NOT NULL,
-    bleg_uuid character varying NOT NULL,
-    accountcode character(128) NOT NULL,
-    read_codec character varying NOT NULL,
-    write_codec character varying NOT NULL
+    username character varying(255) DEFAULT NULL,
+    caller_id_name character varying(255) NOT NULL,
+    caller_id_number character varying(255) NOT NULL,
+    destination_number character varying(255) NOT NULL,
+    context character varying(255) NOT NULL,
+    start_stamp TIMESTAMP NOT NULL,
+    answer_stamp TIMESTAMP DEFAULT NULL,
+    end_stamp TIMESTAMP NOT NULL,
+    duration INTEGER NOT NULL,
+    billsec INTEGER DEFAULT NULL,
+    hangup_cause character varying(255) NOT NULL,
+    uuid character(36) NOT NULL,
+    accountcode character varying(255) DEFAULT NULL,
+    read_codec character varying(255) DEFAULT NULL,
+    write_codec character varying(255) DEFAULT NULL
 );
 
 
@@ -2435,6 +2435,13 @@ ADD CONSTRAINT carriers_pkey PRIMARY KEY (id);
 ALTER TABLE ONLY cdr
 ADD CONSTRAINT cdr_pkey PRIMARY KEY (id);
 
+
+--
+-- Name: cdr_uuid_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
+--
+
+ALTER TABLE ONLY cdr
+ADD CONSTRAINT cdr_uuid_key UNIQUE (uuid);
 
 --
 -- Name: conference_advertise_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
