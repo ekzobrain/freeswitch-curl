@@ -44,9 +44,10 @@ class acl_conf extends fs_configuration
         $query = sprintf(
             'SELECT * FROM acl_lists al JOIN acl_nodes an ON an.list_id=al.id;'
         );
-        $acl_data = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
-        return $acl_data;
+        return $res;
     }
 
     /**

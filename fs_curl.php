@@ -13,9 +13,7 @@
 class fs_curl
 {
 	/**
-	 * FS_PDO Object
-	 * @link http://www.php.net/pdo
-	 * @var FS_PDO
+	 * @var PDO
 	 */
 	public $db;
 
@@ -26,8 +24,6 @@ class fs_curl
 	public $request;
 
 	/**
-	 * XMLWriter Object
-	 * @link http://php.net/XMLWriter
 	 * @var XMLWriter
 	 */
 	public $xmlw;
@@ -63,15 +59,17 @@ class fs_curl
 	public function connect_db($dsn, $login, $password)
 	{
 		try {
-			$options = [
-			];
-			$this->db = new FS_PDO($dsn, $login, $password, $options);
-		} catch (Exception $e) {
+			$this->db = new PDO($dsn, $login, $password);
+		} catch (PDOException $e) {
 			$this->comment($e->getMessage());
 			$this->file_not_found(); //program terminates in function file_not_found()
 		}
-		$driver = $this->db->getAttribute(constant("PDO::ATTR_DRIVER_NAME"));
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+		$driver = $this->db->getAttribute(PDO::ATTR_DRIVER_NAME);
 		$this->debug("our driver is $driver");
+
 		switch ($driver) {
 			case 'mysql':
 				$quoter = '`';
@@ -211,9 +209,6 @@ class fs_curl
 	 */
 	public function output_xml()
 	{
-		$this->comment(
-			sprintf('Total # of Queries Run: %d', $this->db->counter)
-		);
 		$this->comment(sprintf("Estimated Execution Time Is: %s"
 			, (preg_replace(
 					'/^0\.(\d+) (\d+)$/', '\2.\1', microtime()) - START_TIME)

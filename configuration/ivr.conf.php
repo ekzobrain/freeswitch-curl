@@ -34,8 +34,10 @@ class ivr_conf extends fs_configuration
     private function get_ivr_array()
     {
         $query = "SELECT * FROM ivr_conf";
-        $menus = $this->db->queryAll($query);
-        return $menus;
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
+
+        return $res;
     }
 
     /**
@@ -45,10 +47,9 @@ class ivr_conf extends fs_configuration
      */
     private function write_entries($ivr_id)
     {
-        $query = sprintf(
-            "SELECT * FROM ivr_entries WHERE ivr_id=$ivr_id ORDER BY digits"
-        );
-        $entries_array = $this->db->queryAll($query);
+        $query = "SELECT * FROM ivr_entries WHERE ivr_id=$ivr_id ORDER BY digits";
+        $res = $this->db->query($query);
+        $entries_array = $res->fetchAll();
 
         $entries_count = count($entries_array);
         if ($entries_count < 1) {

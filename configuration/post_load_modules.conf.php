@@ -33,16 +33,9 @@ class post_load_modules_conf extends fs_configuration
             "SELECT * FROM post_load_modules_conf WHERE load_module='1' ORDER BY priority;"
         );
         $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
-        $this->comment($res->numRows() . ' rows');
-        if ($res->numRows() == 0) {
-            return [];
-        }
-        $feeds_array = [];
-        while ($row = $res->fetchRow()) {
-            $feeds_array[] = $row;
-        }
-        return $feeds_array;
+        return $res;
     }
 
     /**

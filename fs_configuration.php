@@ -66,7 +66,7 @@ class fs_configuration extends fs_curl
             "SELECT COUNT(*) cnt FROM modless_conf WHERE conf_name = '$conf';"
         );
         $res = $this->db->query($query);
-        $row = $res->fetchRow();
+        $row = $res->fetch();
 
         return $row['cnt'];
     }

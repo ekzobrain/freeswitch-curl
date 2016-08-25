@@ -53,9 +53,9 @@ class fs_dialplan extends fs_curl
         $this->debug($query);
         $res = $this->db->query($query);
 
-        if ($res->numRows() == 1) {
+        if ($res->rowCount() == 1) {
             $this->debug("numRows() == 1");
-            $row = $res->fetchRow();
+            $row = $res->fetch();
             $this->debug($row);
             $this->special_class_file = sprintf('dialplans/%s', $row['class_file']);
             return true;
@@ -99,12 +99,12 @@ class fs_dialplan extends fs_curl
         $this->debug($query);
         $res = $this->db->query($query);
 
-        if ($res->numRows() < 1) {
+        if ($res->rowCount() < 1) {
             $this->debug("nothing to do, let's just return not found");
             $this->file_not_found();
         }
 
-        while ($row = $res->fetchRow()) {
+        while ($row = $res->fetch()) {
             $ct = $row['context_name'];
             $en = $row['extension_name'];
             $ec = $row['extension_continue'] === null ? '' : $row['extension_continue'] ? 'true' : 'false';

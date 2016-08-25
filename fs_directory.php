@@ -105,7 +105,8 @@ class fs_directory extends fs_curl
 
 		$query = "SELECT * FROM directory d $join_clause $where_clause ORDER BY username";
 		$this->debug($query);
-		$res = $this->db->queryAll($query);
+		$res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		if (! empty ($this->user)) {
 			$this->userid = $res[0]['id'];
@@ -126,7 +127,8 @@ class fs_directory extends fs_curl
 			$where = sprintf('WHERE directory_id = %d', $this->userid);
 		}
 		$query = sprintf("SELECT * FROM directory_params %s", $where);
-		$res   = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		$record_count = count($res);
 		for ($i = 0; $i < $record_count; $i ++) {
@@ -174,7 +176,8 @@ class fs_directory extends fs_curl
 		}
 		$query = sprintf("SELECT * FROM directory_vars %s", $where);
 		$this->debug($query);
-		$res = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		$record_count = count($res);
 		for ($i = 0; $i < $record_count; $i ++) {
@@ -219,7 +222,8 @@ class fs_directory extends fs_curl
 		}
 		$query = sprintf("SELECT * FROM directory_gateways %s", $where);
 		$this->debug($query);
-		$res = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		$record_count = count($res);
 		for ($i = 0; $i < $record_count; $i ++) {
@@ -262,7 +266,8 @@ class fs_directory extends fs_curl
 	private function get_user_gateway_params()
     {
 		$query = sprintf("SELECT * FROM directory_gateway_params;");
-		$res   = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		$param_count = count($res);
 		for ($i = 0; $i < $param_count; $i ++) {
@@ -301,7 +306,8 @@ class fs_directory extends fs_curl
     {
 		$query = sprintf('SELECT * FROM directory_global_params WHERE domain_id = %d', $domain['id']);
         $this->debug($query);
-		$res   = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		$param_count = count($res);
 		$this->xmlw->startElement('params');
@@ -326,7 +332,8 @@ class fs_directory extends fs_curl
     {
 		$query = sprintf('SELECT * FROM directory_global_vars WHERE domain_id = %d', $domain['id']);
         $this->debug($query);
-		$res   = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		$param_count = count($res);
 		$this->xmlw->startElement('variables');
@@ -351,7 +358,8 @@ class fs_directory extends fs_curl
 
 		$query = "SELECT * FROM directory_domains $where";
 		$this->debug($query);
-		$res = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
 		return $res;
 	}

@@ -54,7 +54,7 @@ class dialplan_lcr
         $obj->comment($query);
 
         $carriers = [];
-        while ($row = $res->fetchRow()) {
+        while ($row = $res->fetch()) {
             $carrier_id = $row['gwid'];
             if (array_key_exists($carrier_id, $carriers)) {
                 continue;

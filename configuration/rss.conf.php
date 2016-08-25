@@ -36,7 +36,7 @@ class rss_conf extends fs_configuration
         $res = $this->db->query($query);
 
         $feeds_array = [];
-        while ($row = $res->fetchRow()) {
+        while ($row = $res->fetch()) {
             $feeds_array[] = $row;
         }
         return $feeds_array;

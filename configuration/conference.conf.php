@@ -48,7 +48,8 @@ class conference_conf extends fs_configuration
     private function write_advertises()
     {
         $query = "SELECT * FROM conference_advertise ORDER BY room";
-        $advertises = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $advertises = $res->fetchAll();
 
         $advertise_count = count($advertises);
         if ($advertise_count < 1) {

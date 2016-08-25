@@ -42,7 +42,7 @@ class dingaling_conf extends fs_configuration
         );
         $res = $this->db->query($query);
 
-        while ($row = $res->fetchRow()) {
+        while ($row = $res->fetch()) {
             $id = $row['dingaling_id'];
             $profiles[$id][] = $row;
         }
@@ -58,7 +58,7 @@ class dingaling_conf extends fs_configuration
         $query = sprintf('SELECT * FROM dingaling_profiles');
         $res = $this->db->query($query);
 
-        while ($row = $res->fetchRow()) {
+        while ($row = $res->fetch()) {
             $id = $row['id'];
             $profiles[$id] = $row['type'];
         }
@@ -106,8 +106,9 @@ class dingaling_conf extends fs_configuration
     private function write_settings()
     {
         $query = sprintf('SELECT * FROM dingaling_settings');
-        $res = $this->db->queryAll($query);
-        
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
+
         $setting_count = count($res);
         if ($setting_count > 0) {
             $this->xmlw->startElement('settings');

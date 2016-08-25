@@ -30,16 +30,9 @@ class limit_conf extends fs_configuration
     {
         $query = sprintf('SELECT * FROM limit_conf;');
         $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
-        $this->comment($res->numRows() . 'rows');
-        if ($res->numRows() == 0) {
-            return [];
-        }
-        $feeds_array = [];
-        while ($row = $res->fetchRow()) {
-            $feeds_array[] = $row;
-        }
-        return $feeds_array;
+        return $res;
     }
 
     /**

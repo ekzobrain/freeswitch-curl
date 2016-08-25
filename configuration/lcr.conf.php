@@ -29,8 +29,9 @@ class lcr_conf extends fs_configuration
         $this->xmlw->writeAttribute('description', 'Dynamic ' . ucfirst(basename(__FILE__, '.conf.php')) . ' Configuration');
 
         $this->xmlw->startElement('settings');
-        $query = sprintf('SELECT * FROM lcr_conf;');
-        $settings_array = $this->db->queryAll($query);
+        $query = 'SELECT * FROM lcr_conf';
+        $res = $this->db->query($query);
+        $settings_array = $res->fetchAll();
         $settings_count = count($settings_array);
 
         for ($i = 0; $i < $settings_count; $i++) {
@@ -50,12 +51,11 @@ class lcr_conf extends fs_configuration
 
     private function get_profiles()
     {
-        $query = sprintf(
-            'SELECT *, lp.id AS lcr_id FROM lcr_profiles lp
+        $query = 'SELECT *, lp.id AS lcr_id FROM lcr_profiles lp
                 LEFT JOIN lcr_settings ls ON ls.lcr_id = lp.id
-                ORDER BY lp.id;'
-        );
-        $settings_array = $this->db->queryAll($query);
+                ORDER BY lp.id';
+        $res = $this->db->query($query);
+        $settings_array = $res->fetchAll();
         $settings_count = count($settings_array);
 
         $settings = [];

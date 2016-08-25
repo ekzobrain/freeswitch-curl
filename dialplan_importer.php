@@ -46,14 +46,7 @@ function upload_form()
 function run_query($db, $query)
 {
     syslog(LOG_INFO, $query);
-    $affected = $db->exec($query);
-    if (FS_PDO::isError($affected)) {
-        if (!defined('UNSUCCESSFUL_QUERY')) {
-            define('UNSUCCESSFUL_QUERY', true);
-        }
-        echo "$query<br>\n";
-        echo $affected->getMessage() . "\n";
-    }
+    $db->exec($query);
 }
 
 /**
@@ -198,7 +191,8 @@ function get_next_weight($table)
 { //used for weighting system
     global $db;
     $sql = sprintf("SELECT MAX(weight) AS max FROM dialplan_%s", $table);
-    $res = $db->queryAll($sql);
+    $res = $db->query($sql);
+    $res = $res->fetchAll();
     return ($res[0]['max'] + 10);
 }
 

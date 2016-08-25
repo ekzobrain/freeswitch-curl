@@ -24,10 +24,11 @@ class easyroute_conf extends fs_configuration
 
     private function get_config()
     {
-        $query = sprintf('SELECT * FROM easyroute_conf');
-        $settings_array = $this->db->queryAll($query);
+        $query = 'SELECT * FROM easyroute_conf';
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
-        return $settings_array;
+        return $res;
     }
 
     private function write_config($settings_array)

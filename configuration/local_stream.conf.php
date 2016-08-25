@@ -28,7 +28,8 @@ class local_stream_conf extends fs_configuration
             , "WHERE stream_id=$profile_id "
             , "ORDER BY stream_id, param_name"
         );
-        $settings_array = $this->db->queryAll($query);
+        $res = $this->db->query($query);
+        $settings_array = $res->fetchAll();
         $settings_count = count($settings_array);
 
         if ($settings_count < 1) {
@@ -48,10 +49,11 @@ class local_stream_conf extends fs_configuration
 
     private function get_directories()
     {
-        $query = sprintf('SELECT * FROM local_stream_conf;');
-        $profiles = $this->db->queryAll($query);
+        $query = 'SELECT * FROM local_stream_conf';
+        $res = $this->db->query($query);
+        $res = $res->fetchAll();
 
-        return $profiles;
+        return $res;
     }
 
     private function write_directories($directories)
