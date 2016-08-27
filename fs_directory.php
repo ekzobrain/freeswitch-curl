@@ -109,6 +109,7 @@ class fs_directory extends fs_curl
         $res = $res->fetchAll();
 
 		if (! empty ($this->user)) {
+			//var_dump($res);exit;
 			$this->userid = $res[0]['id'];
 			$this->comment(sprintf('user id is: %d', $this->userid));
 		}

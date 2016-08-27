@@ -8,7 +8,7 @@
  * Class for all module configurations
  * @return object
  */
-class fs_configuration extends fs_curl
+abstract class fs_configuration extends fs_curl
 {
     public function __construct()
     {
@@ -30,6 +30,8 @@ class fs_configuration extends fs_curl
             'description', 'FreeSWITCH Configuration'
         );
     }
+
+    abstract public function main();
 
     /**
      * Enabled module checker

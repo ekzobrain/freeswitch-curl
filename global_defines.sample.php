@@ -6,10 +6,6 @@
  * @version 0.1
  */
 
-if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
-    header('Location: index.php');
-}
-
 /**
  * Defines the default dsn for the FS_PDO class
  */
@@ -22,6 +18,10 @@ define('DEFAULT_DSN_LOGIN', 'root');
  * Defines the default dsn password for the PDOclass
  */
 define('DEFAULT_DSN_PASSWORD', '');
+/**
+ * Defines the default dsn schema for databases that support schemas - postgres, mssql, oracle
+ */
+define('DEFAULT_DSN_SCHEMA', 'freeswitch');
 /**
  * Generic return success
  */

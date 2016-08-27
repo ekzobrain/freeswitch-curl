@@ -104,7 +104,7 @@ if (check_uploaded_file($_FILES['file'])) {
 
 
 try {
-    $db = new FS_PDO(DEFAULT_DSN, DEFAULT_DSN_LOGIN, DEFAULT_DSN_PASSWORD);
+    $db = new PDO(DEFAULT_DSN, DEFAULT_DSN_LOGIN, DEFAULT_DSN_PASSWORD);
 } catch (Exception $e) {
     die($e->getMessage());
 }

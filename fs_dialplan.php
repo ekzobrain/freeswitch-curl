@@ -73,7 +73,6 @@ class fs_dialplan extends fs_curl
      */
     private function get_dialplan($context)
     {
-        $dp_array = [];
         $query = sprintf('SELECT
 			dialplan_context.%1$sname%1$s AS context_name,
 			dialplan_extension.%1$sname%1$s AS extension_name,
@@ -104,6 +103,7 @@ class fs_dialplan extends fs_curl
             $this->file_not_found();
         }
 
+        $dp_array = [];
         while ($row = $res->fetch()) {
             $ct = $row['context_name'];
             $en = $row['extension_name'];
