@@ -88,6 +88,5 @@ class fs_cdr extends fs_curl
 
         $statement = $this->db->prepare($query);
         $statement->execute($this->values);
-        $this->db->counter += 1;
     }
 }

@@ -3639,17 +3639,6 @@ ADD CONSTRAINT voicemail_email_voicemail_id_fkey FOREIGN KEY (voicemail_id) REFE
 ALTER TABLE ONLY voicemail_settings
 ADD CONSTRAINT voicemail_settings_voicemail_id_fkey FOREIGN KEY (voicemail_id) REFERENCES voicemail_conf(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
-
---
--- Name: public; Type: ACL; Schema: -; Owner: postgres
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM postgres;
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
-
 --
 -- PostgreSQL database dump complete
 --
