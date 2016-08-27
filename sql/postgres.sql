@@ -206,23 +206,32 @@ ALTER SEQUENCE carriers_id_seq OWNED BY carriers.id;
 -- Name: cdr; Type: TABLE; Schema: public; Owner: freeswitch; Tablespace:
 --
 
+CREATE TYPE cdr_last_bridge_role AS ENUM ('originator', 'originatee');
+
 CREATE TABLE cdr (
     id integer NOT NULL,
     username character varying(255) DEFAULT NULL,
     caller_id_name character varying(255) NOT NULL,
     caller_id_number character varying(255) NOT NULL,
-    destination_number character varying(255) NOT NULL,
+    destination_number character varying(255) DEFAULT NULL,
     context character varying(255) NOT NULL,
     start_stamp TIMESTAMP NOT NULL,
     answer_stamp TIMESTAMP DEFAULT NULL,
     end_stamp TIMESTAMP NOT NULL,
     duration INTEGER NOT NULL,
     billsec INTEGER DEFAULT NULL,
-    hangup_cause character varying(255) NOT NULL,
+    hangup_cause SMALLINT NOT NULL,
     uuid character(36) NOT NULL,
     accountcode character varying(255) DEFAULT NULL,
     read_codec character varying(255) DEFAULT NULL,
-    write_codec character varying(255) DEFAULT NULL
+    write_codec character varying(255) DEFAULT NULL,
+    endpoint_disposition character varying(255) NOT NULL,
+    inbound_bytes INTEGER NOT NULL,
+    outbound_bytes INTEGER NOT NULL,
+    is_aleg BOOLEAN NOT NULL,
+    sip_user_agent CHARACTER VARYING(512) NOT NULL,
+    originator_uuid CHARACTER(36) NOT NULL,
+    last_bridge_role cdr_last_bridge_role DEFAULT NULL
 );
 
 

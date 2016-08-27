@@ -55,24 +55,55 @@ class fs_cdr extends fs_curl
         $callflow = is_array($xml->callflow) ? $xml->callflow[0] : $xml->callflow;
         $caller_profile = $callflow->caller_profile;
         $variables = $xml->variables;
+        $stats = $xml->{'call-stats'};
+        $aLeg = substr($this->request['uuid'], 0, 2) == 'a_';
+
+        // calc traffic
+        $inbound_bytes = 0;
+        $outbound_bytes = 0;
+        if (isset($stats->audio)) {
+            $inbound_bytes += (int)@$xml->audio->inbound->raw_bytes;
+            $outbound_bytes += (int)@$xml->audio->outbound->raw_bytes;
+        }
+        if (isset($stats->video)) {
+            $inbound_bytes += (int)@$xml->video->inbound->raw_bytes;
+            $outbound_bytes += (int)@$xml->video->outbound->raw_bytes;
+        }
 
         $this->values = [
-            'username'           => (string)$caller_profile->username ?: null,
-            'caller_id_name'     => urldecode((string)$variables->effective_caller_id_name) ?: null,
-            'caller_id_number'   => (string)$variables->effective_caller_id_number ?: null,
-            'destination_number' => (string)$caller_profile->destination_number,
-            'context'            => (string)$caller_profile->context,
-            'start_stamp'        => urldecode((string)$variables->start_stamp),
-            'answer_stamp'       => urldecode((string)$variables->answer_stamp) ?: null,
-            'end_stamp'          => urldecode((string)$variables->end_stamp),
-            'duration'           => (int)$variables->duration,
-            'billsec'            => (int)$variables->billsec,
-            'hangup_cause'       => (string)$variables->hangup_cause,
-            'uuid'               => (string)$caller_profile->uuid,
-            'accountcode'        => (string)$variables->accountcode ?: null,
-            'read_codec'         => (string)$variables->read_codec ?: null,
-            'write_codec'        => (string)$variables->write_codec ?: null,
+            'is_aleg'              => $aLeg,
+            'start_stamp'          => urldecode((string)$variables->start_stamp),
+            'answer_stamp'         => urldecode((string)$variables->answer_stamp) ?: null,
+            'end_stamp'            => urldecode((string)$variables->end_stamp),
+            'duration'             => (int)$variables->duration,
+            'billsec'              => (int)$variables->billsec,
+            'hangup_cause'         => (string)$variables->hangup_cause_q850,
+            'uuid'                 => (string)$variables->uuid,
+            'accountcode'          => isset($variables->accountcode) ? (string)$variables->accountcode : null,
+            'read_codec'           => isset($variables->read_codec) ? (string)$variables->read_codec : null,
+            'write_codec'          => isset($variables->write_codec) ? (string)$variables->write_codec : null,
+            'endpoint_disposition' => (string)$variables->endpoint_disposition,
+            'inbound_bytes'        => $inbound_bytes,
+            'outbound_bytes'       => $outbound_bytes,
+            'sip_user_agent'       => mb_substr(urldecode((string)$variables->sip_user_agent), 0, 512),
+            'originator_uuid'      => isset($variables->originator) ? (string)$variables->originator : null,
+            'last_bridge_role'     => isset($variables->last_bridge_role) ? (string)$variables->last_bridge_role : null,
         ];
+
+        if ($aLeg) {
+            $values = [
+                'username'           => (string)$caller_profile->username ?: null,
+                'destination_number' => (string)$caller_profile->destination_number,
+                'context'            => (string)$caller_profile->context,
+            ];
+        } else {
+            $values = [
+                'username' => (string)$caller_profile->callee_id_number ?: null,
+                'context'  => (string)$caller_profile->context, // TODO: correct context detect
+            ];
+        }
+        $this->values += $values;
+
         $this->debug($this->values);
     }
 
