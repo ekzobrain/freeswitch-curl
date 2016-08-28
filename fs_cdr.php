@@ -62,16 +62,19 @@ class fs_cdr extends fs_curl
         $inbound_bytes = 0;
         $outbound_bytes = 0;
         if (isset($stats->audio)) {
-            $inbound_bytes += (int)@$xml->audio->inbound->raw_bytes;
-            $outbound_bytes += (int)@$xml->audio->outbound->raw_bytes;
+            $inbound_bytes += (int)@$stats->audio->inbound->raw_bytes;
+            $outbound_bytes += (int)@$stats->audio->outbound->raw_bytes;
         }
         if (isset($stats->video)) {
-            $inbound_bytes += (int)@$xml->video->inbound->raw_bytes;
-            $outbound_bytes += (int)@$xml->video->outbound->raw_bytes;
+            $inbound_bytes += (int)@$stats->video->inbound->raw_bytes;
+            $outbound_bytes += (int)@$stats->video->outbound->raw_bytes;
         }
 
         $this->values = [
-            'is_aleg'              => $aLeg,
+            'is_aleg'              => $aLeg ? 1 : 0,
+            //'direction'            => '',
+            'caller_id_name'       => urldecode((string)$variables->effective_caller_id_name) ?: null,
+            'caller_id_number'     => urldecode((string)$variables->effective_caller_id_number) ?: null,
             'start_stamp'          => urldecode((string)$variables->start_stamp),
             'answer_stamp'         => urldecode((string)$variables->answer_stamp) ?: null,
             'end_stamp'            => urldecode((string)$variables->end_stamp),
@@ -79,15 +82,15 @@ class fs_cdr extends fs_curl
             'billsec'              => (int)$variables->billsec,
             'hangup_cause'         => (string)$variables->hangup_cause_q850,
             'uuid'                 => (string)$variables->uuid,
-            'accountcode'          => isset($variables->accountcode) ? (string)$variables->accountcode : null,
-            'read_codec'           => isset($variables->read_codec) ? (string)$variables->read_codec : null,
-            'write_codec'          => isset($variables->write_codec) ? (string)$variables->write_codec : null,
-            'endpoint_disposition' => (string)$variables->endpoint_disposition,
+            'accountcode'          => (string)$variables->accountcode ?: null,
+            'read_codec'           => (string)$variables->read_codec ?: null,
+            'write_codec'          => (string)$variables->write_codec ?: null,
+            'endpoint_disposition' => urldecode((string)$variables->endpoint_disposition) ?: null,
             'inbound_bytes'        => $inbound_bytes,
             'outbound_bytes'       => $outbound_bytes,
             'sip_user_agent'       => mb_substr(urldecode((string)$variables->sip_user_agent), 0, 512),
-            'originator_uuid'      => isset($variables->originator) ? (string)$variables->originator : null,
-            'last_bridge_role'     => isset($variables->last_bridge_role) ? (string)$variables->last_bridge_role : null,
+            'originator_uuid'      => (string)$variables->originator ?: null,
+            'last_bridge_role'     => (string)$variables->last_bridge_role ?: null,
         ];
 
         if ($aLeg) {

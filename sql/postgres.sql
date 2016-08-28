@@ -209,10 +209,10 @@ ALTER SEQUENCE carriers_id_seq OWNED BY carriers.id;
 CREATE TYPE cdr_last_bridge_role AS ENUM ('originator', 'originatee');
 
 CREATE TABLE cdr (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     username character varying(255) DEFAULT NULL,
-    caller_id_name character varying(255) NOT NULL,
-    caller_id_number character varying(255) NOT NULL,
+    caller_id_name character varying(255) DEFAULT NULL,
+    caller_id_number character varying(255) DEFAULT NULL,
     destination_number character varying(255) DEFAULT NULL,
     context character varying(255) NOT NULL,
     start_stamp TIMESTAMP NOT NULL,
@@ -225,37 +225,15 @@ CREATE TABLE cdr (
     accountcode character varying(255) DEFAULT NULL,
     read_codec character varying(255) DEFAULT NULL,
     write_codec character varying(255) DEFAULT NULL,
-    endpoint_disposition character varying(255) NOT NULL,
+    endpoint_disposition character varying(255) DEFAULT NULL,
     inbound_bytes INTEGER NOT NULL,
     outbound_bytes INTEGER NOT NULL,
     is_aleg BOOLEAN NOT NULL,
     sip_user_agent CHARACTER VARYING(512) NOT NULL,
-    originator_uuid CHARACTER(36) NOT NULL,
-    last_bridge_role cdr_last_bridge_role DEFAULT NULL
+    originator_uuid CHARACTER(36) DEFAULT NULL,
+    last_bridge_role cdr_last_bridge_role DEFAULT NULL,
+    CONSTRAINT cdr_uuid_key UNIQUE (uuid)
 );
-
-
---ALTER TABLE public.cdr OWNER TO freeswitch;
-
---
--- Name: cdr_id_seq; Type: SEQUENCE; Schema: public; Owner: freeswitch
---
-
-CREATE SEQUENCE cdr_id_seq
-START WITH 1
-INCREMENT BY 1
-NO MINVALUE
-NO MAXVALUE
-CACHE 1;
-
-
---ALTER TABLE public.cdr_id_seq OWNER TO freeswitch;
-
---
--- Name: cdr_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freeswitch
---
-
-ALTER SEQUENCE cdr_id_seq OWNED BY cdr.id;
 
 
 --
@@ -2082,14 +2060,6 @@ ALTER TABLE ONLY carrier_gateway ALTER COLUMN id SET DEFAULT nextval('carrier_ga
 
 ALTER TABLE ONLY carriers ALTER COLUMN id SET DEFAULT nextval('carriers_id_seq'::regclass);
 
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: freeswitch
---
-
-ALTER TABLE ONLY cdr ALTER COLUMN id SET DEFAULT nextval('cdr_id_seq'::regclass);
-
-
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: freeswitch
 --
@@ -2436,21 +2406,6 @@ ADD CONSTRAINT carrier_gateway_pkey PRIMARY KEY (id);
 ALTER TABLE ONLY carriers
 ADD CONSTRAINT carriers_pkey PRIMARY KEY (id);
 
-
---
--- Name: cdr_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
---
-
-ALTER TABLE ONLY cdr
-ADD CONSTRAINT cdr_pkey PRIMARY KEY (id);
-
-
---
--- Name: cdr_uuid_key; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
---
-
-ALTER TABLE ONLY cdr
-ADD CONSTRAINT cdr_uuid_key UNIQUE (uuid);
 
 --
 -- Name: conference_advertise_pkey; Type: CONSTRAINT; Schema: public; Owner: freeswitch; Tablespace:
