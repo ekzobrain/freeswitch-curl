@@ -267,7 +267,9 @@ class fs_curl
      */
     public function exception_handler(Exception $e)
     {
-        $this->comment($e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+        $message = $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
+        $this->debug($message);
+        $this->comment($message);
         $this->file_not_found();
     }
 
