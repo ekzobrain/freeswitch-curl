@@ -501,7 +501,7 @@ CREATE TABLE IF NOT EXISTS `dialplan_context` (
 -- Dumping data for table `dialplan_context`
 --
 
-INSERT INTO `dialplan_context` (`context_id`, `dialplan_id`, `context`, `weight`) VALUES
+INSERT INTO `dialplan_context` (`context_id`, `dialplan_id`, `name`, `weight`) VALUES
 (1, 1, 'default', 10),
 (2, 1, 'public', 20);
 
