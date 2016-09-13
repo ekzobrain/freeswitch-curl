@@ -107,7 +107,7 @@ class fs_dialplan extends fs_curl
         while ($row = $res->fetch()) {
             $ct = $row['context_name'];
             $en = $row['extension_name'];
-            $ec = $row['extension_continue'] === null ? '' : $row['extension_continue'] ? 'true' : 'false';
+            $ec = $row['extension_continue'] === null ? '' : ($row['extension_continue'] ? 'true' : 'false');
             $cf = $row['condition_field'];
             $ce = $row['condition_expression'];
             $cb = $row['condition_break'];
