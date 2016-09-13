@@ -95,10 +95,11 @@ class fs_directory extends fs_curl
             }
 			$where_array[] = sprintf("$field='%s'", $this->user);
 		}
-		if (array_key_exists('group', $this->request)) {
-			$where_array[] = sprintf("group_name='%s'", $this->request['group']);
-			$join_clause   = "JOIN directory_group_user_map dgum ON d.id=dgum.user_id ";
+		if (isset($this->request['group']) and $this->request['group'] != 'default') {
+			$join_clause  = "JOIN directory_group_user_map dgum ON d.id=dgum.user_id ";
 			$join_clause .= "JOIN directory_groups dg ON dgum.group_id=dg.group_id ";
+
+            $where_array[] = sprintf("group_name='%s'", $this->request['group']);
 		}
 
         $where_clause = sprintf('WHERE %s', implode(' AND ', $where_array));
@@ -388,11 +389,7 @@ class fs_directory extends fs_curl
 
 		$this->xmlw->startElement('groups');
 		$this->xmlw->startElement('group');
-		if (array_key_exists('group', $this->request)) {
-			$this->xmlw->writeAttribute('name', $this->request['group']);
-		} else {
-			$this->xmlw->writeAttribute('name', 'default');
-		}
+        $this->xmlw->writeAttribute('name', isset($this->request['group']) ? $this->request['group'] : 'default');
 		$this->xmlw->startElement('users');
 
 		for ($i = 0; $i < $directory_count; $i ++) {
@@ -404,6 +401,11 @@ class fs_directory extends fs_curl
             // https://freeswitch.org/confluence/display/FREESWITCH/XML+User+Directory#XMLUserDirectory-Alphanumerictonumericusermapping
             if ($entry['number_alias'] && $entry['number_alias'] != $entry['username']) {
                 $this->xmlw->writeAttribute('number-alias', $entry['number_alias']);
+            }
+
+            // https://freeswitch.org/confluence/display/FREESWITCH/ACL#ACL-Users
+            if (isset($entry['cidr']) && $entry['cidr'] !== null) {
+                $this->xmlw->writeAttribute('cidr', $entry['cidr']);
             }
 
             // https://freeswitch.org/confluence/display/FREESWITCH/mod_xml_curl#mod_xml_curl-Caching
