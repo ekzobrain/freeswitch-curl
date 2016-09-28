@@ -72,9 +72,7 @@ class fs_cdr extends fs_curl
 
         $this->values = [
             'is_aleg'              => $aLeg ? 1 : 0,
-            //'direction'            => '',
-            'caller_id_name'       => urldecode((string)$variables->effective_caller_id_name) ?: null,
-            'caller_id_number'     => urldecode((string)$variables->effective_caller_id_number) ?: null,
+            'direction'            => (string)$variables->direction,
             'start_stamp'          => urldecode((string)$variables->start_stamp),
             'answer_stamp'         => urldecode((string)$variables->answer_stamp) ?: null,
             'end_stamp'            => urldecode((string)$variables->end_stamp),
@@ -86,15 +84,19 @@ class fs_cdr extends fs_curl
             'read_codec'           => (string)$variables->read_codec ?: null,
             'write_codec'          => (string)$variables->write_codec ?: null,
             'endpoint_disposition' => urldecode((string)$variables->endpoint_disposition) ?: null,
+            'dialstatus'           => urldecode((string)$variables->DIALSTATUS) ?: null,
             'inbound_bytes'        => $inbound_bytes,
             'outbound_bytes'       => $outbound_bytes,
             'sip_user_agent'       => mb_substr(urldecode((string)$variables->sip_user_agent), 0, 512),
             'originator_uuid'      => (string)$variables->originator ?: null,
             'last_bridge_role'     => (string)$variables->last_bridge_role ?: null,
+            'call_record_id'       => (string)$variables->call_record_id ?: null,
         ];
 
         if ($aLeg) {
             $values = [
+                'caller_id_name'     => urldecode((string)$variables->effective_caller_id_name) ?: (string)$caller_profile->caller_id_name,
+                'caller_id_number'   => urldecode((string)$variables->effective_caller_id_number) ?: (string)$caller_profile->caller_id_number,
                 'username'           => (string)$caller_profile->username ?: null,
                 'destination_number' => (string)$caller_profile->destination_number,
                 'context'            => (string)$caller_profile->context,
@@ -102,7 +104,6 @@ class fs_cdr extends fs_curl
         } else {
             $values = [
                 'username' => (string)$caller_profile->callee_id_number ?: null,
-                'context'  => (string)$caller_profile->context, // TODO: correct context detect
             ];
         }
         $this->values += $values;

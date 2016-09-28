@@ -207,6 +207,7 @@ ALTER SEQUENCE carriers_id_seq OWNED BY carriers.id;
 --
 
 CREATE TYPE cdr_last_bridge_role AS ENUM ('originator', 'originatee');
+CREATE TYPE cdr_direction AS ENUM ('inbound', 'outbound');
 
 CREATE TABLE cdr (
     id SERIAL PRIMARY KEY,
@@ -214,7 +215,8 @@ CREATE TABLE cdr (
     caller_id_name character varying(255) DEFAULT NULL,
     caller_id_number character varying(255) DEFAULT NULL,
     destination_number character varying(255) DEFAULT NULL,
-    context character varying(255) NOT NULL,
+    direction cdr_direction NOT NULL,
+    context character varying(255) NULL,
     start_stamp TIMESTAMP NOT NULL,
     answer_stamp TIMESTAMP DEFAULT NULL,
     end_stamp TIMESTAMP NOT NULL,
@@ -226,12 +228,14 @@ CREATE TABLE cdr (
     read_codec character varying(255) DEFAULT NULL,
     write_codec character varying(255) DEFAULT NULL,
     endpoint_disposition character varying(255) DEFAULT NULL,
+    dialstatus character varying(255) NULL,
     inbound_bytes INTEGER NOT NULL,
     outbound_bytes INTEGER NOT NULL,
     is_aleg BOOLEAN NOT NULL,
     sip_user_agent CHARACTER VARYING(512) NOT NULL,
     originator_uuid CHARACTER(36) DEFAULT NULL,
-    last_bridge_role cdr_last_bridge_role DEFAULT NULL,
+    last_bridge_role cdr_last_bridge_role NULL,
+    call_record_id character varying(255) NULL,
     CONSTRAINT cdr_uuid_key UNIQUE (uuid)
 );
 
