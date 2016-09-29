@@ -233,7 +233,7 @@ CREATE TABLE cdr (
     outbound_bytes INTEGER NOT NULL,
     is_aleg BOOLEAN NOT NULL,
     sip_user_agent CHARACTER VARYING(512) NOT NULL,
-    originator_uuid CHARACTER(36) DEFAULT NULL,
+    originator_uuid CHARACTER(36) NULL,
     last_bridge_role cdr_last_bridge_role NULL,
     call_record_id character varying(255) NULL,
     CONSTRAINT cdr_uuid_key UNIQUE (uuid)
@@ -3389,8 +3389,10 @@ CREATE INDEX voicemail_prefs_idx2 ON voicemail_prefs USING btree (domain);
 -- Name: dialplan_context_name_idx; Type: INDEX; Schema: public; Owner: freeswitch; Tablespace:
 --
 
-CREATE INDEX dialplan_context_name_idx ON dialplan_context USING btree (name);
+CREATE UNIQUE INDEX dialplan_context_dialplan_name_ukey ON dialplan_context USING btree (name, dialplan_id);
 
+
+CREATE UNIQUE INDEX dialplan_extension_context_name_ukey ON dialplan_extension USING btree (name, context_id);
 
 --
 -- Name: acl_nodes_list_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freeswitch
