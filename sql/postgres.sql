@@ -490,7 +490,7 @@ CREATE TABLE dialplan_extension (
     extension_id integer NOT NULL,
     context_id integer NOT NULL,
     name character varying(128) NOT NULL,
-    continue BOOLEAN DEFAULT NULL,
+    continue BOOLEAN NULL,
     weight integer NOT NULL
 );
 

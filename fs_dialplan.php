@@ -176,7 +176,7 @@ class fs_dialplan extends fs_curl
                         if ($action['data'] !== null) {
                             $this->xmlw->writeAttribute('data', $action['data']);
                         }
-                        if ($action['inline'] !== null && $action['application'] == 'set') {
+                        if ($action['inline'] !== null) {
                             $this->xmlw->writeAttribute('inline', $action['inline'] ? 'true' : 'false');
                         }
                         $this->xmlw->endElement();
