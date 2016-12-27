@@ -111,8 +111,9 @@ class fs_dialplan extends fs_curl
             $cf = $row['condition_field'];
             $ce = $row['condition_expression'];
             $cb = $row['condition_break'];
+            $ci = $row['condition_id'];
 
-            $dp_array[$ct]["$en;$ec"]["$cf;$ce;$cb"][] = [
+            $dp_array[$ct]["$en;$ec"]["$cf;$ce;$cb;$ci"][] = [
                 'anti_action' => $row['action_anti_action'],
                 'application' => $row['action_application'],
                 'data'        => $row['action_data'],
