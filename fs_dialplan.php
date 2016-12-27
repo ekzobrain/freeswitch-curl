@@ -79,7 +79,7 @@ class fs_dialplan extends fs_curl
 			%1$scontinue%1$s AS extension_continue,
 			%1$sfield%1$s AS condition_field,
 			%1$sexpression%1$s AS condition_expression,
-			%1$sbreak%1$s AS condition_break,
+			%1$sbreak%1$s AS condition_break, dialplan_condition.condition_id,
 			%1$sapplication%1$s AS action_application,
 			%1$sdata%1$s AS action_data,	
 			%1$santi_action%1$s AS action_anti_action,
