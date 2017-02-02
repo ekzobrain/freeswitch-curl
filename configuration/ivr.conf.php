@@ -22,7 +22,8 @@ class ivr_conf extends fs_configuration
      */
     public function main()
     {
-        $ivrs = $this->get_ivr_array();
+        $name = $this->request['Menu-Name'];
+        $ivrs = $this->get_ivr_array($name);
         $this->write_config($ivrs);
     }
 
@@ -31,9 +32,9 @@ class ivr_conf extends fs_configuration
      * using the MDB2 pear class
      * @return array
      */
-    private function get_ivr_array()
+    private function get_ivr_array($name)
     {
-        $query = "SELECT * FROM ivr_conf";
+        $query = "SELECT * FROM ivr_conf WHERE name='$name'";
         $res = $this->db->query($query);
         $res = $res->fetchAll();
 
