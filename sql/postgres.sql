@@ -1146,10 +1146,13 @@ CREATE TABLE ivr_conf (
     greet_short character varying(256) NOT NULL,
     invalid_sound character varying(256) NOT NULL,
     exit_sound character varying(256) NOT NULL,
-    max_failures integer NOT NULL,
+    max_failures integer,
     timeout integer NOT NULL,
-    tts_engine character varying(64) NOT NULL,
-    tts_voice character varying(64) NOT NULL
+    tts_engine character varying(64),
+    tts_voice character varying(64),
+    inter_digit_timeout INTEGER NOT NULL,
+    digit_len INTEGER NOT NULL,
+    exec_on_max_failures character varying(256)
 );
 
 
@@ -1185,7 +1188,7 @@ CREATE TABLE ivr_entries (
     ivr_id integer NOT NULL,
     action character varying(64) NOT NULL,
     digits character varying(64) NOT NULL,
-    params character varying(256) NOT NULL
+    param character varying(256) NOT NULL
 );
 
 

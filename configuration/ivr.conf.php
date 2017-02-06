@@ -62,8 +62,8 @@ class ivr_conf extends fs_configuration
             $this->xmlw->startElement('entry');
             $this->xmlw->writeAttribute('action', $entries_array[$i]['action']);
             $this->xmlw->writeAttribute('digits', $entries_array[$i]['digits']);
-            if (!empty($entries_array[$i]['params'])) {
-                $this->xmlw->writeAttribute('params', $entries_array[$i]['params']);
+            if (!empty($entries_array[$i]['param'])) {
+                $this->xmlw->writeAttribute('param', $entries_array[$i]['param']);
             }
             $this->xmlw->endElement();//</param>
         }
@@ -74,22 +74,30 @@ class ivr_conf extends fs_configuration
      * write attributes that need written
      * @return void
      */
-    private function write_menu_attributes($menu_data)
+    private function write_menu_attributes($data)
     {
-        $this->xmlw->writeAttribute('name', $menu_data['name']);
-        $this->xmlw->writeAttribute('greet-long', $menu_data['greet_long']);
-        $this->xmlw->writeAttribute('greet-short', $menu_data['greet_short']);
-        $this->xmlw->writeAttribute('invalid-sound', $menu_data['invalid_sound']);
-        $this->xmlw->writeAttribute('exit-sound', $menu_data['exit_sound']);
-        $this->xmlw->writeAttribute('timeout', $menu_data['timeout']);
-        $this->xmlw->writeAttribute('max-failures', $menu_data['max_failures']);
-        if (!empty($menu_data['tts_engine'])) {
-            $this->xmlw->writeAttribute('tts-engine', $menu_data['tts_engine']);
+        // TODO: add missing attributes https://freeswitch.org/confluence/display/FREESWITCH/mod_dptools%3A+IVR+Menu
+        $this->xmlw->writeAttribute('name', $data['name']);
+        $this->xmlw->writeAttribute('greet-long', $data['greet_long']);
+        $this->xmlw->writeAttribute('greet-short', $data['greet_short']);
+        $this->xmlw->writeAttribute('invalid-sound', $data['invalid_sound']);
+        $this->xmlw->writeAttribute('exit-sound', $data['exit_sound']);
+        $this->xmlw->writeAttribute('timeout', $data['timeout']);
+        $this->xmlw->writeAttribute('inter-digit-timeout', $data['inter_digit_timeout']);
+        $this->xmlw->writeAttribute('digit-len', $data['digit_len']);
+        if ($data['max_failures'] !== null) {
+            $this->xmlw->writeAttribute('max-failures', $data['max_failures']);
         }
-        if (!empty($menu_data['tts_voice'])) {
-            $this->xmlw->writeAttribute('tts-voice', $menu_data['tts_voice']);
+        if ($data['exec-on-max-failures'] !== null) {
+            $this->xmlw->writeAttribute('exec-on-max-failures', $data['exec_on_max_failures']);
         }
-        //$this -> xmlw -> writeAttribute('', $menu_data['']);
+
+        if (!empty($data['tts_engine'])) {
+            $this->xmlw->writeAttribute('tts-engine', $data['tts_engine']);
+        }
+        if (!empty($data['tts_voice'])) {
+            $this->xmlw->writeAttribute('tts-voice', $data['tts_voice']);
+        }
     }
 
     /**
