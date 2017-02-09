@@ -76,12 +76,17 @@ class ivr_conf extends fs_configuration
      */
     private function write_menu_attributes($data)
     {
-        // TODO: add missing attributes https://freeswitch.org/confluence/display/FREESWITCH/mod_dptools%3A+IVR+Menu
         $this->xmlw->writeAttribute('name', $data['name']);
         $this->xmlw->writeAttribute('greet-long', $data['greet_long']);
-        $this->xmlw->writeAttribute('greet-short', $data['greet_short']);
-        $this->xmlw->writeAttribute('invalid-sound', $data['invalid_sound']);
-        $this->xmlw->writeAttribute('exit-sound', $data['exit_sound']);
+        if ($data['greet_short'] !== null) {
+            $this->xmlw->writeAttribute('greet-short', $data['greet_short']);
+        }
+        if ($data['invalid_sound'] !== null) {
+            $this->xmlw->writeAttribute('invalid-sound', $data['invalid_sound']);
+        }
+        if ($data['exit_sound'] !== null) {
+            $this->xmlw->writeAttribute('exit-sound', $data['exit_sound']);
+        }
         $this->xmlw->writeAttribute('timeout', $data['timeout']);
         $this->xmlw->writeAttribute('inter-digit-timeout', $data['inter_digit_timeout']);
         $this->xmlw->writeAttribute('digit-len', $data['digit_len']);
@@ -90,6 +95,9 @@ class ivr_conf extends fs_configuration
         }
         if ($data['exec_on_max_failures'] !== null) {
             $this->xmlw->writeAttribute('exec-on-max-failures', $data['exec_on_max_failures']);
+        }
+        if ($data['exec_on_max_timeouts'] !== null) {
+            $this->xmlw->writeAttribute('exec-on-max-timeouts', $data['exec_on_max_timeouts']);
         }
 
         if (!empty($data['tts_engine'])) {
