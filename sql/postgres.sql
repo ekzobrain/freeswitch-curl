@@ -1147,6 +1147,7 @@ CREATE TABLE ivr_conf (
     invalid_sound character varying(256),
     exit_sound character varying(256),
     max_failures integer,
+    max_timeouts integer,
     timeout integer NOT NULL,
     tts_engine character varying(64),
     tts_voice character varying(64),

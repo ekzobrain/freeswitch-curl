@@ -93,6 +93,9 @@ class ivr_conf extends fs_configuration
         if ($data['max_failures'] !== null) {
             $this->xmlw->writeAttribute('max-failures', $data['max_failures']);
         }
+        if ($data['max_timeouts'] !== null) {
+            $this->xmlw->writeAttribute('max-timeouts', $data['max_timeouts']);
+        }
         if ($data['exec_on_max_failures'] !== null) {
             $this->xmlw->writeAttribute('exec-on-max-failures', $data['exec_on_max_failures']);
         }
