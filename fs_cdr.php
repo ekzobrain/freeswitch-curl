@@ -103,7 +103,7 @@ class fs_cdr extends fs_curl
             ];
         } else {
             $values = [
-                'username' => (string)$caller_profile->callee_id_number ?: null,
+                'username' => (string)$variables->dialed_user ?: null,
             ];
         }
         $this->values += $values;
