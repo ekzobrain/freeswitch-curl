@@ -91,19 +91,19 @@ class fs_cdr extends fs_curl
             'originator_uuid'      => (string)$variables->originator ?: null,
             'last_bridge_role'     => (string)$variables->last_bridge_role ?: null,
             'call_record_id'       => (string)$variables->call_record_id ?: null,
+            'caller_id_name'       => urldecode((string)$variables->effective_caller_id_name) ?: (string)$caller_profile->caller_id_name,
+            'caller_id_number'     => urldecode((string)$variables->effective_caller_id_number) ?: (string)$caller_profile->caller_id_number,
+            'context'              => (string)$caller_profile->context,
         ];
 
         if ($aLeg) {
             $values = [
-                'caller_id_name'     => urldecode((string)$variables->effective_caller_id_name) ?: (string)$caller_profile->caller_id_name,
-                'caller_id_number'   => urldecode((string)$variables->effective_caller_id_number) ?: (string)$caller_profile->caller_id_number,
                 'username'           => (string)$caller_profile->username ?: null,
                 'destination_number' => (string)$caller_profile->destination_number,
-                'context'            => (string)$caller_profile->context,
             ];
         } else {
             $values = [
-                'username' => (string)$variables->dialed_user ?: null,
+                'username' => (string)$variables->dialed_user ?: ((string)$caller_profile->callee_id_number ?: null),
             ];
         }
         $this->values += $values;
