@@ -159,10 +159,12 @@ class fs_dialplan extends fs_curl
 
                     $c_split = explode(';', $condition);
                     if ($c_split[0]) {
-                        $this->xmlw->writeAttribute('field', $c_split[0]);
-                    }
-                    if ($c_split[1]) {
-                        $this->xmlw->writeAttribute('expression', $c_split[1]);
+                        if (in_array($c_split[0], ['date_time', 'time_of_day', 'wday'])) {
+                            $this->xmlw->writeAttribute($c_split[0], $c_split[1]);
+                        } else {
+                            $this->xmlw->writeAttribute('field', $c_split[0]);
+                            $this->xmlw->writeAttribute('expression', $c_split[1]);
+                        }
                     }
                     if ($c_split[2]) {
                         $this->xmlw->writeAttribute('break', $c_split[2]);

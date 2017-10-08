@@ -933,7 +933,7 @@ CREATE TABLE directory_params (
     id integer NOT NULL,
     directory_id integer NOT NULL,
     param_name character varying(256) NOT NULL,
-    param_value character varying(256) NOT NULL
+    param_value character varying(512) NOT NULL
 );
 
 
